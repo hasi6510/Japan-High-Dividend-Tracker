@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🇯🇵 日本株 高配当トラッカー</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+  <style>
+    /* ============================================================
+       RESET & BASE
+    ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg:        #0d0d1a;
+      --surface:   #1a1a2e;
+      --surface2:  #16213e;
+      --accent:    #e94560;
+      --accent2:   #0f3460;
+      --green:     #2ecc71;
+      --red:       #e74c3c;
+      --yellow:    #f39c12;
+      --blue:      #3498db;
+      --text:      #e0e0e0;
+      --text-muted:#888;
+      --border:    #2a2a4a;
+      --radius:    10px;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', 'Hiragino Sans', 'Meiryo', sans-serif;
+      font-size: 14px;
+      min-height: 100vh;
+    }
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ============================================================
+       HEADER
+    ============================================================ */
+    header {
+      background: var(--surface2);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .logo { font-size: 1.2rem; font-weight: 700; color: #fff; }
+    .logo span { color: var(--accent); }
+    #updated-at { font-size: 0.78rem; color: var(--text-muted); }
+
+    /* ============================================================
+       NAV TABS
+    ============================================================ */
+    .tabs {
+      display: flex;
+      gap: 4px;
+      background: var(--surface2);
+      border-bottom: 1px solid var(--border);
+      padding: 0 16px;
+      overflow-x: auto;
+    }
+    .tab-btn {
+      background: none;
+      border: none;
+      border-bottom: 3px solid transparent;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 0.85rem;
+      padding: 10px 14px;
+      white-space: nowrap;
+      transition: color .2s, border-color .2s;
+    }
+    .tab-btn:hover { color: var(--text); }
+    .tab-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+    /* ============================================================
+       MAIN LAYOUT
+    ============================================================ */
+    main { padding: 16px; max-width: 1400px; margin: 0 auto; }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* ============================================================
+       MARKET PANEL (always visible at top)
+    ============================================================ */
+    #market-bar {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+    .market-chip {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 5px 14px;
+      font-size: 0.82rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .market-chip .label { color: var(--text-muted); }
+    .market-chip .val { font-weight: 700; color: #fff; }
+    .market-chip .change { font-size: 0.78rem; }
+    .pos { color: var(--red); }
+    .neg { color: var(--green); }
+
+    /* ============================================================
+       CARDS GRID
+    ============================================================ */
+    .cards-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+    .cards-header h2 { font-size: 1rem; }
+    .sort-select {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      border-radius: 6px;
+      padding: 4px 10px;
+      font-size: 0.82rem;
+      cursor: pointer;
+    }
+    .filter-input {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      border-radius: 6px;
+      padding: 4px 10px;
+      font-size: 0.82rem;
+      width: 160px;
+    }
+    .filter-input::placeholder { color: var(--text-muted); }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 12px;
+    }
+    .stock-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px;
+      cursor: pointer;
+      transition: border-color .2s, transform .15s;
+      position: relative;
+    }
+    .stock-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .stock-card.signal-buy  { border-left: 4px solid var(--green); }
+    .stock-card.signal-watch { border-left: 4px solid var(--yellow); }
+
+    .card-code { font-size: 0.75rem; color: var(--text-muted); }
+    .card-name { font-size: 0.9rem; font-weight: 700; margin: 2px 0 8px; line-height: 1.3; }
+    .card-price { font-size: 1.2rem; font-weight: 700; color: #fff; margin-bottom: 8px; }
+    .badges { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 8px; }
+    .badge {
+      border-radius: 4px;
+      padding: 2px 7px;
+      font-size: 0.72rem;
+      font-weight: 600;
+    }
+    .badge-yield  { background: #1a3a1a; color: var(--green); }
+    .badge-per    { background: #1a2a3a; color: var(--blue); }
+    .badge-pbr    { background: #2a1a3a; color: #bb86fc; }
+    .badge-dev-buy  { background: #1a3a1a; color: var(--green); }
+    .badge-dev-warn { background: #3a2a1a; color: var(--yellow); }
+    .badge-dev-neutral { background: #2a2a2a; color: var(--text-muted); }
+
+    .card-score {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.78rem;
+    }
+    .score-bar-outer {
+      flex: 1;
+      height: 5px;
+      background: var(--border);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .score-bar-inner {
+      height: 100%;
+      border-radius: 3px;
+      background: linear-gradient(90deg, var(--blue), var(--accent));
+    }
+    .score-val { font-weight: 700; color: #fff; min-width: 36px; text-align: right; }
+
+    /* ============================================================
+       MODAL (card detail with radar chart)
+    ============================================================ */
+    #modal-overlay {
+      display: none;
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,.7);
+      z-index: 200;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+    #modal-overlay.open { display: flex; }
+    #modal-box {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      max-width: 480px;
+      width: 100%;
+      position: relative;
+    }
+    #modal-close {
+      position: absolute; top: 12px; right: 14px;
+      background: none; border: none; color: var(--text-muted);
+      font-size: 1.4rem; cursor: pointer;
+    }
+    #modal-close:hover { color: #fff; }
+    #modal-title { font-size: 1rem; font-weight: 700; margin-bottom: 4px; }
+    #modal-code  { font-size: 0.78rem; color: var(--text-muted); margin-bottom: 16px; }
+    #modal-chart-wrap { margin-bottom: 16px; max-height: 260px; }
+    #modal-details table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+    #modal-details td { padding: 4px 8px; border-bottom: 1px solid var(--border); }
+    #modal-details td:first-child { color: var(--text-muted); }
+    #modal-details td:last-child  { text-align: right; font-weight: 600; }
+
+    /* ============================================================
+       RANKING TABLE
+    ============================================================ */
+    .rank-table-wrap { overflow-x: auto; }
+    table.rank-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.83rem;
+    }
+    .rank-table th {
+      background: var(--surface2);
+      color: var(--text-muted);
+      padding: 8px 10px;
+      text-align: left;
+      white-space: nowrap;
+      border-bottom: 1px solid var(--border);
+      cursor: pointer;
+      user-select: none;
+    }
+    .rank-table th:hover { color: #fff; }
+    .rank-table th.sort-asc::after  { content: ' ↑'; }
+    .rank-table th.sort-desc::after { content: ' ↓'; }
+    .rank-table td {
+      padding: 7px 10px;
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+    }
+    .rank-table tr:hover td { background: var(--surface); }
+    .rank-num { color: var(--text-muted); font-size: 0.75rem; }
+    .rank-score { font-weight: 700; color: var(--accent); }
+    .dev-neg { color: var(--green); font-weight: 600; }
+    .dev-pos { color: var(--red); }
+
+    /* ============================================================
+       DEVIATION LIST
+    ============================================================ */
+    .dev-section h2 { font-size: 1rem; margin-bottom: 12px; }
+    .dev-list { display: flex; flex-direction: column; gap: 8px; }
+    .dev-row {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .dev-row.buy-signal { border-left: 4px solid var(--green); }
+    .dev-row.watch-signal { border-left: 4px solid var(--yellow); }
+    .dev-name { flex: 1; min-width: 120px; font-weight: 600; }
+    .dev-code-sm { font-size: 0.75rem; color: var(--text-muted); }
+    .dev-bar-wrap { flex: 2; min-width: 160px; }
+    .dev-bar-track {
+      height: 8px;
+      background: var(--border);
+      border-radius: 4px;
+      position: relative;
+      overflow: visible;
+    }
+    .dev-bar-fill {
+      height: 100%;
+      border-radius: 4px;
+      position: absolute;
+      top: 0;
+    }
+    .dev-bar-fill.neg { background: var(--green); right: 50%; }
+    .dev-bar-fill.pos { background: var(--red); left: 50%; }
+    .dev-center-line {
+      position: absolute;
+      left: 50%;
+      top: -3px;
+      width: 2px;
+      height: 14px;
+      background: var(--text-muted);
+      transform: translateX(-50%);
+    }
+    .dev-pct { font-size: 0.85rem; font-weight: 700; min-width: 64px; text-align: right; }
+    .dev-signal-badge {
+      font-size: 0.72rem;
+      padding: 2px 8px;
+      border-radius: 10px;
+      font-weight: 600;
+    }
+    .sig-buy   { background: #1a3a1a; color: var(--green); }
+    .sig-watch { background: #3a2a1a; color: var(--yellow); }
+    .sig-hold  { background: #2a2a2a; color: var(--text-muted); }
+    .sig-caution { background: #3a1a1a; color: var(--red); }
+
+    /* ============================================================
+       PORTFOLIO TAB
+    ============================================================ */
+    .portfolio-section h2 { font-size: 1rem; margin-bottom: 12px; }
+    .portfolio-table-wrap { overflow-x: auto; margin-bottom: 24px; }
+    table.portfolio-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.83rem;
+    }
+    .portfolio-table th {
+      background: var(--surface2);
+      color: var(--text-muted);
+      padding: 8px 10px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+    }
+    .portfolio-table td {
+      padding: 6px 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    .portfolio-table tr:hover td { background: var(--surface); }
+    .pf-input {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--text);
+      padding: 3px 6px;
+      width: 90px;
+      font-size: 0.82rem;
+      text-align: right;
+    }
+    .pf-input:focus { border-color: var(--accent); outline: none; }
+    .pnl-pos { color: var(--red); font-weight: 700; }
+    .pnl-neg { color: var(--green); font-weight: 700; }
+    .pnl-zero { color: var(--text-muted); }
+
+    .pf-summary {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px;
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .pf-summary-item .pf-label { font-size: 0.75rem; color: var(--text-muted); margin-bottom: 4px; }
+    .pf-summary-item .pf-val { font-size: 1.1rem; font-weight: 700; color: #fff; }
+
+    /* ============================================================
+       LOADING & EMPTY
+    ============================================================ */
+    .loading { text-align: center; padding: 60px 16px; color: var(--text-muted); }
+    .loading .spinner {
+      width: 36px; height: 36px;
+      border: 3px solid var(--border);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin .8s linear infinite;
+      margin: 0 auto 12px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .empty { text-align: center; padding: 40px; color: var(--text-muted); }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width: 600px) {
+      .cards-grid { grid-template-columns: 1fr 1fr; }
+      #modal-box { padding: 16px; }
+    }
+    @media (max-width: 380px) {
+      .cards-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ====== HEADER ====== -->
+<header>
+  <div class="logo">🇯🇵 日本株 <span>高配当</span>トラッカー</div>
+  <div id="updated-at">データ読み込み中...</div>
+</header>
+
+<!-- ====== TABS ====== -->
+<nav class="tabs">
+  <button class="tab-btn active" data-tab="cards">📊 銘柄カード</button>
+  <button class="tab-btn" data-tab="ranking">🏆 ランキング</button>
+  <button class="tab-btn" data-tab="deviation">📈 乖離率</button>
+  <button class="tab-btn" data-tab="portfolio">💼 ポートフォリオ</button>
+</nav>
+
+<!-- ====== MAIN ====== -->
+<main>
+
+  <!-- ---- MARKET BAR (always visible) ---- -->
+  <div id="market-bar">
+    <div class="market-chip"><span class="label">日経225</span><span class="val" id="mk-nk225">--</span><span class="change" id="mk-nk225-chg"></span></div>
+    <div class="market-chip"><span class="label">VIX</span><span class="val" id="mk-vix">--</span></div>
+    <div class="market-chip"><span class="label">日経VI</span><span class="val" id="mk-nkvi">--</span></div>
+  </div>
+
+  <!-- ---- TAB: CARDS ---- -->
+  <section class="tab-panel active" id="tab-cards">
+    <div class="cards-header">
+      <h2>📊 保有銘柄 一覧</h2>
+      <select class="sort-select" id="cards-sort">
+        <option value="score_desc">スコア高い順</option>
+        <option value="yield_desc">利回り高い順</option>
+        <option value="dev_asc">乖離率 低い順（割安）</option>
+        <option value="per_asc">PER 低い順</option>
+        <option value="pbr_asc">PBR 低い順</option>
+        <option value="code_asc">コード順</option>
+      </select>
+      <input class="filter-input" id="cards-filter" placeholder="🔍 銘柄名・コード" />
+    </div>
+    <div id="cards-grid" class="cards-grid">
+      <div class="loading"><div class="spinner"></div>データ取得中...</div>
+    </div>
+  </section>
+
+  <!-- ---- TAB: RANKING ---- -->
+  <section class="tab-panel" id="tab-ranking">
+    <div style="margin-bottom:12px;"><h2 style="font-size:1rem;">🏆 財務スコア ランキング</h2></div>
+    <div class="rank-table-wrap">
+      <table class="rank-table" id="rank-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th class="sort-desc" data-col="score">スコア</th>
+            <th data-col="code">コード</th>
+            <th>銘柄名</th>
+            <th data-col="price">株価</th>
+            <th data-col="div_yield">利回り%</th>
+            <th data-col="per">PER</th>
+            <th data-col="pbr">PBR</th>
+            <th data-col="deviation_ma25">乖離率</th>
+          </tr>
+        </thead>
+        <tbody id="rank-tbody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ---- TAB: DEVIATION ---- -->
+  <section class="tab-panel" id="tab-deviation">
+    <div class="dev-section">
+      <h2>📈 25日移動平均 乖離率 — 買いシグナル確認</h2>
+      <div style="display:flex;gap:12px;margin-bottom:12px;flex-wrap:wrap;font-size:0.78rem;color:var(--text-muted);">
+        <span style="color:var(--green);">■ −10%以下 → 強い買いシグナル</span>
+        <span style="color:#f39c12;">■ −5%〜−10% → 注目ゾーン</span>
+        <span>■ ±5% → 中立</span>
+        <span style="color:var(--red);">■ +20%以上 → 過熱注意</span>
+      </div>
+      <div id="dev-list" class="dev-list">
+        <div class="loading"><div class="spinner"></div>データ取得中...</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---- TAB: PORTFOLIO ---- -->
+  <section class="tab-panel" id="tab-portfolio">
+    <div class="portfolio-section">
+      <h2>💼 ポートフォリオ管理 <small style="color:var(--text-muted);font-size:0.75rem;font-weight:400;">(入力はブラウザに自動保存)</small></h2>
+      <div class="portfolio-table-wrap">
+        <table class="portfolio-table" id="portfolio-table">
+          <thead>
+            <tr>
+              <th>コード</th>
+              <th>銘柄名</th>
+              <th>現在値</th>
+              <th>保有数</th>
+              <th>取得単価</th>
+              <th>取得総額</th>
+              <th>現在評価額</th>
+              <th>損益率</th>
+              <th>予想配当(年)</th>
+            </tr>
+          </thead>
+          <tbody id="portfolio-tbody"></tbody>
+        </table>
+      </div>
+      <div class="pf-summary" id="pf-summary">
+        <div class="pf-summary-item">
+          <div class="pf-label">取得総額合計</div>
+          <div class="pf-val" id="pf-total-cost">--</div>
+        </div>
+        <div class="pf-summary-item">
+          <div class="pf-label">現在評価額合計</div>
+          <div class="pf-val" id="pf-total-value">--</div>
+        </div>
+        <div class="pf-summary-item">
+          <div class="pf-label">損益合計</div>
+          <div class="pf-val" id="pf-total-pnl">--</div>
+        </div>
+        <div class="pf-summary-item">
+          <div class="pf-label">予想配当合計(年)</div>
+          <div class="pf-val" id="pf-total-div">--</div>
+        </div>
+        <div class="pf-summary-item">
+          <div class="pf-label">予想配当(月換算)</div>
+          <div class="pf-val" id="pf-total-div-monthly">--</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ====== MODAL ====== -->
+<div id="modal-overlay">
+  <div id="modal-box">
+    <button id="modal-close" title="閉じる">✕</button>
+    <div id="modal-title"></div>
+    <div id="modal-code"></div>
+    <div id="modal-chart-wrap"><canvas id="modal-chart"></canvas></div>
+    <div id="modal-details"></div>
+  </div>
+</div>
+
+<script>
+/* ==============================================================
+   APP STATE
+============================================================== */
+let stocksData = [];      // 全銘柄データ
+let marketData = {};      // 市場データ
+let radarChart = null;    // Chart.js インスタンス
+let rankSortCol = 'score';
+let rankSortDir = 'desc'; // 'asc' | 'desc'
+
+const PORTFOLIO_KEY = 'portfolio_holdings'; // localStorage キー
+
+/* ==============================================================
+   1. データ読み込み
+============================================================== */
+async function loadData() {
+  try {
+    const res = await fetch('./data/stocks.json?_=' + Date.now());
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const json = await res.json();
+
+    stocksData = json.stocks || [];
+    marketData = json.market || {};
+
+    const upd = json.updated_at || '';
+    document.getElementById('updated-at').textContent =
+      upd ? '最終更新: ' + upd : 'データ取得済み';
+
+    renderMarketBar();
+    renderCards();
+    renderRanking();
+    renderDeviation();
+    renderPortfolio();
+
+  } catch (e) {
+    console.error('データ読み込み失敗:', e);
+    document.getElementById('updated-at').textContent = '⚠ データ読み込み失敗';
+    document.getElementById('cards-grid').innerHTML =
+      '<div class="empty">⚠ データを読み込めませんでした<br><small>' + e.message + '</small></div>';
+  }
+}
+
+/* ==============================================================
+   2. 市場バー
+============================================================== */
+function renderMarketBar() {
+  const nk = marketData.nikkei225;
+  const chg = marketData.nikkei225_change_pct;
+  const vix = marketData.vix;
+  const nkvi = marketData.nikkei_vi;
+
+  document.getElementById('mk-nk225').textContent = nk ? nk.toLocaleString() : '--';
+  if (chg !== null && chg !== undefined) {
+    const el = document.getElementById('mk-nk225-chg');
+    el.textContent = (chg >= 0 ? '+' : '') + chg + '%';
+    el.className = 'change ' + (chg >= 0 ? 'pos' : 'neg');
+  }
+  document.getElementById('mk-vix').textContent = vix ?? '--';
+  document.getElementById('mk-nkvi').textContent = nkvi ?? '--';
+}
+
+/* ==============================================================
+   3. カードタブ
+============================================================== */
+function getSortedFiltered() {
+  const sortVal = document.getElementById('cards-sort').value;
+  const filterVal = document.getElementById('cards-filter').value.trim().toLowerCase();
+
+  let list = [...stocksData];
+
+  // フィルター
+  if (filterVal) {
+    list = list.filter(s =>
+      s.name.toLowerCase().includes(filterVal) ||
+      s.code.includes(filterVal)
+    );
+  }
+
+  // ソート
+  const [col, dir] = sortVal.split('_');
+  list.sort((a, b) => {
+    let av = a[col === 'yield' ? 'div_yield' : col] ?? -Infinity;
+    let bv = b[col === 'yield' ? 'div_yield' : col] ?? -Infinity;
+    if (col === 'code') { av = a.code; bv = b.code; }
+    if (col === 'dev') { av = a.deviation_ma25 ?? Infinity; bv = b.deviation_ma25 ?? Infinity; }
+    if (dir === 'asc') return av > bv ? 1 : -1;
+    return av < bv ? 1 : -1;
+  });
+  return list;
+}
+
+function renderCards() {
+  const grid = document.getElementById('cards-grid');
+  const list = getSortedFiltered();
+  if (list.length === 0) {
+    grid.innerHTML = '<div class="empty">該当銘柄なし</div>';
+    return;
+  }
+  grid.innerHTML = list.map(s => buildCard(s)).join('');
+
+  // クリックイベント
+  grid.querySelectorAll('.stock-card').forEach(el => {
+    el.addEventListener('click', () => openModal(el.dataset.code));
+  });
+}
+
+function buildCard(s) {
+  const price = s.price !== null ? '¥' + s.price.toLocaleString() : '--';
+  const yld   = s.div_yield !== null ? s.div_yield.toFixed(2) + '%' : '--';
+  const per   = s.per !== null ? s.per.toFixed(1) + 'x' : '--';
+  const pbr   = s.pbr !== null ? s.pbr.toFixed(2) + 'x' : '--';
+  const dev   = s.deviation_ma25;
+  const score = s.score ?? 0;
+  const scoreBarW = Math.min(100, (score / 40) * 100).toFixed(0);
+
+  // 乖離率バッジ
+  let devBadge = '';
+  if (dev !== null && dev !== undefined) {
+    const devTxt = (dev >= 0 ? '+' : '') + dev.toFixed(1) + '%';
+    if (dev <= -10)     devBadge = `<span class="badge badge-dev-buy">🟢 ${devTxt}</span>`;
+    else if (dev <= -5) devBadge = `<span class="badge badge-dev-warn">🟡 ${devTxt}</span>`;
+    else                devBadge = `<span class="badge badge-dev-neutral">乖離 ${devTxt}</span>`;
+  }
+
+  // カード枠色
+  let signalClass = '';
+  if (dev !== null && dev !== undefined) {
+    if (dev <= -10) signalClass = 'signal-buy';
+    else if (dev <= -5) signalClass = 'signal-watch';
+  }
+
+  return `
+    <div class="stock-card ${signalClass}" data-code="${s.code}">
+      <div class="card-code">${s.code}</div>
+      <div class="card-name">${s.name}</div>
+      <div class="card-price">${price}</div>
+      <div class="badges">
+        <span class="badge badge-yield">利回り ${yld}</span>
+        <span class="badge badge-per">PER ${per}</span>
+        <span class="badge badge-pbr">PBR ${pbr}</span>
+        ${devBadge}
+      </div>
+      <div class="card-score">
+        <span style="color:var(--text-muted);font-size:0.72rem;">スコア</span>
+        <div class="score-bar-outer">
+          <div class="score-bar-inner" style="width:${scoreBarW}%"></div>
+        </div>
+        <span class="score-val">${score !== null ? score : '--'}/40</span>
+      </div>
+    </div>`;
+}
+
+// ソート・フィルター変更時
+document.getElementById('cards-sort').addEventListener('change', renderCards);
+document.getElementById('cards-filter').addEventListener('input', renderCards);
+
+/* ==============================================================
+   4. ランキングタブ
+============================================================== */
+function renderRanking() {
+  let list = [...stocksData].filter(s => s.score !== null);
+  list.sort((a, b) => {
+    let av = a[rankSortCol] ?? -Infinity;
+    let bv = b[rankSortCol] ?? -Infinity;
+    return rankSortDir === 'desc' ? bv - av : av - bv;
+  });
+
+  const tbody = document.getElementById('rank-tbody');
+  if (list.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="9" class="empty">データなし</td></tr>';
+    return;
+  }
+
+  tbody.innerHTML = list.map((s, i) => {
+    const dev = s.deviation_ma25;
+    const devTxt = dev !== null && dev !== undefined
+      ? ((dev >= 0 ? '+' : '') + dev.toFixed(1) + '%')
+      : '--';
+    const devClass = dev !== null && dev !== undefined && dev < 0 ? 'dev-neg' : 'dev-pos';
+
+    return `<tr>
+      <td class="rank-num">${i + 1}</td>
+      <td class="rank-score">${s.score ?? '--'}</td>
+      <td>${s.code}</td>
+      <td>${s.name}</td>
+      <td>${s.price !== null ? '¥' + s.price.toLocaleString() : '--'}</td>
+      <td>${s.div_yield !== null ? s.div_yield.toFixed(2) + '%' : '--'}</td>
+      <td>${s.per !== null ? s.per.toFixed(1) : '--'}</td>
+      <td>${s.pbr !== null ? s.pbr.toFixed(2) : '--'}</td>
+      <td class="${devClass}">${devTxt}</td>
+    </tr>`;
+  }).join('');
+
+  // ソートヘッダー更新
+  document.querySelectorAll('#rank-table th[data-col]').forEach(th => {
+    th.className = th.dataset.col === rankSortCol
+      ? ('sort-' + rankSortDir)
+      : '';
+  });
+}
+
+// ランキングテーブル ソートクリック
+document.getElementById('rank-table').addEventListener('click', e => {
+  const th = e.target.closest('th[data-col]');
+  if (!th) return;
+  const col = th.dataset.col;
+  if (col === rankSortCol) {
+    rankSortDir = rankSortDir === 'desc' ? 'asc' : 'desc';
+  } else {
+    rankSortCol = col;
+    rankSortDir = 'desc';
+  }
+  renderRanking();
+});
+
+/* ==============================================================
+   5. 乖離率タブ
+============================================================== */
+function renderDeviation() {
+  const container = document.getElementById('dev-list');
+  let list = [...stocksData].filter(s => s.deviation_ma25 !== null && s.deviation_ma25 !== undefined);
+  list.sort((a, b) => a.deviation_ma25 - b.deviation_ma25);
+
+  if (list.length === 0) {
+    container.innerHTML = '<div class="empty">乖離率データなし（GitHub Actions 実行後に表示されます）</div>';
+    return;
+  }
+
+  container.innerHTML = list.map(s => {
+    const dev = s.deviation_ma25;
+    const barPct = Math.min(50, Math.abs(dev) / 30 * 50);
+
+    let rowClass = '';
+    let sigClass = 'sig-hold';
+    let sigTxt   = '中立';
+    if (dev <= -10)       { rowClass = 'buy-signal';   sigClass = 'sig-buy';     sigTxt = '🟢 強い買い'; }
+    else if (dev <= -5)   { rowClass = 'watch-signal'; sigClass = 'sig-watch';   sigTxt = '🟡 注目'; }
+    else if (dev >= 20)   { rowClass = '';              sigClass = 'sig-caution'; sigTxt = '🔴 過熱注意'; }
+
+    const fillClass = dev < 0 ? 'neg' : 'pos';
+    const devTxt = (dev >= 0 ? '+' : '') + dev.toFixed(2) + '%';
+
+    return `
+      <div class="dev-row ${rowClass}">
+        <div>
+          <div class="dev-name">${s.name}</div>
+          <div class="dev-code-sm">${s.code} | ¥${s.price !== null ? s.price.toLocaleString() : '--'}</div>
+        </div>
+        <div class="dev-bar-wrap">
+          <div class="dev-bar-track">
+            <div class="dev-bar-fill ${fillClass}" style="width:${barPct}%"></div>
+            <div class="dev-center-line"></div>
+          </div>
+        </div>
+        <div class="dev-pct ${dev < 0 ? 'dev-neg' : 'dev-pos'}">${devTxt}</div>
+        <span class="dev-signal-badge ${sigClass}">${sigTxt}</span>
+      </div>`;
+  }).join('');
+}
+
+/* ==============================================================
+   6. ポートフォリオタブ
+============================================================== */
+function loadHoldings() {
+  try {
+    return JSON.parse(localStorage.getItem(PORTFOLIO_KEY) || '{}');
+  } catch { return {}; }
+}
+function saveHoldings(h) {
+  localStorage.setItem(PORTFOLIO_KEY, JSON.stringify(h));
+}
+
+function renderPortfolio() {
+  const holdings = loadHoldings();
+  const tbody = document.getElementById('portfolio-tbody');
+
+  tbody.innerHTML = stocksData.map(s => {
+    const h = holdings[s.code] || { qty: '', cost: '' };
+    const price = s.price;
+    const qty   = parseFloat(h.qty)  || 0;
+    const cost  = parseFloat(h.cost) || 0;
+    const totalCost  = qty * cost;
+    const totalValue = qty * (price || 0);
+    const pnlPct = (cost && price) ? ((price - cost) / cost * 100) : null;
+    const divYear = (qty && s.div_yield && price)
+      ? (qty * price * s.div_yield / 100)
+      : null;
+
+    let pnlHtml = '<span class="pnl-zero">--</span>';
+    if (pnlPct !== null) {
+      const cls = pnlPct >= 0 ? 'pnl-pos' : 'pnl-neg';
+      pnlHtml = `<span class="${cls}">${pnlPct >= 0 ? '+' : ''}${pnlPct.toFixed(2)}%</span>`;
+    }
+
+    return `<tr>
+      <td>${s.code}</td>
+      <td>${s.name}</td>
+      <td>${price !== null ? '¥' + price.toLocaleString() : '--'}</td>
+      <td><input class="pf-input" data-code="${s.code}" data-field="qty"  type="number" min="0" step="1"   value="${h.qty}"  placeholder="0" /></td>
+      <td><input class="pf-input" data-code="${s.code}" data-field="cost" type="number" min="0" step="0.1" value="${h.cost}" placeholder="取得単価" /></td>
+      <td>${totalCost  ? '¥' + Math.round(totalCost).toLocaleString()  : '--'}</td>
+      <td>${totalValue ? '¥' + Math.round(totalValue).toLocaleString() : '--'}</td>
+      <td>${pnlHtml}</td>
+      <td>${divYear !== null ? '¥' + Math.round(divYear).toLocaleString() : '--'}</td>
+    </tr>`;
+  }).join('');
+
+  // 入力イベント
+  tbody.querySelectorAll('.pf-input').forEach(input => {
+    input.addEventListener('change', () => {
+      const h = loadHoldings();
+      const code  = input.dataset.code;
+      const field = input.dataset.field;
+      if (!h[code]) h[code] = { qty: '', cost: '' };
+      h[code][field] = input.value;
+      saveHoldings(h);
+      updatePortfolioSummary();
+      renderPortfolio(); // 再描画
+    });
+  });
+
+  updatePortfolioSummary();
+}
+
+function updatePortfolioSummary() {
+  const holdings = loadHoldings();
+  let totalCost = 0, totalValue = 0, totalDiv = 0;
+
+  stocksData.forEach(s => {
+    const h = holdings[s.code] || {};
+    const qty  = parseFloat(h.qty)  || 0;
+    const cost = parseFloat(h.cost) || 0;
+    if (!qty) return;
+    totalCost  += qty * cost;
+    totalValue += qty * (s.price || 0);
+    if (s.div_yield && s.price)
+      totalDiv += qty * s.price * s.div_yield / 100;
+  });
+
+  const pnl = totalValue - totalCost;
+  const pnlClass = pnl >= 0 ? 'pnl-pos' : 'pnl-neg';
+
+  document.getElementById('pf-total-cost').textContent =
+    totalCost ? '¥' + Math.round(totalCost).toLocaleString() : '--';
+  document.getElementById('pf-total-value').textContent =
+    totalValue ? '¥' + Math.round(totalValue).toLocaleString() : '--';
+  document.getElementById('pf-total-pnl').innerHTML =
+    (totalCost && totalValue)
+      ? `<span class="${pnlClass}">${pnl >= 0 ? '+' : ''}¥${Math.round(pnl).toLocaleString()}</span>`
+      : '--';
+  document.getElementById('pf-total-div').textContent =
+    totalDiv ? '¥' + Math.round(totalDiv).toLocaleString() : '--';
+  document.getElementById('pf-total-div-monthly').textContent =
+    totalDiv ? '¥' + Math.round(totalDiv / 12).toLocaleString() : '--';
+}
+
+/* ==============================================================
+   7. モーダル (レーダーチャート)
+============================================================== */
+function openModal(code) {
+  const s = stocksData.find(x => x.code === code);
+  if (!s) return;
+
+  document.getElementById('modal-title').textContent = s.name;
+  document.getElementById('modal-code').textContent  = code + ' | 株価: ' + (s.price !== null ? '¥' + s.price.toLocaleString() : '--');
+
+  // レーダーチャート
+  const detail = s.score_detail || { yield: 0, pbr: 0, per: 0, deviation: 0 };
+  const ctx = document.getElementById('modal-chart').getContext('2d');
+  if (radarChart) radarChart.destroy();
+  radarChart = new Chart(ctx, {
+    type: 'radar',
+    data: {
+      labels: ['配当利回り', 'PBR', 'PER', '乖離率'],
+      datasets: [{
+        label: 'スコア (各10点満点)',
+        data: [detail.yield, detail.pbr, detail.per, detail.deviation],
+        backgroundColor: 'rgba(233, 69, 96, 0.2)',
+        borderColor: '#e94560',
+        borderWidth: 2,
+        pointBackgroundColor: '#e94560'
+      }]
+    },
+    options: {
+      responsive: true,
+      scales: {
+        r: {
+          beginAtZero: true,
+          max: 10,
+          ticks: { stepSize: 2, color: '#888', font: { size: 10 } },
+          grid: { color: '#2a2a4a' },
+          pointLabels: { color: '#e0e0e0', font: { size: 11 } },
+          angleLines: { color: '#2a2a4a' }
+        }
+      },
+      plugins: { legend: { display: false } }
+    }
+  });
+
+  // 詳細テーブル
+  const rows = [
+    ['財務スコア合計', (s.score ?? '--') + ' / 40'],
+    ['配当利回り', s.div_yield !== null ? s.div_yield.toFixed(2) + '%' : '--'],
+    ['PER',  s.per  !== null ? s.per.toFixed(1)  + 'x' : '--'],
+    ['PBR',  s.pbr  !== null ? s.pbr.toFixed(2)  + 'x' : '--'],
+    ['25日移動平均', s.ma25 !== null ? '¥' + s.ma25.toLocaleString() : '--'],
+    ['75日移動平均', s.ma75 !== null ? '¥' + s.ma75.toLocaleString() : '--'],
+    ['乖離率(25日)', s.deviation_ma25 !== null && s.deviation_ma25 !== undefined
+      ? (s.deviation_ma25 >= 0 ? '+' : '') + s.deviation_ma25.toFixed(2) + '%' : '--']
+  ];
+  document.getElementById('modal-details').innerHTML =
+    '<table>' + rows.map(([k, v]) => `<tr><td>${k}</td><td>${v}</td></tr>`).join('') + '</table>';
+
+  document.getElementById('modal-overlay').classList.add('open');
+}
+
+document.getElementById('modal-close').addEventListener('click', () => {
+  document.getElementById('modal-overlay').classList.remove('open');
+});
+document.getElementById('modal-overlay').addEventListener('click', e => {
+  if (e.target === document.getElementById('modal-overlay'))
+    document.getElementById('modal-overlay').classList.remove('open');
+});
+
+/* ==============================================================
+   TAB SWITCHING
+============================================================== */
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const target = btn.dataset.tab;
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-' + target).classList.add('active');
+  });
+});
+
+/* ==============================================================
+   INIT
+============================================================== */
+loadData();
+</script>
+</body>
+</html>

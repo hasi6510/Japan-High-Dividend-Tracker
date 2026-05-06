@@ -1,0 +1,49 @@
+name: 株価データ 自動更新
+
+on:
+  schedule:
+    # JST = UTC+9 なので UTC で指定
+    - cron: '35 2 * * 1-5'   # 平日 JST 11:35
+    - cron: '35 6 * * 1-5'   # 平日 JST 15:35
+    - cron: '0 9 * * 1-5'    # 平日 JST 18:00
+  workflow_dispatch:           # 手動実行も可
+
+jobs:
+  update-stocks:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write          # git push に必要
+
+    steps:
+      - name: リポジトリをチェックアウト
+        uses: actions/checkout@v4
+
+      - name: Python 3.11 セットアップ
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: 依存パッケージのインストール
+        run: pip install yfinance pandas
+
+      - name: 株価データ取得 (fetch_stocks.py)
+        run: python scripts/fetch_stocks.py
+
+      - name: 変更チェック
+        id: check
+        run: |
+          if git diff --quiet data/stocks.json; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: stocks.json をコミット & プッシュ
+        if: steps.check.outputs.changed == 'true'
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/stocks.json
+          git commit -m "chore: 株価データ更新 $(date +'%Y-%m-%d %H:%M JST' -d '+9 hours')"
+          git push

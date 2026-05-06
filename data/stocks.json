@@ -1,0 +1,39 @@
+{
+  "updated_at": "2026-05-06 18:00",
+  "updated_at_iso": "2026-05-06T18:00:00+09:00",
+  "market": {
+    "vix": null,
+    "nikkei_vi": null,
+    "nikkei225": null,
+    "nikkei225_change_pct": null
+  },
+  "stocks": [
+    {"code":"1343","name":"NF J-REITインデックスファンド","price":null,"div_yield":null,"per":null,"pbr":null,"ma25":null,"ma75":null,"deviation_ma25":null,"score":null,"score_detail":{"yield":0,"pbr":0,"per":0,"deviation":0},"error":null},
+    {"code":"1928","name":"積水ハウス","price":null,"div_yield":null,"per":null,"pbr":null,"ma25":null,"ma75":null,"deviation_ma25":null,"score":null,"score_detail":{"yield":0,"pbr":0,"per":0,"deviation":0},"error":null},
+    {"code":"2003","name":"日東富士製粉","price":null,"div_yield":null,"per":null,"pbr":null,"ma25":null,"ma75":null,"deviation_ma25":null,"score":null,"score_detail":{"yield":0,"pbr":0,"per":0,"deviation":0},"error":null},
+    {"code":"2169","name":"CDS","price":null,"div_yield":null,"per":null,"pbr":null,"ma25":null,"ma75":null,"deviation_ma25":null,"score":null,"score_detail":{"yield":0,"pbr":0,"per":0,"deviation":0},"error":null},
+    {"code":"3076","name":"あいホールディングス","price":null,"div_yield":null,"per":null,"pbr":null,"ma25":null,"ma75":null,"deviation_ma25":null,"score":null,"score_detail":{"yield":0,"pbr":0,"per":0,"deviation":0},"error":null},
+    {"code":"3231","name":"野村不動産ホールディングス","price":null,"div_yield":null,"per":null,"pbr":null,"ma25":null,"ma75":null,"deviation_ma25":null,"score":null,"score_detail":{"yield":0,"pbr":0,"per":0,"deviation":0},"error":null},
+    {"code":"3333","name":"あさひ","price":null,"div_yield":null,"per":null,"pbr":null,"ma25":null,"ma75":null,"deviation_ma25":null,"score":null,"score_detail":{"yield":0,"pbr":0,"per":0,"deviation":0},"error":null},
+    {"code":"3817","name":"SRAホールディングス","price":null,"div_yield":null,"per":null,"pbr":null,"ma25":null,"ma75":null,"deviation_ma25":null,"score":null,"score_detail":{"yield":0,"pbr":0,"per":0,"deviation":0},"error":null},
+    {"code":"4008","name":"住友精化","price":null,"div_yield":null,"per":null,"pbr":null,"ma25":null,"ma75":null,"deviation_ma25":null,"score":null,"score_detail":{"yield":0,"pbr":0,"per":0,"deviation":0},"error":null},
+    {"code":"4540","name":"ツムラ","price":null,"div_yield":null,"per":null,"pbr":null,"ma25":null,"ma75":null,"deviation_ma25":null,"score":null,"score_detail":{"yield":0,"pbr":0,"per":0,"deviation":0},"error":null},
+    {"code":"4641","name":"アルプス技研","price":null,"div_yield":null,"per":null,"pbr":null,"ma25":null,"ma75":null,"deviation_ma25":null,"score":null,"score_detail":{"yield":0,"pbr":0,"per":0,"deviation":0},"error":null},
+    {"code":"5388","name":"クニミネ工業","price":null,"div_yield":null,"per":null,"pbr":null,"ma25":null,"ma75":null,"deviation_ma25":null,"score":null,"score_detail":{"yield":0,"pbr":0,"per":0,"deviation":0},"error":null},
+    {"code":"6785","name":"鈴木","price":null,"div_yield":null,"per":null,"pbr":null,"ma25":null,"ma75":null,"deviation_ma25":null,"score":null,"score_detail":{"yield":0,"pbr":0,"per":0,"deviation":0},"error":null},
+    {"code":"7723","name":"愛知時計電機","price":null,"div_yield":null,"per":null,"pbr":null,"ma25":null,"ma75":null,"deviation_ma25":null,"score":null,"score_detail":{"yield":0,"pbr":0,"per":0,"deviation":0},"error":null},
+    {"code":"7931","name":"未来工業","price":null,"div_yield":null,"per":null,"pbr":null,"ma25":null,"ma75":null,"deviation_ma25":null,"score":null,"score_detail":{"yield":0,"pbr":0,"per":0,"deviation":0},"error":null},
+    {"code":"7989","name":"立川ブラインド工業","price":null,"div_yield":null,"per":null,"pbr":null,"ma25":null,"ma75":null,"deviation_ma25":null,"score":null,"score_detail":{"yield":0,"pbr":0,"per":0,"deviation":0},"error":null},
+    {"code":"7994","name":"オカムラ","price":null,"div_yield":null,"per":null,"pbr":null,"ma25":null,"ma75":null,"deviation_ma25":null,"score":null,"score_detail":{"yield":0,"pbr":0,"per":0,"deviation":0},"error":null},
+    {"code":"8130","name":"サンゲツ","price":null,"div_yield":null,"per":null,"pbr":null,"ma25":null,"ma75":null,"deviation_ma25":null,"score":null,"score_detail":{"yield":0,"pbr":0,"per":0,"deviation":0},"error":null},
+    {"code":"8309","name":"三井住友トラストグループ","price":null,"div_yield":null,"per":null,"pbr":null,"ma25":null,"ma75":null,"deviation_ma25":null,"score":null,"score_detail":{"yield":0,"pbr":0,"per":0,"deviation":0},"error":null},
+    {"code":"8584","name":"ジャックス","price":null,"div_yield":null,"per":null,"pbr":null,"ma25":null,"ma75":null,"deviation_ma25":null,"score":null,"score_detail":{"yield":0,"pbr":0,"per":0,"deviation":0},"error":null},
+    {"code":"8593","name":"三菱HCキャピタル","price":null,"div_yield":null,"per":null,"pbr":null,"ma25":null,"ma75":null,"deviation_ma25":null,"score":null,"score_detail":{"yield":0,"pbr":0,"per":0,"deviation":0},"error":null},
+    {"code":"8725","name":"MS&ADインシュアランス","price":null,"div_yield":null,"per":null,"pbr":null,"ma25":null,"ma75":null,"deviation_ma25":null,"score":null,"score_detail":{"yield":0,"pbr":0,"per":0,"deviation":0},"error":null},
+    {"code":"9069","name":"センコーグループHD","price":null,"div_yield":null,"per":null,"pbr":null,"ma25":null,"ma75":null,"deviation_ma25":null,"score":null,"score_detail":{"yield":0,"pbr":0,"per":0,"deviation":0},"error":null},
+    {"code":"9364","name":"上組","price":null,"div_yield":null,"per":null,"pbr":null,"ma25":null,"ma75":null,"deviation_ma25":null,"score":null,"score_detail":{"yield":0,"pbr":0,"per":0,"deviation":0},"error":null},
+    {"code":"9757","name":"船井総研HD","price":null,"div_yield":null,"per":null,"pbr":null,"ma25":null,"ma75":null,"deviation_ma25":null,"score":null,"score_detail":{"yield":0,"pbr":0,"per":0,"deviation":0},"error":null},
+    {"code":"9769","name":"学究社","price":null,"div_yield":null,"per":null,"pbr":null,"ma25":null,"ma75":null,"deviation_ma25":null,"score":null,"score_detail":{"yield":0,"pbr":0,"per":0,"deviation":0},"error":null},
+    {"code":"9986","name":"蔵王産業","price":null,"div_yield":null,"per":null,"pbr":null,"ma25":null,"ma75":null,"deviation_ma25":null,"score":null,"score_detail":{"yield":0,"pbr":0,"per":0,"deviation":0},"error":null}
+  ]
+}
