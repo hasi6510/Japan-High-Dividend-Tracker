@@ -153,10 +153,13 @@ def fetch_stock(code, name):
         price = info.get('currentPrice') or info.get('regularMarketPrice')
         result['price'] = round(float(price), 1) if price else None
 
-        # 配当利回り (yfinance は 0.035 = 3.5% で返すことが多い)
+        # 配当利回り
+        # yfinance は日本株で既に % 値(例: 3.5)を返すことがある
+        # 1 より大きければそのまま使用、1 以下なら ×100 する
         dy = info.get('dividendYield')
         if dy is not None:
-            result['div_yield'] = round(float(dy) * 100, 2)
+            dy = float(dy)
+            result['div_yield'] = round(dy if dy > 1 else dy * 100, 2)
 
         # PER
         per = info.get('trailingPE') or info.get('forwardPE')
