@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-05-18 19:47",
-  "updated_at_iso": "2026-05-18T19:47:27.544920+09:00",
+  "updated_at": "2026-05-18 21:26",
+  "updated_at_iso": "2026-05-18T21:26:38.622403+09:00",
   "market": {
-    "vix": 19.2,
+    "vix": 18.53,
     "nikkei_vi": null,
     "nikkei225": 60816.0,
     "nikkei225_change_pct": -0.97
@@ -356,14 +356,14 @@
       "price": 5464.0,
       "div_yield": 84.0,
       "per": 12.1,
-      "pbr": 1.15,
+      "pbr": 1.07,
       "ma25": 5373.3,
       "ma75": 5201.6,
       "deviation_ma25": 1.69,
-      "score": 32.4,
+      "score": 32.7,
       "score_detail": {
         "yield": 10,
-        "pbr": 7.4,
+        "pbr": 7.7,
         "per": 8.9,
         "deviation": 6.1
       },
