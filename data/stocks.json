@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-05-22 18:57",
-  "updated_at_iso": "2026-05-22T18:57:23.418854+09:00",
+  "updated_at": "2026-05-22 20:43",
+  "updated_at_iso": "2026-05-22T20:43:05.584065+09:00",
   "market": {
-    "vix": 17.06,
+    "vix": 17.0,
     "nikkei_vi": null,
     "nikkei225": 63339.0,
     "nikkei225_change_pct": 2.68
