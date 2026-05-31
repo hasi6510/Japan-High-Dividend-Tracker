@@ -130,6 +130,8 @@ def fetch_stock(code, name):
         "name": name,
         "price": None,
         "div_yield": None,
+        "div_months": [],
+        "annual_div_per_share": None,
         "per": None,
         "pbr": None,
         "ma25": None,
@@ -180,6 +182,20 @@ def fetch_stock(code, name):
             if len(closes) >= MA_LONG:
                 ma75 = closes.rolling(MA_LONG).mean().iloc[-1]
                 result['ma75'] = round(float(ma75), 1)
+
+        # 配当支払い月・1株当たり年間配当
+        try:
+            divs = ticker.dividends
+            if not divs.empty:
+                recent = divs[divs.index > (pd.Timestamp.now(tz='UTC') - pd.DateOffset(years=2))]
+                if not recent.empty:
+                    months = sorted(list(set(recent.index.month.tolist())))
+                    result['div_months'] = months
+                    # 直近2年の年平均配当総額
+                    annual = recent.resample('YE').sum()
+                    result['annual_div_per_share'] = round(float(annual.mean()), 1) if not annual.empty else None
+        except Exception:
+            pass
 
         # 財務スコア計算
         s_yield = score_yield(result['div_yield'])

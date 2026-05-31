@@ -415,6 +415,7 @@
   <button class="tab-btn" data-tab="ranking">🏆 ランキング</button>
   <button class="tab-btn" data-tab="deviation">📈 乖離率</button>
   <button class="tab-btn" data-tab="portfolio">💼 ポートフォリオ</button>
+  <button class="tab-btn" data-tab="dividend">📅 配当カレンダー</button>
 </nav>
 
 <!-- ====== MAIN ====== -->
@@ -482,6 +483,42 @@
       <div id="dev-list" class="dev-list">
         <div class="loading"><div class="spinner"></div>データ取得中...</div>
       </div>
+    </div>
+  </section>
+
+  <!-- ---- TAB: DIVIDEND CALENDAR ---- -->
+  <section class="tab-panel" id="tab-dividend">
+    <div class="div-section">
+      <h2 style="font-size:1rem;margin-bottom:12px;">📅 配当カレンダー <small style="color:var(--text-muted);font-size:0.75rem;font-weight:400;">（ポートフォリオの保有数・取得単価を入力すると反映されます）</small></h2>
+
+      <!-- サマリーカード -->
+      <div id="div-summary" style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:20px;"></div>
+
+      <!-- 月別棒グラフ -->
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px;margin-bottom:20px;">
+        <div style="font-size:0.85rem;font-weight:600;margin-bottom:12px;color:var(--text-muted);">月別 予想配当金（税引前）</div>
+        <div style="max-height:260px;"><canvas id="div-chart"></canvas></div>
+      </div>
+
+      <!-- 銘柄別配当スケジュール -->
+      <div style="font-size:0.85rem;font-weight:600;margin-bottom:8px;">銘柄別 配当スケジュール</div>
+      <div style="overflow-x:auto;">
+        <table class="rank-table" id="div-table">
+          <thead>
+            <tr>
+              <th>コード</th>
+              <th>銘柄名</th>
+              <th>保有数</th>
+              <th>配当支払い月</th>
+              <th>1株配当(年)</th>
+              <th>受取配当(年・税引前)</th>
+              <th>受取配当(月換算)</th>
+            </tr>
+          </thead>
+          <tbody id="div-tbody"></tbody>
+        </table>
+      </div>
+      <p style="font-size:0.75rem;color:var(--text-muted);margin-top:10px;">※ NISA口座分は非課税。特定口座分は約20.315%が課税されます。配当月はyfinanceの実績データに基づきます。</p>
     </div>
   </section>
 
@@ -970,6 +1007,120 @@ document.getElementById('modal-overlay').addEventListener('click', e => {
 });
 
 /* ==============================================================
+   8. 配当カレンダー
+============================================================== */
+let divChart = null;
+
+function renderDividend() {
+  const holdings = loadHoldings();
+  const MONTHS_JP = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
+  const monthlyDiv = Array(12).fill(0);
+  const rows = [];
+
+  stocksData.forEach(s => {
+    const h = holdings[s.code] || {};
+    const qty = parseFloat(h.qty) || 0;
+    if (!qty) return;
+
+    // 1株あたり年間配当を決定
+    let annualDivPerShare = s.annual_div_per_share || null;
+    if (!annualDivPerShare && s.price && s.div_yield) {
+      annualDivPerShare = Math.round(s.price * s.div_yield / 100);
+    }
+    if (!annualDivPerShare) return;
+
+    // 配当月
+    let divMonths = (s.div_months && s.div_months.length > 0) ? s.div_months : null;
+    // フォールバック：利回りから月を推測（3月・9月 または 6月・12月）
+    if (!divMonths) divMonths = [3, 9];
+
+    const divPerPayment = annualDivPerShare / divMonths.length;
+    divMonths.forEach(m => { monthlyDiv[m - 1] += qty * divPerPayment; });
+
+    const annualTotal = Math.round(qty * annualDivPerShare);
+    rows.push({
+      code: s.code, name: s.name, qty,
+      divMonths,
+      annualDivPerShare: Math.round(annualDivPerShare),
+      annualTotal,
+      monthlyAvg: Math.round(annualTotal / 12)
+    });
+  });
+
+  // ---- サマリー ----
+  const totalAnnual = Math.round(monthlyDiv.reduce((a, b) => a + b, 0));
+  const peakMonth = MONTHS_JP[monthlyDiv.indexOf(Math.max(...monthlyDiv))];
+  const summaryEl = document.getElementById('div-summary');
+  summaryEl.innerHTML = [
+    ['💰 年間予想配当合計（税引前）', totalAnnual ? '¥' + totalAnnual.toLocaleString() : '--'],
+    ['📆 月換算平均', totalAnnual ? '¥' + Math.round(totalAnnual / 12).toLocaleString() : '--'],
+    ['🏆 最多配当月', peakMonth || '--'],
+    ['📊 配当銘柄数', rows.length + '銘柄'],
+  ].map(([label, val]) => `
+    <div class="market-chip" style="flex-direction:column;align-items:flex-start;padding:10px 16px;border-radius:var(--radius);">
+      <span class="label" style="font-size:0.72rem;margin-bottom:4px;">${label}</span>
+      <span class="val" style="font-size:1rem;">${val}</span>
+    </div>`).join('');
+
+  // ---- 棒グラフ ----
+  const ctx = document.getElementById('div-chart').getContext('2d');
+  if (divChart) divChart.destroy();
+  divChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: MONTHS_JP,
+      datasets: [{
+        label: '予想配当（円）',
+        data: monthlyDiv.map(v => Math.round(v)),
+        backgroundColor: monthlyDiv.map(v =>
+          v === Math.max(...monthlyDiv) ? '#e94560' : 'rgba(52,152,219,0.7)'
+        ),
+        borderRadius: 4,
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: ctx => '¥' + ctx.parsed.y.toLocaleString()
+          }
+        }
+      },
+      scales: {
+        x: { ticks: { color: '#888' }, grid: { color: '#2a2a4a' } },
+        y: {
+          ticks: {
+            color: '#888',
+            callback: v => '¥' + v.toLocaleString()
+          },
+          grid: { color: '#2a2a4a' }
+        }
+      }
+    }
+  });
+
+  // ---- テーブル ----
+  rows.sort((a, b) => b.annualTotal - a.annualTotal);
+  const tbody = document.getElementById('div-tbody');
+  if (rows.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="7" class="empty">💼 ポートフォリオタブで保有数を入力してください</td></tr>';
+    return;
+  }
+  tbody.innerHTML = rows.map(r => `
+    <tr>
+      <td>${r.code}</td>
+      <td>${r.name}</td>
+      <td style="text-align:center;">${r.qty}株</td>
+      <td>${r.divMonths.map(m => '<span style="background:var(--accent2);border-radius:4px;padding:1px 6px;margin:1px;font-size:0.75rem;">' + m + '月</span>').join('')}</td>
+      <td style="text-align:right;">¥${r.annualDivPerShare.toLocaleString()}</td>
+      <td style="text-align:right;font-weight:700;color:#fff;">¥${r.annualTotal.toLocaleString()}</td>
+      <td style="text-align:right;color:var(--text-muted);">¥${r.monthlyAvg.toLocaleString()}</td>
+    </tr>`).join('');
+}
+
+/* ==============================================================
    TAB SWITCHING
 ============================================================== */
 document.querySelectorAll('.tab-btn').forEach(btn => {
@@ -979,6 +1130,7 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
     document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
     btn.classList.add('active');
     document.getElementById('tab-' + target).classList.add('active');
+    if (target === 'dividend') renderDividend();
   });
 });
 
