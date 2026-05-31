@@ -525,7 +525,17 @@
   <!-- ---- TAB: PORTFOLIO ---- -->
   <section class="tab-panel" id="tab-portfolio">
     <div class="portfolio-section">
-      <h2>💼 ポートフォリオ管理 <small style="color:var(--text-muted);font-size:0.75rem;font-weight:400;">(入力はブラウザに自動保存)</small></h2>
+      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px;">
+        <h2 style="margin:0;">💼 ポートフォリオ管理 <small style="color:var(--text-muted);font-size:0.75rem;font-weight:400;">(入力はブラウザに自動保存)</small></h2>
+        <button id="btn-export" style="background:var(--accent2);border:none;color:#fff;border-radius:6px;padding:5px 12px;font-size:0.8rem;cursor:pointer;">📤 データをコピー（他端末に共有）</button>
+        <button id="btn-import-toggle" style="background:var(--surface2);border:1px solid var(--border);color:var(--text);border-radius:6px;padding:5px 12px;font-size:0.8rem;cursor:pointer;">📥 インポート（スマホ等から）</button>
+      </div>
+      <div id="import-area" style="display:none;margin-bottom:12px;">
+        <textarea id="import-text" rows="3" placeholder="PCでコピーしたデータをここに貼り付けてください"
+          style="width:100%;background:var(--bg);border:1px solid var(--accent);border-radius:6px;color:var(--text);padding:8px;font-size:0.8rem;resize:vertical;"></textarea>
+        <button id="btn-import-exec" style="margin-top:6px;background:var(--accent);border:none;color:#fff;border-radius:6px;padding:6px 16px;font-size:0.82rem;cursor:pointer;">✅ インポート実行</button>
+        <span id="import-msg" style="margin-left:10px;font-size:0.8rem;color:var(--green);"></span>
+      </div>
       <div class="portfolio-table-wrap">
         <table class="portfolio-table" id="portfolio-table">
           <thead>
@@ -1132,6 +1142,48 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
     document.getElementById('tab-' + target).classList.add('active');
     if (target === 'dividend') renderDividend();
   });
+});
+
+/* ==============================================================
+   9. エクスポート / インポート
+============================================================== */
+document.getElementById('btn-export').addEventListener('click', () => {
+  const data = localStorage.getItem(PORTFOLIO_KEY) || '{}';
+  navigator.clipboard.writeText(data).then(() => {
+    const btn = document.getElementById('btn-export');
+    btn.textContent = '✅ コピーしました！';
+    btn.style.background = 'var(--green)';
+    setTimeout(() => {
+      btn.textContent = '📤 データをコピー（他端末に共有）';
+      btn.style.background = 'var(--accent2)';
+    }, 2500);
+  }).catch(() => {
+    // クリップボードAPIが使えない場合はプロンプトで表示
+    const data2 = localStorage.getItem(PORTFOLIO_KEY) || '{}';
+    prompt('以下のテキストをコピーしてください：', data2);
+  });
+});
+
+document.getElementById('btn-import-toggle').addEventListener('click', () => {
+  const area = document.getElementById('import-area');
+  area.style.display = area.style.display === 'none' ? 'block' : 'none';
+});
+
+document.getElementById('btn-import-exec').addEventListener('click', () => {
+  const text = document.getElementById('import-text').value.trim();
+  const msg  = document.getElementById('import-msg');
+  try {
+    const parsed = JSON.parse(text);
+    localStorage.setItem(PORTFOLIO_KEY, JSON.stringify(parsed));
+    msg.textContent = '✅ インポート完了！';
+    msg.style.color = 'var(--green)';
+    document.getElementById('import-area').style.display = 'none';
+    renderPortfolio();
+    setTimeout(() => { msg.textContent = ''; }, 3000);
+  } catch {
+    msg.textContent = '⚠ データの形式が正しくありません';
+    msg.style.color = 'var(--red)';
+  }
 });
 
 /* ==============================================================
