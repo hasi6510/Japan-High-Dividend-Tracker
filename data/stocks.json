@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-06-15 21:49",
-  "updated_at_iso": "2026-06-15T21:49:54.278064+09:00",
+  "updated_at": "2026-06-16 00:11",
+  "updated_at_iso": "2026-06-16T00:11:41.154869+09:00",
   "market": {
-    "vix": 16.57,
+    "vix": 16.24,
     "nikkei_vi": null,
-    "nikkei225": 69318.0,
-    "nikkei225_change_pct": 4.99
+    "nikkei225": 66020.0,
+    "nikkei225_change_pct": null
   },
   "stocks": [
     {
@@ -46,15 +46,15 @@
       "annual_div_per_share": 93.0,
       "per": 8.4,
       "pbr": 1.0,
-      "ma25": 3329.4,
-      "ma75": 3478.4,
-      "deviation_ma25": 0.17,
-      "score": 34.6,
+      "ma25": NaN,
+      "ma75": NaN,
+      "deviation_ma25": NaN,
+      "score": NaN,
       "score_detail": {
         "yield": 10,
         "pbr": 8.0,
         "per": 10,
-        "deviation": 6.6
+        "deviation": NaN
       },
       "error": null
     },
@@ -70,15 +70,15 @@
       "annual_div_per_share": 46.7,
       "per": 18.8,
       "pbr": 1.24,
-      "ma25": 1722.8,
-      "ma75": 1767.8,
-      "deviation_ma25": -0.75,
-      "score": 29.5,
+      "ma25": NaN,
+      "ma75": NaN,
+      "deviation_ma25": NaN,
+      "score": NaN,
       "score_detail": {
         "yield": 10,
         "pbr": 7.0,
         "per": 5.6,
-        "deviation": 6.9
+        "deviation": NaN
       },
       "error": null
     },
@@ -94,15 +94,15 @@
       "annual_div_per_share": 76.0,
       "per": 26.3,
       "pbr": 1.36,
-      "ma25": 1784.2,
-      "ma75": 1813.9,
-      "deviation_ma25": -1.36,
-      "score": 25.5,
+      "ma25": NaN,
+      "ma75": NaN,
+      "deviation_ma25": NaN,
+      "score": NaN,
       "score_detail": {
         "yield": 10,
         "pbr": 6.6,
         "per": 1.8,
-        "deviation": 7.1
+        "deviation": NaN
       },
       "error": null
     },
@@ -118,15 +118,15 @@
       "annual_div_per_share": 100.0,
       "per": 10.9,
       "pbr": 1.26,
-      "ma25": 2758.1,
-      "ma75": 2786.4,
-      "deviation_ma25": -2.11,
-      "score": 34.0,
+      "ma25": NaN,
+      "ma75": NaN,
+      "deviation_ma25": NaN,
+      "score": NaN,
       "score_detail": {
         "yield": 10,
         "pbr": 7.0,
         "per": 9.6,
-        "deviation": 7.4
+        "deviation": NaN
       },
       "error": null
     },
@@ -142,15 +142,15 @@
       "annual_div_per_share": 24.7,
       "per": 9.7,
       "pbr": 1.0,
-      "ma25": 930.1,
-      "ma75": 1004.8,
-      "deviation_ma25": 0.97,
-      "score": 34.3,
+      "ma25": NaN,
+      "ma75": NaN,
+      "deviation_ma25": NaN,
+      "score": NaN,
       "score_detail": {
         "yield": 10,
         "pbr": 8.0,
         "per": 10,
-        "deviation": 6.3
+        "deviation": NaN
       },
       "error": null
     },
@@ -166,15 +166,15 @@
       "annual_div_per_share": 33.3,
       "per": 14.8,
       "pbr": 0.84,
-      "ma25": 1260.4,
-      "ma75": 1295.5,
-      "deviation_ma25": 2.43,
-      "score": 31.7,
+      "ma25": NaN,
+      "ma75": NaN,
+      "deviation_ma25": NaN,
+      "score": NaN,
       "score_detail": {
         "yield": 9.6,
         "pbr": 8.6,
         "per": 7.6,
-        "deviation": 5.9
+        "deviation": NaN
       },
       "error": null
     },
@@ -190,15 +190,15 @@
       "annual_div_per_share": 126.7,
       "per": 10.2,
       "pbr": 1.7,
-      "ma25": 4573.4,
-      "ma75": 4656.7,
-      "deviation_ma25": -1.39,
-      "score": 32.2,
+      "ma25": NaN,
+      "ma75": NaN,
+      "deviation_ma25": NaN,
+      "score": NaN,
       "score_detail": {
         "yield": 10,
         "pbr": 5.2,
         "per": 9.9,
-        "deviation": 7.1
+        "deviation": NaN
       },
       "error": null
     },
@@ -214,15 +214,15 @@
       "annual_div_per_share": 28.0,
       "per": 11.3,
       "pbr": 0.83,
-      "ma25": 1271.7,
-      "ma75": 1269.1,
-      "deviation_ma25": 4.51,
-      "score": 32.6,
+      "ma25": NaN,
+      "ma75": NaN,
+      "deviation_ma25": NaN,
+      "score": NaN,
       "score_detail": {
         "yield": 9.4,
         "pbr": 8.7,
         "per": 9.3,
-        "deviation": 5.2
+        "deviation": NaN
       },
       "error": null
     },
@@ -238,15 +238,15 @@
       "annual_div_per_share": 94.3,
       "per": 9.9,
       "pbr": 0.86,
-      "ma25": 3758.6,
-      "ma75": 3778.9,
-      "deviation_ma25": -0.95,
-      "score": 35.6,
+      "ma25": NaN,
+      "ma75": NaN,
+      "deviation_ma25": NaN,
+      "score": NaN,
       "score_detail": {
         "yield": 10,
         "pbr": 8.6,
         "per": 10,
-        "deviation": 7.0
+        "deviation": NaN
       },
       "error": null
     },
@@ -262,15 +262,15 @@
       "annual_div_per_share": 100.5,
       "per": 11.5,
       "pbr": 6.82,
-      "ma25": 2373.0,
-      "ma75": 2510.6,
-      "deviation_ma25": -1.89,
-      "score": 24.3,
+      "ma25": NaN,
+      "ma75": NaN,
+      "deviation_ma25": NaN,
+      "score": NaN,
       "score_detail": {
         "yield": 7.8,
         "pbr": 0,
         "per": 9.2,
-        "deviation": 7.3
+        "deviation": NaN
       },
       "error": null
     },
@@ -286,15 +286,15 @@
       "annual_div_per_share": 26.7,
       "per": 11.1,
       "pbr": 0.67,
-      "ma25": 1227.2,
-      "ma75": 1254.4,
-      "deviation_ma25": -0.59,
-      "score": 35.6,
+      "ma25": NaN,
+      "ma75": NaN,
+      "deviation_ma25": NaN,
+      "score": NaN,
       "score_detail": {
         "yield": 10,
         "pbr": 9.3,
         "per": 9.4,
-        "deviation": 6.9
+        "deviation": NaN
       },
       "error": null
     },
@@ -310,15 +310,15 @@
       "annual_div_per_share": 88.0,
       "per": 15.0,
       "pbr": 1.5,
-      "ma25": 3222.8,
-      "ma75": 2992.6,
-      "deviation_ma25": 1.77,
-      "score": 29.1,
+      "ma25": NaN,
+      "ma75": NaN,
+      "deviation_ma25": NaN,
+      "score": NaN,
       "score_detail": {
         "yield": 9.5,
         "pbr": 6.0,
         "per": 7.5,
-        "deviation": 6.1
+        "deviation": NaN
       },
       "error": null
     },
@@ -334,15 +334,15 @@
       "annual_div_per_share": 62.7,
       "per": 9.3,
       "pbr": 0.84,
-      "ma25": 2924.0,
-      "ma75": 2969.5,
-      "deviation_ma25": -0.99,
-      "score": 35.6,
+      "ma25": NaN,
+      "ma75": NaN,
+      "deviation_ma25": NaN,
+      "score": NaN,
       "score_detail": {
         "yield": 10,
         "pbr": 8.6,
         "per": 10,
-        "deviation": 7.0
+        "deviation": NaN
       },
       "error": null
     },
@@ -358,15 +358,15 @@
       "annual_div_per_share": 98.3,
       "per": 10.6,
       "pbr": 0.9,
-      "ma25": 3048.2,
-      "ma75": 3129.8,
-      "deviation_ma25": 1.53,
-      "score": 32.5,
+      "ma25": NaN,
+      "ma75": NaN,
+      "deviation_ma25": NaN,
+      "score": NaN,
       "score_detail": {
         "yield": 8.2,
         "pbr": 8.4,
         "per": 9.7,
-        "deviation": 6.2
+        "deviation": NaN
       },
       "error": null
     },
@@ -382,15 +382,15 @@
       "annual_div_per_share": 58.0,
       "per": 15.3,
       "pbr": 0.88,
-      "ma25": 2460.4,
-      "ma75": 2530.6,
-      "deviation_ma25": 0.55,
-      "score": 32.3,
+      "ma25": NaN,
+      "ma75": NaN,
+      "deviation_ma25": NaN,
+      "score": NaN,
       "score_detail": {
         "yield": 10,
         "pbr": 8.5,
         "per": 7.3,
-        "deviation": 6.5
+        "deviation": NaN
       },
       "error": null
     },
@@ -406,15 +406,15 @@
       "annual_div_per_share": 66.0,
       "per": 9.4,
       "pbr": 1.03,
-      "ma25": 2276.9,
-      "ma75": 2449.6,
-      "deviation_ma25": -2.06,
-      "score": 35.3,
+      "ma25": NaN,
+      "ma75": NaN,
+      "deviation_ma25": NaN,
+      "score": NaN,
       "score_detail": {
         "yield": 10,
         "pbr": 7.9,
         "per": 10,
-        "deviation": 7.4
+        "deviation": NaN
       },
       "error": null
     },
@@ -430,15 +430,15 @@
       "annual_div_per_share": 101.7,
       "per": 11.6,
       "pbr": 1.4,
-      "ma25": 2912.7,
-      "ma75": 3027.4,
-      "deviation_ma25": -0.61,
-      "score": 32.5,
+      "ma25": NaN,
+      "ma75": NaN,
+      "deviation_ma25": NaN,
+      "score": NaN,
       "score_detail": {
         "yield": 10,
         "pbr": 6.4,
         "per": 9.2,
-        "deviation": 6.9
+        "deviation": NaN
       },
       "error": null
     },
@@ -454,15 +454,15 @@
       "annual_div_per_share": 113.3,
       "per": 13.4,
       "pbr": 1.19,
-      "ma25": 5699.4,
-      "ma75": 5330.8,
-      "deviation_ma25": 6.35,
-      "score": 30.0,
+      "ma25": NaN,
+      "ma75": NaN,
+      "deviation_ma25": NaN,
+      "score": NaN,
       "score_detail": {
         "yield": 10,
         "pbr": 7.2,
         "per": 8.3,
-        "deviation": 4.5
+        "deviation": NaN
       },
       "error": null
     },
@@ -478,15 +478,15 @@
       "annual_div_per_share": 130.0,
       "per": 9.4,
       "pbr": 0.54,
-      "ma25": 3570.6,
-      "ma75": 3917.7,
-      "deviation_ma25": -0.44,
-      "score": 36.6,
+      "ma25": NaN,
+      "ma75": NaN,
+      "deviation_ma25": NaN,
+      "score": NaN,
       "score_detail": {
         "yield": 10,
         "pbr": 9.8,
         "per": 10,
-        "deviation": 6.8
+        "deviation": NaN
       },
       "error": null
     },
@@ -502,15 +502,15 @@
       "annual_div_per_share": 28.7,
       "per": 11.8,
       "pbr": 0.96,
-      "ma25": 1328.2,
-      "ma75": 1399.2,
-      "deviation_ma25": 0.48,
-      "score": 33.6,
+      "ma25": NaN,
+      "ma75": NaN,
+      "deviation_ma25": NaN,
+      "score": NaN,
       "score_detail": {
         "yield": 9.8,
         "pbr": 8.2,
         "per": 9.1,
-        "deviation": 6.5
+        "deviation": NaN
       },
       "error": null
     },
@@ -526,15 +526,15 @@
       "annual_div_per_share": 101.7,
       "per": 8.8,
       "pbr": 1.42,
-      "ma25": 4378.3,
-      "ma75": 4156.0,
-      "deviation_ma25": 6.73,
-      "score": 28.3,
+      "ma25": NaN,
+      "ma75": NaN,
+      "deviation_ma25": NaN,
+      "score": NaN,
       "score_detail": {
         "yield": 7.6,
         "pbr": 6.3,
         "per": 10,
-        "deviation": 4.4
+        "deviation": NaN
       },
       "error": null
     },
@@ -550,15 +550,15 @@
       "annual_div_per_share": 32.0,
       "per": 17.3,
       "pbr": 1.47,
-      "ma25": 1942.1,
-      "ma75": 1878.5,
-      "deviation_ma25": 1.13,
-      "score": 26.0,
+      "ma25": NaN,
+      "ma75": NaN,
+      "deviation_ma25": NaN,
+      "score": NaN,
       "score_detail": {
         "yield": 7.3,
         "pbr": 6.1,
         "per": 6.3,
-        "deviation": 6.3
+        "deviation": NaN
       },
       "error": null
     },
@@ -574,15 +574,15 @@
       "annual_div_per_share": 111.7,
       "per": 15.1,
       "pbr": 1.18,
-      "ma25": 4852.4,
-      "ma75": 5243.4,
-      "deviation_ma25": -2.91,
-      "score": 32.4,
+      "ma25": NaN,
+      "ma75": NaN,
+      "deviation_ma25": NaN,
+      "score": NaN,
       "score_detail": {
         "yield": 10,
         "pbr": 7.3,
         "per": 7.5,
-        "deviation": 7.6
+        "deviation": NaN
       },
       "error": null
     },
@@ -598,15 +598,15 @@
       "annual_div_per_share": 40.0,
       "per": 15.4,
       "pbr": 3.86,
-      "ma25": 1074.1,
-      "ma75": 1116.2,
-      "deviation_ma25": 0.27,
-      "score": 23.9,
+      "ma25": NaN,
+      "ma75": NaN,
+      "deviation_ma25": NaN,
+      "score": NaN,
       "score_detail": {
         "yield": 10,
         "pbr": 0,
         "per": 7.3,
-        "deviation": 6.6
+        "deviation": NaN
       },
       "error": null
     },
@@ -622,15 +622,15 @@
       "annual_div_per_share": 64.3,
       "per": 14.8,
       "pbr": 3.34,
-      "ma25": 2484.0,
-      "ma75": 2392.4,
-      "deviation_ma25": 1.09,
-      "score": 23.9,
+      "ma25": NaN,
+      "ma75": NaN,
+      "deviation_ma25": NaN,
+      "score": NaN,
       "score_detail": {
         "yield": 10,
         "pbr": 0,
         "per": 7.6,
-        "deviation": 6.3
+        "deviation": NaN
       },
       "error": null
     },
@@ -646,15 +646,15 @@
       "annual_div_per_share": 68.3,
       "per": 18.8,
       "pbr": 1.2,
-      "ma25": 2512.6,
-      "ma75": 2585.2,
-      "deviation_ma25": -1.18,
-      "score": 29.9,
+      "ma25": NaN,
+      "ma75": NaN,
+      "deviation_ma25": NaN,
+      "score": NaN,
       "score_detail": {
         "yield": 10,
         "pbr": 7.2,
         "per": 5.6,
-        "deviation": 7.1
+        "deviation": NaN
       },
       "error": null
     },
@@ -670,15 +670,15 @@
       "annual_div_per_share": 82.5,
       "per": 10.2,
       "pbr": 0.97,
-      "ma25": 2321.0,
-      "ma75": 2365.0,
-      "deviation_ma25": 3.1,
-      "score": 33.6,
+      "ma25": NaN,
+      "ma75": NaN,
+      "deviation_ma25": NaN,
+      "score": NaN,
       "score_detail": {
         "yield": 10,
         "pbr": 8.1,
         "per": 9.9,
-        "deviation": 5.6
+        "deviation": NaN
       },
       "error": null
     },
@@ -694,15 +694,15 @@
       "annual_div_per_share": 65.0,
       "per": 13.6,
       "pbr": 1.15,
-      "ma25": 2824.3,
-      "ma75": 2811.3,
-      "deviation_ma25": 0.73,
-      "score": 32.0,
+      "ma25": NaN,
+      "ma75": NaN,
+      "deviation_ma25": NaN,
+      "score": NaN,
       "score_detail": {
         "yield": 10,
         "pbr": 7.4,
         "per": 8.2,
-        "deviation": 6.4
+        "deviation": NaN
       },
       "error": null
     },
@@ -717,15 +717,15 @@
       "annual_div_per_share": 102.5,
       "per": 18.6,
       "pbr": 1.27,
-      "ma25": 3181.0,
-      "ma75": 3158.6,
-      "deviation_ma25": 0.75,
-      "score": 27.6,
+      "ma25": NaN,
+      "ma75": NaN,
+      "deviation_ma25": NaN,
+      "score": NaN,
       "score_detail": {
         "yield": 8.6,
         "pbr": 6.9,
         "per": 5.7,
-        "deviation": 6.4
+        "deviation": NaN
       },
       "error": null
     },
@@ -741,15 +741,15 @@
       "annual_div_per_share": 58.0,
       "per": 11.6,
       "pbr": 1.45,
-      "ma25": 1703.9,
-      "ma75": 1829.0,
-      "deviation_ma25": 2.09,
-      "score": 31.1,
+      "ma25": NaN,
+      "ma75": NaN,
+      "deviation_ma25": NaN,
+      "score": NaN,
       "score_detail": {
         "yield": 9.7,
         "pbr": 6.2,
         "per": 9.2,
-        "deviation": 6.0
+        "deviation": NaN
       },
       "error": null
     },
@@ -764,15 +764,15 @@
       "annual_div_per_share": 50.0,
       "per": 11.0,
       "pbr": 2.59,
-      "ma25": 1338.9,
-      "ma75": 1485.5,
-      "deviation_ma25": -4.77,
-      "score": 29.4,
+      "ma25": NaN,
+      "ma75": NaN,
+      "deviation_ma25": NaN,
+      "score": NaN,
       "score_detail": {
         "yield": 10,
         "pbr": 1.6,
         "per": 9.5,
-        "deviation": 8.3
+        "deviation": NaN
       },
       "error": null
     },
@@ -788,15 +788,15 @@
       "annual_div_per_share": 66.7,
       "per": 23.9,
       "pbr": 1.12,
-      "ma25": 2718.5,
-      "ma75": 2519.1,
-      "deviation_ma25": 11.72,
-      "score": 22.1,
+      "ma25": NaN,
+      "ma75": NaN,
+      "deviation_ma25": NaN,
+      "score": NaN,
       "score_detail": {
         "yield": 8.7,
         "pbr": 7.5,
         "per": 3.1,
-        "deviation": 2.8
+        "deviation": NaN
       },
       "error": null
     },
@@ -812,15 +812,15 @@
       "annual_div_per_share": 20.0,
       "per": 13.0,
       "pbr": 0.72,
-      "ma25": 1089.1,
-      "ma75": 1097.5,
-      "deviation_ma25": 1.0,
-      "score": 33.1,
+      "ma25": NaN,
+      "ma75": NaN,
+      "deviation_ma25": NaN,
+      "score": NaN,
       "score_detail": {
         "yield": 9.2,
         "pbr": 9.1,
         "per": 8.5,
-        "deviation": 6.3
+        "deviation": NaN
       },
       "error": null
     },
@@ -836,15 +836,15 @@
       "annual_div_per_share": 35.3,
       "per": 11.2,
       "pbr": 1.75,
-      "ma25": 1524.6,
-      "ma75": 1469.5,
-      "deviation_ma25": -4.82,
-      "score": 32.7,
+      "ma25": NaN,
+      "ma75": NaN,
+      "deviation_ma25": NaN,
+      "score": NaN,
       "score_detail": {
         "yield": 10,
         "pbr": 5.0,
         "per": 9.4,
-        "deviation": 8.3
+        "deviation": NaN
       },
       "error": null
     },
@@ -860,15 +860,15 @@
       "annual_div_per_share": 149.0,
       "per": 14.2,
       "pbr": 1.48,
-      "ma25": 4187.4,
-      "ma75": 4289.9,
-      "deviation_ma25": 0.3,
-      "score": 30.6,
+      "ma25": NaN,
+      "ma75": NaN,
+      "deviation_ma25": NaN,
+      "score": NaN,
       "score_detail": {
         "yield": 10,
         "pbr": 6.1,
         "per": 7.9,
-        "deviation": 6.6
+        "deviation": NaN
       },
       "error": null
     },
@@ -884,15 +884,15 @@
       "annual_div_per_share": 54.3,
       "per": 17.9,
       "pbr": 0.98,
-      "ma25": 3092.6,
-      "ma75": 2930.5,
-      "deviation_ma25": 3.63,
-      "score": 27.5,
+      "ma25": NaN,
+      "ma75": NaN,
+      "deviation_ma25": NaN,
+      "score": NaN,
       "score_detail": {
         "yield": 7.8,
         "pbr": 8.1,
         "per": 6.1,
-        "deviation": 5.5
+        "deviation": NaN
       },
       "error": null
     },
@@ -908,15 +908,15 @@
       "annual_div_per_share": 38.3,
       "per": 13.6,
       "pbr": 1.17,
-      "ma25": 1354.8,
-      "ma75": 1362.5,
-      "deviation_ma25": 1.05,
-      "score": 31.8,
+      "ma25": NaN,
+      "ma75": NaN,
+      "deviation_ma25": NaN,
+      "score": NaN,
       "score_detail": {
         "yield": 10,
         "pbr": 7.3,
         "per": 8.2,
-        "deviation": 6.3
+        "deviation": NaN
       },
       "error": null
     },
@@ -932,15 +932,15 @@
       "annual_div_per_share": 24.0,
       "per": 2.7,
       "pbr": 0.51,
-      "ma25": 727.0,
-      "ma75": 778.1,
-      "deviation_ma25": -2.34,
-      "score": 37.4,
+      "ma25": NaN,
+      "ma75": NaN,
+      "deviation_ma25": NaN,
+      "score": NaN,
       "score_detail": {
         "yield": 10,
         "pbr": 10.0,
         "per": 10,
-        "deviation": 7.4
+        "deviation": NaN
       },
       "error": null
     },
@@ -956,15 +956,15 @@
       "annual_div_per_share": 60.0,
       "per": 16.6,
       "pbr": 2.57,
-      "ma25": 2200.9,
-      "ma75": 2217.5,
-      "deviation_ma25": 1.91,
-      "score": 24.4,
+      "ma25": NaN,
+      "ma75": NaN,
+      "deviation_ma25": NaN,
+      "score": NaN,
       "score_detail": {
         "yield": 10,
         "pbr": 1.7,
         "per": 6.7,
-        "deviation": 6.0
+        "deviation": NaN
       },
       "error": null
     },
@@ -980,15 +980,15 @@
       "annual_div_per_share": 110.0,
       "per": 29.5,
       "pbr": 1.21,
-      "ma25": 3383.1,
-      "ma75": 3391.4,
-      "deviation_ma25": 3.84,
-      "score": 22.4,
+      "ma25": NaN,
+      "ma75": NaN,
+      "deviation_ma25": NaN,
+      "score": NaN,
       "score_detail": {
         "yield": 9.6,
         "pbr": 7.2,
         "per": 0.2,
-        "deviation": 5.4
+        "deviation": NaN
       },
       "error": null
     },
@@ -1004,15 +1004,15 @@
       "annual_div_per_share": 87.0,
       "per": 14.2,
       "pbr": 1.56,
-      "ma25": 3737.0,
-      "ma75": 3849.1,
-      "deviation_ma25": 1.95,
-      "score": 28.3,
+      "ma25": NaN,
+      "ma75": NaN,
+      "deviation_ma25": NaN,
+      "score": NaN,
       "score_detail": {
         "yield": 8.6,
         "pbr": 5.8,
         "per": 7.9,
-        "deviation": 6.0
+        "deviation": NaN
       },
       "error": null
     },
@@ -1028,15 +1028,15 @@
       "annual_div_per_share": 88.0,
       "per": 12.7,
       "pbr": 1.17,
-      "ma25": 3439.5,
-      "ma75": 3570.5,
-      "deviation_ma25": 2.22,
-      "score": 31.9,
+      "ma25": NaN,
+      "ma75": NaN,
+      "deviation_ma25": NaN,
+      "score": NaN,
       "score_detail": {
         "yield": 10,
         "pbr": 7.3,
         "per": 8.7,
-        "deviation": 5.9
+        "deviation": NaN
       },
       "error": null
     },
@@ -1052,15 +1052,15 @@
       "annual_div_per_share": 80.0,
       "per": 11.6,
       "pbr": 1.16,
-      "ma25": 3632.8,
-      "ma75": 3833.1,
-      "deviation_ma25": 5.43,
-      "score": 29.7,
+      "ma25": NaN,
+      "ma75": NaN,
+      "deviation_ma25": NaN,
+      "score": NaN,
       "score_detail": {
         "yield": 8.2,
         "pbr": 7.4,
         "per": 9.2,
-        "deviation": 4.9
+        "deviation": NaN
       },
       "error": null
     },
@@ -1076,15 +1076,15 @@
       "annual_div_per_share": 16.7,
       "per": 13.9,
       "pbr": 1.67,
-      "ma25": 653.0,
-      "ma75": 668.2,
-      "deviation_ma25": -0.31,
-      "score": 30.2,
+      "ma25": NaN,
+      "ma75": NaN,
+      "deviation_ma25": NaN,
+      "score": NaN,
       "score_detail": {
         "yield": 10,
         "pbr": 5.3,
         "per": 8.1,
-        "deviation": 6.8
+        "deviation": NaN
       },
       "error": null
     }
