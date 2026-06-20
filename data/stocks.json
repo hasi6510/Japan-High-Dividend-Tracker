@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-06-19 21:43",
-  "updated_at_iso": "2026-06-19T21:43:40.245122+09:00",
+  "updated_at": "2026-06-20 16:32",
+  "updated_at_iso": "2026-06-20T16:32:13.884219+09:00",
   "market": {
-    "vix": 17.15,
+    "vix": 16.4,
     "nikkei_vi": null,
     "nikkei225": 71250.0,
     "nikkei225_change_pct": 0.28
@@ -1085,6 +1085,30 @@
         "pbr": 5.4,
         "per": 8.2,
         "deviation": 7.1
+      },
+      "error": null
+    },
+    {
+      "code": "9310",
+      "name": "日本トランスシティ",
+      "price": 1127.0,
+      "div_yield": 3.83,
+      "div_months": [
+        3,
+        9
+      ],
+      "annual_div_per_share": 27.3,
+      "per": 10.7,
+      "pbr": 0.69,
+      "ma25": 1112.3,
+      "ma75": 1191.3,
+      "deviation_ma25": 1.32,
+      "score": 34.7,
+      "score_detail": {
+        "yield": 9.6,
+        "pbr": 9.2,
+        "per": 9.7,
+        "deviation": 6.2
       },
       "error": null
     }
