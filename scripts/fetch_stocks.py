@@ -4,6 +4,7 @@
 # GitHub Actions から平日3回実行される
 
 import json
+import math
 import os
 import sys
 from datetime import datetime, timezone, timedelta
@@ -165,11 +166,13 @@ def fetch_stock(code, name):
 
         # PER
         per = info.get('trailingPE') or info.get('forwardPE')
-        result['per'] = round(float(per), 1) if per else None
+        if per and math.isfinite(float(per)):
+            result['per'] = round(float(per), 1)
 
         # PBR
         pbr = info.get('priceToBook')
-        result['pbr'] = round(float(pbr), 2) if pbr else None
+        if pbr and math.isfinite(float(pbr)):
+            result['pbr'] = round(float(pbr), 2)
 
         # 移動平均
         hist = ticker.history(period="6mo")
@@ -248,7 +251,7 @@ def main():
 
     os.makedirs(DATA_DIR, exist_ok=True)
     with open(OUTPUT_PATH, 'w', encoding='utf-8') as f:
-        json.dump(output, f, ensure_ascii=False, indent=2)
+        json.dump(output, f, ensure_ascii=False, indent=2, allow_nan=False)
 
     print(f"✅ 保存完了: {OUTPUT_PATH}")
 
