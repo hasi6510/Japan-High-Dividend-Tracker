@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-06-29 20:32",
-  "updated_at_iso": "2026-06-29T20:32:51.450627+09:00",
+  "updated_at": "2026-06-29 22:03",
+  "updated_at_iso": "2026-06-29T22:03:33.738891+09:00",
   "market": {
-    "vix": 18.29,
+    "vix": 18.36,
     "nikkei_vi": null,
     "nikkei225": 69468.0,
     "nikkei225_change_pct": 0.15
@@ -616,10 +616,9 @@
       "price": 2527.0,
       "div_yield": 5.18,
       "div_months": [
-        3,
-        9
+        3
       ],
-      "annual_div_per_share": 64.3,
+      "annual_div_per_share": 53.0,
       "per": 14.9,
       "pbr": 3.36,
       "ma25": 2519.5,
