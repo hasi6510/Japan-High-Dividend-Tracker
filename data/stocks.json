@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-07-01 15:51",
-  "updated_at_iso": "2026-07-01T15:51:42.592203+09:00",
+  "updated_at": "2026-07-01 19:30",
+  "updated_at_iso": "2026-07-01T19:30:55.757000+09:00",
   "market": {
-    "vix": 16.45,
+    "vix": 16.86,
     "nikkei_vi": null,
     "nikkei225": 70475.0,
     "nikkei225_change_pct": 0.59
@@ -23,7 +23,7 @@
       "per": 20.7,
       "pbr": null,
       "ma25": 1922.3,
-      "ma75": 1990.4,
+      "ma75": 1990.7,
       "deviation_ma25": 0.77,
       "score": 21.1,
       "score_detail": {
