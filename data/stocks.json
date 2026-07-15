@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-07-15 17:55",
-  "updated_at_iso": "2026-07-15T17:55:49.618604+09:00",
+  "updated_at": "2026-07-15 19:45",
+  "updated_at_iso": "2026-07-15T19:45:40.468865+09:00",
   "market": {
-    "vix": 16.25,
+    "vix": 16.4,
     "nikkei_vi": null,
     "nikkei225": 68752.0,
     "nikkei225_change_pct": null
@@ -134,7 +134,7 @@
       "code": "3231",
       "name": "野村不動産ホールディングス",
       "price": 951.6,
-      "div_yield": 4.73,
+      "div_yield": 4.66,
       "div_months": [
         3,
         9
@@ -398,7 +398,7 @@
       "code": "7994",
       "name": "オカムラ",
       "price": 2275.0,
-      "div_yield": 4.64,
+      "div_yield": 4.59,
       "div_months": [
         3,
         9
@@ -446,7 +446,7 @@
       "code": "8309",
       "name": "三井住友トラストグループ",
       "price": 6757.0,
-      "div_yield": 72.0,
+      "div_yield": 71.0,
       "div_months": [
         3,
         9
@@ -733,7 +733,7 @@
       "code": "3003",
       "name": "ヒューリック",
       "price": 1792.5,
-      "div_yield": 3.79,
+      "div_yield": 3.75,
       "div_months": [
         6,
         12
@@ -744,9 +744,9 @@
       "ma25": 1712.1,
       "ma75": 1737.7,
       "deviation_ma25": 4.7,
-      "score": 29.7,
+      "score": 29.6,
       "score_detail": {
-        "yield": 9.5,
+        "yield": 9.4,
         "pbr": 6.0,
         "per": 9.1,
         "deviation": 5.1
@@ -1068,7 +1068,7 @@
       "code": "4290",
       "name": "プレステージ・インターナショナル",
       "price": 675.0,
-      "div_yield": 4.19,
+      "div_yield": 4.18,
       "div_months": [
         3,
         9
