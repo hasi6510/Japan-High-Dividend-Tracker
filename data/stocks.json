@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-07-17 17:36",
-  "updated_at_iso": "2026-07-17T17:36:15.486845+09:00",
+  "updated_at": "2026-07-17 19:42",
+  "updated_at_iso": "2026-07-17T19:42:46.964433+09:00",
   "market": {
-    "vix": 18.61,
+    "vix": 18.19,
     "nikkei_vi": null,
     "nikkei225": 64141.0,
     "nikkei225_change_pct": -4.03
@@ -205,23 +205,26 @@
     {
       "code": "4008",
       "name": "住友精化",
-      "price": null,
-      "div_yield": null,
-      "div_months": [],
-      "annual_div_per_share": null,
-      "per": null,
-      "pbr": null,
-      "ma25": null,
-      "ma75": null,
-      "deviation_ma25": null,
-      "score": null,
+      "price": 1268.0,
+      "div_yield": 3.73,
+      "div_months": [
+        3,
+        9
+      ],
+      "annual_div_per_share": 28.0,
+      "per": 10.8,
+      "pbr": 0.79,
+      "ma25": 1301.0,
+      "ma75": 1265.9,
+      "deviation_ma25": -2.54,
+      "score": 35.2,
       "score_detail": {
-        "yield": 0,
-        "pbr": 0,
-        "per": 0,
-        "deviation": 0
+        "yield": 9.3,
+        "pbr": 8.8,
+        "per": 9.6,
+        "deviation": 7.5
       },
-      "error": "object of type 'NoneType' has no len()"
+      "error": null
     },
     {
       "code": "4540",
@@ -250,23 +253,26 @@
     {
       "code": "4641",
       "name": "アルプス技研",
-      "price": null,
-      "div_yield": null,
-      "div_months": [],
-      "annual_div_per_share": null,
-      "per": null,
-      "pbr": null,
-      "ma25": null,
-      "ma75": null,
-      "deviation_ma25": null,
-      "score": null,
+      "price": 808.0,
+      "div_yield": 4.49,
+      "div_months": [
+        6,
+        12
+      ],
+      "annual_div_per_share": 23.4,
+      "per": 12.0,
+      "pbr": 2.37,
+      "ma25": 776.4,
+      "ma75": 796.3,
+      "deviation_ma25": 4.07,
+      "score": 26.8,
       "score_detail": {
-        "yield": 0,
-        "pbr": 0,
-        "per": 0,
-        "deviation": 0
+        "yield": 10,
+        "pbr": 2.5,
+        "per": 9.0,
+        "deviation": 5.3
       },
-      "error": "object of type 'NoneType' has no len()"
+      "error": null
     },
     {
       "code": "5388",
@@ -511,23 +517,26 @@
     {
       "code": "8725",
       "name": "MS&ADインシュアランス",
-      "price": null,
-      "div_yield": null,
-      "div_months": [],
-      "annual_div_per_share": null,
-      "per": null,
-      "pbr": null,
-      "ma25": null,
-      "ma75": null,
-      "deviation_ma25": null,
-      "score": null,
+      "price": 4483.0,
+      "div_yield": 3.07,
+      "div_months": [
+        3,
+        9
+      ],
+      "annual_div_per_share": 101.7,
+      "per": 13.1,
+      "pbr": 1.01,
+      "ma25": 4476.3,
+      "ma75": 4293.3,
+      "deviation_ma25": 0.15,
+      "score": 30.7,
       "score_detail": {
-        "yield": 0,
-        "pbr": 0,
-        "per": 0,
-        "deviation": 0
+        "yield": 7.7,
+        "pbr": 8.0,
+        "per": 8.4,
+        "deviation": 6.6
       },
-      "error": "object of type 'NoneType' has no len()"
+      "error": null
     },
     {
       "code": "9069",
