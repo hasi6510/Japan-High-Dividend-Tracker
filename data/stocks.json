@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-07-27 19:26",
-  "updated_at_iso": "2026-07-27T19:26:53.908444+09:00",
+  "updated_at": "2026-07-27 21:17",
+  "updated_at_iso": "2026-07-27T21:17:31.932628+09:00",
   "market": {
-    "vix": 17.63,
+    "vix": 17.72,
     "nikkei_vi": null,
     "nikkei225": 64931.0,
-    "nikkei225_change_pct": null
+    "nikkei225_change_pct": 0.5
   },
   "stocks": [
     {
