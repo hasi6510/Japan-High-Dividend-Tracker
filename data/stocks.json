@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-07-29 18:22",
-  "updated_at_iso": "2026-07-29T18:22:38.859565+09:00",
+  "updated_at": "2026-07-29 20:21",
+  "updated_at_iso": "2026-07-29T20:21:32.876112+09:00",
   "market": {
-    "vix": 18.24,
+    "vix": 18.35,
     "nikkei_vi": null,
     "nikkei225": 61434.0,
     "nikkei225_change_pct": -1.49
@@ -733,7 +733,7 @@
       "code": "3003",
       "name": "ヒューリック",
       "price": 1907.0,
-      "div_yield": 3.65,
+      "div_yield": 3.7,
       "div_months": [
         6,
         12
@@ -744,9 +744,9 @@
       "ma25": 1760.4,
       "ma75": 1734.8,
       "deviation_ma25": 8.33,
-      "score": 27.5,
+      "score": 27.6,
       "score_detail": {
-        "yield": 9.1,
+        "yield": 9.2,
         "pbr": 5.6,
         "per": 8.9,
         "deviation": 3.9
