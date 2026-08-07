@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-08-07 16:52",
-  "updated_at_iso": "2026-08-07T16:52:39.275384+09:00",
+  "updated_at": "2026-08-07 18:57",
+  "updated_at_iso": "2026-08-07T18:57:24.092431+09:00",
   "market": {
-    "vix": 15.3,
+    "vix": 15.28,
     "nikkei_vi": null,
     "nikkei225": 65607.0,
     "nikkei225_change_pct": -0.12
@@ -828,7 +828,7 @@
       "code": "4674",
       "name": "クロスコ",
       "price": 1805.0,
-      "div_yield": 4.23,
+      "div_yield": 4.05,
       "div_months": [
         3,
         9
@@ -900,7 +900,7 @@
       "code": "6345",
       "name": "アイチ",
       "price": 1414.0,
-      "div_yield": 4.58,
+      "div_yield": 4.57,
       "div_months": [
         3,
         9
