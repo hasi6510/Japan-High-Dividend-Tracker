@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-08-11 13:00",
-  "updated_at_iso": "2026-08-11T13:00:38.681095+09:00",
+  "updated_at": "2026-08-11 16:47",
+  "updated_at_iso": "2026-08-11T16:47:01.411607+09:00",
   "market": {
-    "vix": 15.46,
+    "vix": 15.43,
     "nikkei_vi": null,
     "nikkei225": 66970.0,
     "nikkei225_change_pct": 2.08
@@ -787,7 +787,7 @@
       ],
       "annual_div_per_share": 66.7,
       "per": 20.7,
-      "pbr": 1.01,
+      "pbr": 1.0,
       "ma25": 2741.5,
       "ma75": 2729.5,
       "deviation_ma25": -0.04,
