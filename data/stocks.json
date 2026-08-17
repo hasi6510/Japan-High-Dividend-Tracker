@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-08-17 16:33",
-  "updated_at_iso": "2026-08-17T16:33:39.378957+09:00",
+  "updated_at": "2026-08-17 18:35",
+  "updated_at_iso": "2026-08-17T18:35:50.935761+09:00",
   "market": {
-    "vix": 14.99,
+    "vix": 14.94,
     "nikkei_vi": null,
     "nikkei225": 69220.0,
     "nikkei225_change_pct": 0.74
@@ -350,7 +350,7 @@
       "code": "7931",
       "name": "未来工業",
       "price": 3600.0,
-      "div_yield": 4.72,
+      "div_yield": 4.79,
       "div_months": [
         3,
         9
@@ -621,7 +621,7 @@
       ],
       "annual_div_per_share": 64.3,
       "per": 15.4,
-      "pbr": 3.49,
+      "pbr": 3.77,
       "ma25": 2634.2,
       "ma75": 2525.0,
       "deviation_ma25": -0.27,
@@ -757,7 +757,7 @@
       "code": "3901",
       "name": "マークラインズ",
       "price": 1613.0,
-      "div_yield": 3.22,
+      "div_yield": 3.35,
       "div_months": [
         12
       ],
@@ -767,9 +767,9 @@
       "ma25": 1405.5,
       "ma75": 1361.8,
       "deviation_ma25": 14.77,
-      "score": 18.5,
+      "score": 18.8,
       "score_detail": {
-        "yield": 8.1,
+        "yield": 8.4,
         "pbr": 0.3,
         "per": 8.4,
         "deviation": 1.7
@@ -1044,7 +1044,7 @@
       "code": "5982",
       "name": "マルゼン",
       "price": 4090.0,
-      "div_yield": 3.06,
+      "div_yield": 3.05,
       "div_months": [
         2,
         8
@@ -1055,9 +1055,9 @@
       "ma25": 4011.8,
       "ma75": 3824.1,
       "deviation_ma25": 1.95,
-      "score": 29.5,
+      "score": 29.4,
       "score_detail": {
-        "yield": 7.7,
+        "yield": 7.6,
         "pbr": 7.0,
         "per": 8.8,
         "deviation": 6.0
@@ -1068,7 +1068,7 @@
       "code": "4290",
       "name": "プレステージ・インターナショナル",
       "price": 720.0,
-      "div_yield": 3.9,
+      "div_yield": 3.91,
       "div_months": [
         3,
         9
