@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-01 16:56",
-  "updated_at_iso": "2026-09-01T16:56:39.028559+09:00",
+  "updated_at": "2026-09-01 20:56",
+  "updated_at_iso": "2026-09-01T20:56:29.967943+09:00",
   "market": {
-    "vix": 15.11,
+    "vix": 15.7,
     "nikkei_vi": null,
     "nikkei225": 66215.0,
     "nikkei225_change_pct": -0.15
@@ -828,7 +828,7 @@
       "code": "4674",
       "name": "クロスコ",
       "price": 2017.0,
-      "div_yield": 3.41,
+      "div_yield": 3.4,
       "div_months": [
         3,
         9
