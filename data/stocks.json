@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-09-04 16:22",
-  "updated_at_iso": "2026-09-04T16:22:11.161232+09:00",
+  "updated_at": "2026-09-04 20:36",
+  "updated_at_iso": "2026-09-04T20:36:32.451414+09:00",
   "market": {
-    "vix": 14.32,
+    "vix": 14.14,
     "nikkei_vi": null,
     "nikkei225": 65021.0,
-    "nikkei225_change_pct": null
+    "nikkei225_change_pct": 1.26
   },
   "stocks": [
     {
@@ -212,16 +212,16 @@
         9
       ],
       "annual_div_per_share": 28.0,
-      "per": 12.6,
+      "per": 12.5,
       "pbr": 0.9,
       "ma25": 1478.6,
       "ma75": 1352.5,
       "deviation_ma25": -0.92,
-      "score": 34.1,
+      "score": 34.2,
       "score_detail": {
         "yield": 10,
         "pbr": 8.4,
-        "per": 8.7,
+        "per": 8.8,
         "deviation": 7.0
       },
       "error": null
@@ -308,16 +308,16 @@
         12
       ],
       "annual_div_per_share": 63.3,
-      "per": 12.4,
+      "per": 12.2,
       "pbr": 1.44,
       "ma25": 3023.7,
       "ma75": 3130.4,
       "deviation_ma25": 5.67,
-      "score": 29.3,
+      "score": 29.4,
       "score_detail": {
         "yield": 9.5,
         "pbr": 6.2,
-        "per": 8.8,
+        "per": 8.9,
         "deviation": 4.8
       },
       "error": null
@@ -590,7 +590,7 @@
       "code": "9757",
       "name": "船井総研HD",
       "price": 1179.0,
-      "div_yield": null,
+      "div_yield": 4.08,
       "div_months": [
         6,
         12
@@ -601,9 +601,9 @@
       "ma25": 1144.7,
       "ma75": 1098.3,
       "deviation_ma25": 2.99,
-      "score": 13.9,
+      "score": 23.9,
       "score_detail": {
-        "yield": 0,
+        "yield": 10,
         "pbr": 0,
         "per": 8.2,
         "deviation": 5.7
@@ -810,16 +810,16 @@
         9
       ],
       "annual_div_per_share": 20.0,
-      "per": 14.3,
+      "per": 14.2,
       "pbr": 0.77,
       "ma25": 1168.4,
       "ma75": 1125.0,
       "deviation_ma25": 2.88,
-      "score": 30.7,
+      "score": 30.8,
       "score_detail": {
         "yield": 8.3,
         "pbr": 8.9,
-        "per": 7.8,
+        "per": 7.9,
         "deviation": 5.7
       },
       "error": null
@@ -906,16 +906,16 @@
         9
       ],
       "annual_div_per_share": 38.3,
-      "per": 14.4,
+      "per": 14.6,
       "pbr": 1.28,
       "ma25": 1432.6,
       "ma75": 1392.7,
       "deviation_ma25": 2.82,
-      "score": 30.4,
+      "score": 30.3,
       "score_detail": {
         "yield": 10,
         "pbr": 6.9,
-        "per": 7.8,
+        "per": 7.7,
         "deviation": 5.7
       },
       "error": null
