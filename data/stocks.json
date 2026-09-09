@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-09 20:45",
-  "updated_at_iso": "2026-09-09T20:45:00.303286+09:00",
+  "updated_at": "2026-09-09 22:21",
+  "updated_at_iso": "2026-09-09T22:21:32.336061+09:00",
   "market": {
-    "vix": 16.31,
+    "vix": 16.19,
     "nikkei_vi": null,
     "nikkei225": 65143.0,
     "nikkei225_change_pct": -0.19
@@ -37,74 +37,65 @@
     {
       "code": "1928",
       "name": "積水ハウス",
-      "price": 3321.0,
-      "div_yield": 4.42,
-      "div_months": [
-        1,
-        7
-      ],
-      "annual_div_per_share": 143.5,
-      "per": 8.4,
-      "pbr": 1.0,
-      "ma25": 3413.6,
-      "ma75": 3362.3,
-      "deviation_ma25": -2.71,
-      "score": 35.6,
+      "price": null,
+      "div_yield": null,
+      "div_months": [],
+      "annual_div_per_share": null,
+      "per": null,
+      "pbr": null,
+      "ma25": null,
+      "ma75": null,
+      "deviation_ma25": null,
+      "score": null,
       "score_detail": {
-        "yield": 10,
-        "pbr": 8.0,
-        "per": 10,
-        "deviation": 7.6
+        "yield": 0,
+        "pbr": 0,
+        "per": 0,
+        "deviation": 0
       },
-      "error": null
+      "error": "Too Many Requests. Rate limited. Try after a while."
     },
     {
       "code": "2003",
       "name": "日東富士製粉",
-      "price": 1829.0,
-      "div_yield": 3.86,
-      "div_months": [
-        3,
-        9
-      ],
-      "annual_div_per_share": 46.7,
-      "per": 20.1,
-      "pbr": 1.35,
-      "ma25": 1793.2,
-      "ma75": 1761.4,
-      "deviation_ma25": 2.0,
-      "score": 27.2,
+      "price": null,
+      "div_yield": null,
+      "div_months": [],
+      "annual_div_per_share": null,
+      "per": null,
+      "pbr": null,
+      "ma25": null,
+      "ma75": null,
+      "deviation_ma25": null,
+      "score": null,
       "score_detail": {
-        "yield": 9.7,
-        "pbr": 6.6,
-        "per": 4.9,
-        "deviation": 6.0
+        "yield": 0,
+        "pbr": 0,
+        "per": 0,
+        "deviation": 0
       },
-      "error": null
+      "error": "Too Many Requests. Rate limited. Try after a while."
     },
     {
       "code": "2169",
       "name": "CDS",
-      "price": 1732.0,
-      "div_yield": 4.27,
-      "div_months": [
-        6,
-        12
-      ],
-      "annual_div_per_share": 51.7,
-      "per": 38.8,
-      "pbr": 1.33,
-      "ma25": 1722.4,
-      "ma75": 1719.0,
-      "deviation_ma25": 0.56,
-      "score": 23.2,
+      "price": null,
+      "div_yield": null,
+      "div_months": [],
+      "annual_div_per_share": null,
+      "per": null,
+      "pbr": null,
+      "ma25": null,
+      "ma75": null,
+      "deviation_ma25": null,
+      "score": null,
       "score_detail": {
-        "yield": 10,
-        "pbr": 6.7,
+        "yield": 0,
+        "pbr": 0,
         "per": 0,
-        "deviation": 6.5
+        "deviation": 0
       },
-      "error": null
+      "error": "Too Many Requests. Rate limited. Try after a while."
     },
     {
       "code": "3076",
