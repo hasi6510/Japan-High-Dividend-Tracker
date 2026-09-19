@@ -1294,6 +1294,12 @@ function renderAllocation() {
   document.getElementById('alloc-ratio').textContent =
     total > 0 ? (stockTotal / total * 100).toFixed(1) + '%' : '--';
 
+  // セクター別の集計結果（グラフとテーブルの両方で使う）
+  const secRows = SECTORS
+    .map(s => ({ name: s.name, color: s.color, ...agg[s.name] }))
+    .filter(r => r.val > 0)
+    .sort((a, b) => b.val - a.val);
+
   // 円グラフ①: 現金 vs 株
   try {
   const ctx1 = document.getElementById('chart-cashstock').getContext('2d');
@@ -1322,11 +1328,6 @@ function renderAllocation() {
   });
 
   // 円グラフ②: セクター別
-  const secRows = SECTORS
-    .map(s => ({ name: s.name, color: s.color, ...agg[s.name] }))
-    .filter(r => r.val > 0)
-    .sort((a, b) => b.val - a.val);
-
   const ctx2 = document.getElementById('chart-sector').getContext('2d');
   if (sectorChart) sectorChart.destroy();
   sectorChart = new Chart(ctx2, {
