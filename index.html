@@ -362,6 +362,43 @@
     .pnl-neg { color: var(--green); font-weight: 700; }
     .pnl-zero { color: var(--text-muted); }
 
+    /* ---- 資産配分タブ ---- */
+    .alloc-cash-box {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px;
+      margin-bottom: 16px;
+    }
+    .alloc-cash-box label { font-size: 0.85rem; font-weight: 700; margin-right: 10px; }
+    .alloc-cash-box input {
+      background: var(--bg);
+      border: 1px solid var(--accent);
+      border-radius: 6px;
+      color: var(--text);
+      padding: 6px 10px;
+      font-size: 0.9rem;
+      width: 140px;
+    }
+    .alloc-cash-box button {
+      background: var(--accent);
+      border: none;
+      color: #fff;
+      border-radius: 6px;
+      padding: 6px 16px;
+      font-size: 0.82rem;
+      cursor: pointer;
+      margin-left: 6px;
+    }
+    #cash-msg { margin-left: 10px; font-size: 0.8rem; color: var(--green); }
+    .alloc-note { font-size: 0.75rem; color: var(--text-muted); margin-top: 8px; line-height: 1.5; }
+    .alloc-charts { display: flex; gap: 18px; flex-wrap: wrap; margin-top: 18px; }
+    .alloc-chart-box { flex: 1; min-width: 260px; }
+    .alloc-chart-box h3 { font-size: 0.9rem; margin: 0 0 8px; color: var(--text-muted); }
+    .alloc-canvas-wrap { position: relative; height: 240px; }
+    .sector-warn { color: var(--yellow); font-weight: 700; }
+    .sector-ok   { color: var(--text-muted); }
+
     .pf-summary {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -415,6 +452,7 @@
   <button class="tab-btn" data-tab="ranking">🏆 ランキング</button>
   <button class="tab-btn" data-tab="deviation">📈 乖離率</button>
   <button class="tab-btn" data-tab="portfolio">💼 ポートフォリオ</button>
+  <button class="tab-btn" data-tab="allocation">🥧 資産配分</button>
   <button class="tab-btn" data-tab="dividend">📅 配当カレンダー</button>
 </nav>
 
@@ -579,6 +617,61 @@
     </div>
   </section>
 
+  <!-- ---- TAB: ALLOCATION ---- -->
+  <section class="tab-panel" id="tab-allocation">
+    <div class="dev-section">
+      <h2>🥧 資産配分</h2>
+
+      <div class="alloc-cash-box">
+        <label for="cash-input">💰 投資待機資金（現金）</label>
+        <input id="cash-input" type="number" min="0" step="1000" placeholder="例: 50000">
+        <button id="btn-cash-save">保存</button>
+        <span id="cash-msg"></span>
+        <div class="alloc-note">※ 高配当株を買うために用意している現金だけを入力してください。<strong>生活防衛資金・婚活資金・投資信託は含めません。</strong></div>
+      </div>
+
+      <div class="pf-summary" id="alloc-summary">
+        <div class="pf-summary-item">
+          <div class="pf-label">現金（待機資金）</div>
+          <div class="pf-val" id="alloc-cash">--</div>
+        </div>
+        <div class="pf-summary-item">
+          <div class="pf-label">高配当株 評価額</div>
+          <div class="pf-val" id="alloc-stock">--</div>
+        </div>
+        <div class="pf-summary-item">
+          <div class="pf-label">合計</div>
+          <div class="pf-val" id="alloc-total">--</div>
+        </div>
+        <div class="pf-summary-item">
+          <div class="pf-label">株式比率</div>
+          <div class="pf-val" id="alloc-ratio">--</div>
+        </div>
+      </div>
+
+      <div class="alloc-charts">
+        <div class="alloc-chart-box">
+          <h3>現金 vs 株</h3>
+          <div class="alloc-canvas-wrap"><canvas id="chart-cashstock"></canvas></div>
+        </div>
+        <div class="alloc-chart-box">
+          <h3>セクター別（株式のみ）</h3>
+          <div class="alloc-canvas-wrap"><canvas id="chart-sector"></canvas></div>
+        </div>
+      </div>
+
+      <h3 style="margin:22px 0 8px;font-size:0.95rem;">セクター別 内訳</h3>
+      <div class="portfolio-table-wrap">
+        <table class="portfolio-table" id="sector-table">
+          <thead>
+            <tr><th>セクター</th><th>銘柄数</th><th>評価額</th><th>構成比</th><th>目安</th></tr>
+          </thead>
+          <tbody id="sector-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
 </main>
 
 <!-- ====== MODAL ====== -->
@@ -603,6 +696,31 @@ let rankSortCol = 'score';
 let rankSortDir = 'desc'; // 'asc' | 'desc'
 
 const PORTFOLIO_KEY = 'portfolio_holdings'; // localStorage キー
+const CASH_KEY      = 'portfolio_cash';     // 投資待機資金（現金）
+
+let cashChart = null;
+let sectorChart = null;
+
+/* セクター分類（購入判断用のグルーピング） */
+const SECTORS = [
+  { name: '自動車・ゴム',     color: '#e74c3c', codes: ['5108'] },
+  { name: '機械・電機・金属', color: '#e67e22', codes: ['7931','7989','7994','6345','7723','5982','6785'] },
+  { name: 'IT・情報',         color: '#3498db', codes: ['2169','3817','4674','4746','3901','3844','3371','9928'] },
+  { name: '化学・素材',       color: '#9b59b6', codes: ['4008','4042','4097','4958','4633','5388','4206'] },
+  { name: '不動産・REIT',     color: '#16a085', codes: ['1343','3231','3003'] },
+  { name: '物流・運輸',       color: '#f39c12', codes: ['9069','9364','9039','9381','9310'] },
+  { name: '建設・住宅',       color: '#27ae60', codes: ['1928','7820'] },
+  { name: '金融・保険',       color: '#2980b9', codes: ['8309','8593','8725','8584'] },
+  { name: '小売・卸売',       color: '#d35400', codes: ['3333','2659','8130','9986','3076','9989'] },
+  { name: 'サービス・人材',   color: '#8e44ad', codes: ['4641','9757','9769','4290'] },
+  { name: '食品',             color: '#c0392b', codes: ['2003'] },
+  { name: '医薬',             color: '#1abc9c', codes: ['4540'] },
+  { name: 'その他',           color: '#7f8c8d', codes: [] }
+];
+
+/* セクター別の上限目安（%）。超えると黄色で警告 */
+const SECTOR_LIMITS = { '不動産・REIT+建設・住宅': 15 };
+const SINGLE_SECTOR_LIMIT = 20;  // 1セクターの目安上限
 
 /* ==============================================================
    1. データ読み込み
@@ -625,6 +743,9 @@ async function loadData() {
     renderRanking();
     renderDeviation();
     renderPortfolio();
+    const cashInput = document.getElementById('cash-input');
+    if (getCash() > 0) cashInput.value = getCash();
+    renderAllocation();
 
   } catch (e) {
     console.error('データ読み込み失敗:', e);
@@ -1131,6 +1252,147 @@ function renderDividend() {
 }
 
 /* ==============================================================
+   資産配分タブ
+============================================================== */
+function getCash() {
+  const v = Number(localStorage.getItem(CASH_KEY) || 0);
+  return isFinite(v) && v > 0 ? v : 0;
+}
+
+function sectorOf(code) {
+  for (const s of SECTORS) if (s.codes.includes(code)) return s;
+  return SECTORS[SECTORS.length - 1]; // その他
+}
+
+function renderAllocation() {
+  const holdings = loadPortfolio();
+  const cash = getCash();
+
+  // セクター別に集計
+  const agg = {};
+  SECTORS.forEach(s => { agg[s.name] = { val: 0, count: 0, color: s.color }; });
+
+  let stockTotal = 0;
+  Object.entries(holdings).forEach(([code, h]) => {
+    const qty = Number(h.qty) || 0;
+    if (qty <= 0) return;
+    const s = stocksData.find(x => x.code === code);
+    const price = s && s.price ? s.price : Number(h.cost) || 0;
+    const val = price * qty;
+    stockTotal += val;
+    const sec = sectorOf(code);
+    agg[sec.name].val += val;
+    agg[sec.name].count += 1;
+  });
+
+  const total = stockTotal + cash;
+
+  // サマリー
+  document.getElementById('alloc-cash').textContent  = '¥' + Math.round(cash).toLocaleString();
+  document.getElementById('alloc-stock').textContent = '¥' + Math.round(stockTotal).toLocaleString();
+  document.getElementById('alloc-total').textContent = '¥' + Math.round(total).toLocaleString();
+  document.getElementById('alloc-ratio').textContent =
+    total > 0 ? (stockTotal / total * 100).toFixed(1) + '%' : '--';
+
+  // 円グラフ①: 現金 vs 株
+  const ctx1 = document.getElementById('chart-cashstock').getContext('2d');
+  if (cashChart) cashChart.destroy();
+  cashChart = new Chart(ctx1, {
+    type: 'doughnut',
+    data: {
+      labels: ['現金（待機資金）', '高配当株'],
+      datasets: [{
+        data: [Math.round(cash), Math.round(stockTotal)],
+        backgroundColor: ['#f39c12', '#e94560'],
+        borderColor: '#1a1a2e',
+        borderWidth: 2
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { position: 'bottom', labels: { color: '#e0e0e0', font: { size: 11 } } },
+        tooltip: { callbacks: { label: c => {
+          const pct = total > 0 ? (c.parsed / total * 100).toFixed(1) : 0;
+          return c.label + ': ¥' + c.parsed.toLocaleString() + ' (' + pct + '%)';
+        } } }
+      }
+    }
+  });
+
+  // 円グラフ②: セクター別
+  const secRows = SECTORS
+    .map(s => ({ name: s.name, color: s.color, ...agg[s.name] }))
+    .filter(r => r.val > 0)
+    .sort((a, b) => b.val - a.val);
+
+  const ctx2 = document.getElementById('chart-sector').getContext('2d');
+  if (sectorChart) sectorChart.destroy();
+  sectorChart = new Chart(ctx2, {
+    type: 'doughnut',
+    data: {
+      labels: secRows.map(r => r.name),
+      datasets: [{
+        data: secRows.map(r => Math.round(r.val)),
+        backgroundColor: secRows.map(r => r.color),
+        borderColor: '#1a1a2e',
+        borderWidth: 2
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { position: 'bottom', labels: { color: '#e0e0e0', font: { size: 10 }, boxWidth: 12 } },
+        tooltip: { callbacks: { label: c => {
+          const pct = stockTotal > 0 ? (c.parsed / stockTotal * 100).toFixed(1) : 0;
+          return c.label + ': ¥' + c.parsed.toLocaleString() + ' (' + pct + '%)';
+        } } }
+      }
+    }
+  });
+
+  // セクター別テーブル
+  const tbody = document.getElementById('sector-tbody');
+  if (secRows.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="5" class="empty">保有データがありません（ポートフォリオタブで入力してください）</td></tr>';
+    return;
+  }
+
+  const fudo = (agg['不動産・REIT'].val + agg['建設・住宅'].val) / (stockTotal || 1) * 100;
+
+  tbody.innerHTML = secRows.map(r => {
+    const pct = stockTotal > 0 ? r.val / stockTotal * 100 : 0;
+    const over = pct > SINGLE_SECTOR_LIMIT;
+    return `<tr>
+      <td><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:${r.color};margin-right:6px;"></span>${r.name}</td>
+      <td>${r.count}銘柄</td>
+      <td>¥${Math.round(r.val).toLocaleString()}</td>
+      <td class="${over ? 'sector-warn' : ''}">${pct.toFixed(1)}%</td>
+      <td class="${over ? 'sector-warn' : 'sector-ok'}">${over ? '⚠ 20%超' : '—'}</td>
+    </tr>`;
+  }).join('') + `<tr style="border-top:2px solid var(--border);">
+      <td colspan="3" style="color:var(--text-muted);">不動産・REIT ＋ 建設・住宅（上限の目安15%）</td>
+      <td class="${fudo > 15 ? 'sector-warn' : ''}">${fudo.toFixed(1)}%</td>
+      <td class="${fudo > 15 ? 'sector-warn' : 'sector-ok'}">${fudo > 15 ? '⚠ 15%超' : '✅ 枠内'}</td>
+    </tr>`;
+}
+
+document.getElementById('btn-cash-save').addEventListener('click', () => {
+  const v = Number(document.getElementById('cash-input').value);
+  const msg = document.getElementById('cash-msg');
+  if (!isFinite(v) || v < 0) {
+    msg.textContent = '⚠ 数字を入力してください';
+    msg.style.color = 'var(--red)';
+    return;
+  }
+  localStorage.setItem(CASH_KEY, String(Math.round(v)));
+  msg.textContent = '✅ 保存しました';
+  msg.style.color = 'var(--green)';
+  renderAllocation();
+  setTimeout(() => { msg.textContent = ''; }, 2500);
+});
+
+/* ==============================================================
    TAB SWITCHING
 ============================================================== */
 document.querySelectorAll('.tab-btn').forEach(btn => {
@@ -1140,15 +1402,25 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
     document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
     btn.classList.add('active');
     document.getElementById('tab-' + target).classList.add('active');
-    if (target === 'dividend') renderDividend();
+    if (target === 'dividend')   renderDividend();
+    if (target === 'allocation') renderAllocation();
   });
 });
 
 /* ==============================================================
    9. エクスポート / インポート
 ============================================================== */
+/* エクスポート形式: { holdings: {...}, cash: 数値 }
+   旧形式（保有データだけのフラットなJSON）もインポートできます */
+function buildExportData() {
+  return JSON.stringify({
+    holdings: loadPortfolio(),
+    cash: getCash()
+  });
+}
+
 document.getElementById('btn-export').addEventListener('click', () => {
-  const data = localStorage.getItem(PORTFOLIO_KEY) || '{}';
+  const data = buildExportData();
   navigator.clipboard.writeText(data).then(() => {
     const btn = document.getElementById('btn-export');
     btn.textContent = '✅ コピーしました！';
@@ -1159,8 +1431,7 @@ document.getElementById('btn-export').addEventListener('click', () => {
     }, 2500);
   }).catch(() => {
     // クリップボードAPIが使えない場合はプロンプトで表示
-    const data2 = localStorage.getItem(PORTFOLIO_KEY) || '{}';
-    prompt('以下のテキストをコピーしてください：', data2);
+    prompt('以下のテキストをコピーしてください：', buildExportData());
   });
 });
 
@@ -1174,11 +1445,15 @@ document.getElementById('btn-import-exec').addEventListener('click', () => {
   const msg  = document.getElementById('import-msg');
   try {
     const parsed = JSON.parse(text);
-    localStorage.setItem(PORTFOLIO_KEY, JSON.stringify(parsed));
+    // 新形式 { holdings, cash } と旧形式（保有データのみ）の両方に対応
+    const holdings = parsed.holdings ? parsed.holdings : parsed;
+    localStorage.setItem(PORTFOLIO_KEY, JSON.stringify(holdings));
+    if (parsed.cash !== undefined) localStorage.setItem(CASH_KEY, String(Math.round(Number(parsed.cash) || 0)));
     msg.textContent = '✅ インポート完了！';
     msg.style.color = 'var(--green)';
     document.getElementById('import-area').style.display = 'none';
     renderPortfolio();
+    renderAllocation();
     setTimeout(() => { msg.textContent = ''; }, 3000);
   } catch {
     msg.textContent = '⚠ データの形式が正しくありません';
