@@ -31,15 +31,24 @@ jobs:
       - name: 依存パッケージのインストール
         run: pip install yfinance pandas
 
-      # yfinance は一時的にデータ取得に失敗することがあるため最大3回試す
+      # yfinance は一時的にデータ取得に失敗することがあるため最大4回試す
+      # アクセス制限が解除されるのを待つため、間隔を 60→120→180秒 と延ばす
       - name: 株価データ取得 (fetch_stocks.py)
         run: |
-          for i in 1 2 3; do
-            python scripts/fetch_stocks.py && exit 0
-            echo "取得に失敗しました — リトライ $i/3"
-            sleep 30
+          WAITS="60 120 180"
+          ATTEMPT=1
+          for w in $WAITS ""; do
+            if python scripts/fetch_stocks.py; then
+              echo "取得に成功しました（$ATTEMPT 回目）"
+              exit 0
+            fi
+            ATTEMPT=$((ATTEMPT + 1))
+            if [ -n "$w" ]; then
+              echo "取得に失敗しました — ${w}秒待ってリトライします"
+              sleep "$w"
+            fi
           done
-          echo "3回試しても取得できませんでした"
+          echo "4回試しても取得できませんでした（次回の実行で自動的に追いつきます）"
           exit 1
 
       - name: 変更チェック
