@@ -743,9 +743,9 @@ async function loadData() {
     renderRanking();
     renderDeviation();
     renderPortfolio();
+    // 現金の入力欄に保存値を反映（グラフはタブを開いたときに描画する）
     const cashInput = document.getElementById('cash-input');
-    if (getCash() > 0) cashInput.value = getCash();
-    renderAllocation();
+    if (cashInput && getCash() > 0) cashInput.value = getCash();
 
   } catch (e) {
     console.error('データ読み込み失敗:', e);
@@ -1295,6 +1295,7 @@ function renderAllocation() {
     total > 0 ? (stockTotal / total * 100).toFixed(1) + '%' : '--';
 
   // 円グラフ①: 現金 vs 株
+  try {
   const ctx1 = document.getElementById('chart-cashstock').getContext('2d');
   if (cashChart) cashChart.destroy();
   cashChart = new Chart(ctx1, {
@@ -1350,6 +1351,10 @@ function renderAllocation() {
       }
     }
   });
+  } catch (e) {
+    // グラフ描画に失敗しても数値・テーブルの表示は続ける
+    console.warn('円グラフの描画に失敗しました:', e);
+  }
 
   // セクター別テーブル
   const tbody = document.getElementById('sector-tbody');
