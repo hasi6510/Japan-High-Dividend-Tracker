@@ -1265,7 +1265,7 @@ function sectorOf(code) {
 }
 
 function renderAllocation() {
-  const holdings = loadPortfolio();
+  const holdings = loadHoldings();
   const cash = getCash();
 
   // セクター別に集計
@@ -1419,7 +1419,7 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
    旧形式（保有データだけのフラットなJSON）もインポートできます */
 function buildExportData() {
   return JSON.stringify({
-    holdings: loadPortfolio(),
+    holdings: loadHoldings(),
     cash: getCash()
   });
 }
