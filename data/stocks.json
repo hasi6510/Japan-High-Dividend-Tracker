@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-22 20:58",
-  "updated_at_iso": "2026-09-22T20:58:38.143790+09:00",
+  "updated_at": "2026-09-22 22:51",
+  "updated_at_iso": "2026-09-22T22:51:32.142568+09:00",
   "market": {
-    "vix": 14.7,
+    "vix": 14.67,
     "nikkei_vi": null,
     "nikkei225": 65019.0,
     "nikkei225_change_pct": 1.38
@@ -374,7 +374,7 @@
       "code": "7989",
       "name": "立川ブラインド工業",
       "price": 2698.0,
-      "div_yield": 5.16,
+      "div_yield": 5.19,
       "div_months": [
         6,
         12
@@ -1044,7 +1044,7 @@
       "code": "5982",
       "name": "マルゼン",
       "price": 4110.0,
-      "div_yield": 3.03,
+      "div_yield": 3.04,
       "div_months": [
         2,
         8
