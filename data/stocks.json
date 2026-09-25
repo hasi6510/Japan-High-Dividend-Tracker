@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-25 21:06",
-  "updated_at_iso": "2026-09-25T21:06:05.314273+09:00",
+  "updated_at": "2026-09-25 23:23",
+  "updated_at_iso": "2026-09-25T23:23:30.361243+09:00",
   "market": {
-    "vix": 15.03,
+    "vix": 15.75,
     "nikkei_vi": null,
     "nikkei225": 66364.0,
     "nikkei225_change_pct": 1.3
@@ -116,7 +116,7 @@
         12
       ],
       "annual_div_per_share": 75.0,
-      "per": 13.5,
+      "per": 13.7,
       "pbr": 1.37,
       "ma25": 2973.0,
       "ma75": 2819.3,
@@ -212,7 +212,7 @@
         9
       ],
       "annual_div_per_share": 28.0,
-      "per": 13.2,
+      "per": 13.1,
       "pbr": 0.95,
       "ma25": 1500.1,
       "ma75": 1381.9,
@@ -308,16 +308,16 @@
         12
       ],
       "annual_div_per_share": 63.3,
-      "per": 12.4,
+      "per": 12.1,
       "pbr": 1.46,
       "ma25": 3036.5,
       "ma75": 3111.2,
       "deviation_ma25": 6.54,
-      "score": 28.3,
+      "score": 28.4,
       "score_detail": {
         "yield": 8.8,
         "pbr": 6.2,
-        "per": 8.8,
+        "per": 8.9,
         "deviation": 4.5
       },
       "error": null
@@ -548,16 +548,16 @@
         9
       ],
       "annual_div_per_share": 32.0,
-      "per": 21.0,
+      "per": 21.1,
       "pbr": 1.73,
       "ma25": 2276.9,
       "ma75": 2146.1,
       "deviation_ma25": 4.55,
-      "score": 20.7,
+      "score": 20.6,
       "score_detail": {
         "yield": 5.9,
         "pbr": 5.1,
-        "per": 4.5,
+        "per": 4.4,
         "deviation": 5.2
       },
       "error": null
@@ -620,16 +620,16 @@
         9
       ],
       "annual_div_per_share": 64.3,
-      "per": 15.4,
+      "per": 15.5,
       "pbr": 3.76,
       "ma25": 2602.9,
       "ma75": 2588.3,
       "deviation_ma25": 0.62,
-      "score": 23.8,
+      "score": 23.7,
       "score_detail": {
         "yield": 10,
         "pbr": 0,
-        "per": 7.3,
+        "per": 7.2,
         "deviation": 6.5
       },
       "error": null
@@ -692,7 +692,7 @@
         9
       ],
       "annual_div_per_share": 65.0,
-      "per": 14.4,
+      "per": 14.3,
       "pbr": 1.23,
       "ma25": 3000.7,
       "ma75": 2946.2,
@@ -810,7 +810,7 @@
         9
       ],
       "annual_div_per_share": 20.0,
-      "per": 14.6,
+      "per": 14.7,
       "pbr": 0.79,
       "ma25": 1201.7,
       "ma75": 1143.7,
@@ -834,7 +834,7 @@
         9
       ],
       "annual_div_per_share": 35.3,
-      "per": 14.7,
+      "per": 14.6,
       "pbr": 2.29,
       "ma25": 1913.0,
       "ma75": 1689.4,
@@ -906,16 +906,16 @@
         9
       ],
       "annual_div_per_share": 38.3,
-      "per": 14.8,
+      "per": 14.7,
       "pbr": 1.29,
       "ma25": 1452.0,
       "ma75": 1410.7,
       "deviation_ma25": 2.41,
-      "score": 30.3,
+      "score": 30.4,
       "score_detail": {
         "yield": 10,
         "pbr": 6.8,
-        "per": 7.6,
+        "per": 7.7,
         "deviation": 5.9
       },
       "error": null
@@ -1098,16 +1098,16 @@
         9
       ],
       "annual_div_per_share": 27.3,
-      "per": 13.9,
+      "per": 14.0,
       "pbr": 0.87,
       "ma25": 1404.8,
       "ma75": 1293.5,
       "deviation_ma25": 4.07,
-      "score": 29.6,
+      "score": 29.5,
       "score_detail": {
         "yield": 7.7,
         "pbr": 8.5,
-        "per": 8.1,
+        "per": 8.0,
         "deviation": 5.3
       },
       "error": null
@@ -1148,16 +1148,16 @@
         9
       ],
       "annual_div_per_share": 39.0,
-      "per": 13.5,
+      "per": 13.4,
       "pbr": 2.14,
       "ma25": 2125.9,
       "ma75": 1953.5,
       "deviation_ma25": 3.44,
-      "score": 24.1,
+      "score": 24.2,
       "score_detail": {
         "yield": 7.0,
         "pbr": 3.4,
-        "per": 8.2,
+        "per": 8.3,
         "deviation": 5.5
       },
       "error": null
