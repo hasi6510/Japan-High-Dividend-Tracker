@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-07 18:05",
-  "updated_at_iso": "2026-10-07T18:05:27.621958+09:00",
+  "updated_at": "2026-10-07 22:45",
+  "updated_at_iso": "2026-10-07T22:45:55.803529+09:00",
   "market": {
-    "vix": 15.23,
+    "vix": 15.82,
     "nikkei_vi": null,
     "nikkei225": 70036.0,
     "nikkei225_change_pct": -0.92
@@ -68,16 +68,16 @@
         9
       ],
       "annual_div_per_share": 70.0,
-      "per": 20.1,
+      "per": 20.3,
       "pbr": 1.37,
       "ma25": 1834.5,
       "ma75": 1773.2,
       "deviation_ma25": 0.79,
-      "score": 27.2,
+      "score": 27.1,
       "score_detail": {
         "yield": 9.4,
         "pbr": 6.5,
-        "per": 4.9,
+        "per": 4.8,
         "deviation": 6.4
       },
       "error": null
@@ -116,16 +116,16 @@
         12
       ],
       "annual_div_per_share": 75.0,
-      "per": 13.2,
+      "per": 13.3,
       "pbr": 1.35,
       "ma25": 2986.4,
       "ma75": 2857.9,
       "deviation_ma25": -0.01,
-      "score": 31.7,
+      "score": 31.6,
       "score_detail": {
         "yield": 10,
         "pbr": 6.6,
-        "per": 8.4,
+        "per": 8.3,
         "deviation": 6.7
       },
       "error": null
@@ -164,7 +164,7 @@
         8
       ],
       "annual_div_per_share": 50.0,
-      "per": 17.6,
+      "per": 17.7,
       "pbr": 0.77,
       "ma25": 1288.5,
       "ma75": 1302.0,
@@ -254,13 +254,13 @@
       "code": "4641",
       "name": "アルプス技研",
       "price": 860.0,
-      "div_yield": 4.43,
+      "div_yield": 4.46,
       "div_months": [
         6,
         12
       ],
       "annual_div_per_share": 23.4,
-      "per": 13.4,
+      "per": 13.3,
       "pbr": 2.4,
       "ma25": 867.1,
       "ma75": 828.9,
@@ -284,7 +284,7 @@
         9
       ],
       "annual_div_per_share": 40.0,
-      "per": 12.5,
+      "per": 12.3,
       "pbr": 0.74,
       "ma25": 1355.1,
       "ma75": 1288.9,
@@ -308,7 +308,7 @@
         12
       ],
       "annual_div_per_share": 63.3,
-      "per": 13.5,
+      "per": 13.6,
       "pbr": 1.61,
       "ma25": 3191.7,
       "ma75": 3134.3,
@@ -332,16 +332,16 @@
         9
       ],
       "annual_div_per_share": 106.5,
-      "per": null,
+      "per": 11.4,
       "pbr": 0.86,
       "ma25": 2829.6,
       "ma75": 2858.7,
       "deviation_ma25": 1.0,
-      "score": 24.9,
+      "score": 34.2,
       "score_detail": {
         "yield": 10,
         "pbr": 8.6,
-        "per": 0,
+        "per": 9.3,
         "deviation": 6.3
       },
       "error": null
@@ -356,16 +356,16 @@
         9
       ],
       "annual_div_per_share": 147.5,
-      "per": 12.3,
+      "per": 12.2,
       "pbr": 1.04,
       "ma25": 3612.2,
       "ma75": 3408.6,
       "deviation_ma25": -1.03,
-      "score": 33.6,
+      "score": 33.7,
       "score_detail": {
         "yield": 10,
         "pbr": 7.8,
-        "per": 8.8,
+        "per": 8.9,
         "deviation": 7.0
       },
       "error": null
@@ -446,7 +446,7 @@
       "code": "8309",
       "name": "三井住友トラストグループ",
       "price": 1754.5,
-      "div_yield": 2.64,
+      "div_yield": 2.71,
       "div_months": [
         3,
         9
@@ -457,9 +457,9 @@
       "ma25": 1758.4,
       "ma75": 1671.5,
       "deviation_ma25": -0.22,
-      "score": 28.3,
+      "score": 28.5,
       "score_detail": {
-        "yield": 6.6,
+        "yield": 6.8,
         "pbr": 6.7,
         "per": 8.3,
         "deviation": 6.7
@@ -596,7 +596,7 @@
         12
       ],
       "annual_div_per_share": 28.5,
-      "per": 13.3,
+      "per": 13.4,
       "pbr": 3.9,
       "ma25": 1175.1,
       "ma75": 1132.5,
@@ -668,7 +668,7 @@
         12
       ],
       "annual_div_per_share": 63.3,
-      "per": 10.6,
+      "per": 10.7,
       "pbr": 1.01,
       "ma25": 2617.1,
       "ma75": 2541.0,
@@ -692,7 +692,7 @@
         9
       ],
       "annual_div_per_share": 105.0,
-      "per": 13.9,
+      "per": 13.8,
       "pbr": 1.19,
       "ma25": 2965.6,
       "ma75": 2931.9,
@@ -716,14 +716,14 @@
       ],
       "annual_div_per_share": 102.5,
       "per": 17.3,
-      "pbr": 1.24,
+      "pbr": 1.28,
       "ma25": 3326.4,
       "ma75": 3278.5,
       "deviation_ma25": -5.75,
-      "score": 30.6,
+      "score": 30.5,
       "score_detail": {
         "yield": 8.7,
-        "pbr": 7.0,
+        "pbr": 6.9,
         "per": 6.3,
         "deviation": 8.6
       },
@@ -810,16 +810,16 @@
         9
       ],
       "annual_div_per_share": 35.0,
-      "per": 13.9,
+      "per": 14.1,
       "pbr": 0.76,
       "ma25": 1188.7,
       "ma75": 1138.3,
       "deviation_ma25": 0.27,
-      "score": 32.0,
+      "score": 31.9,
       "score_detail": {
         "yield": 8.3,
         "pbr": 9.0,
-        "per": 8.1,
+        "per": 8.0,
         "deviation": 6.6
       },
       "error": null
@@ -834,7 +834,7 @@
         9
       ],
       "annual_div_per_share": 66.0,
-      "per": 15.1,
+      "per": 15.0,
       "pbr": 2.32,
       "ma25": 1846.3,
       "ma75": 1700.0,
@@ -882,16 +882,16 @@
         9
       ],
       "annual_div_per_share": 87.0,
-      "per": 18.4,
+      "per": 18.6,
       "pbr": 1.0,
       "ma25": 3308.7,
       "ma75": 3253.3,
       "deviation_ma25": 0.49,
-      "score": 27.8,
+      "score": 27.7,
       "score_detail": {
         "yield": 7.5,
         "pbr": 8.0,
-        "per": 5.8,
+        "per": 5.7,
         "deviation": 6.5
       },
       "error": null
@@ -900,7 +900,7 @@
       "code": "6345",
       "name": "アイチ",
       "price": 1438.0,
-      "div_yield": 4.35,
+      "div_yield": 4.37,
       "div_months": [
         3,
         9
@@ -1002,16 +1002,16 @@
         9
       ],
       "annual_div_per_share": 131.0,
-      "per": 13.3,
+      "per": 13.2,
       "pbr": 1.45,
       "ma25": 3607.1,
       "ma75": 3675.7,
       "deviation_ma25": -1.94,
-      "score": 31.1,
+      "score": 31.2,
       "score_detail": {
         "yield": 9.3,
         "pbr": 6.2,
-        "per": 8.3,
+        "per": 8.4,
         "deviation": 7.3
       },
       "error": null
@@ -1026,16 +1026,16 @@
         9
       ],
       "annual_div_per_share": 140.0,
-      "per": 15.3,
+      "per": 15.6,
       "pbr": 1.4,
       "ma25": 4153.1,
       "ma75": 3892.2,
       "deviation_ma25": 3.34,
-      "score": 27.6,
+      "score": 27.5,
       "score_detail": {
         "yield": 8.3,
         "pbr": 6.4,
-        "per": 7.3,
+        "per": 7.2,
         "deviation": 5.6
       },
       "error": null
@@ -1148,7 +1148,7 @@
         9
       ],
       "annual_div_per_share": 60.2,
-      "per": 13.1,
+      "per": 13.2,
       "pbr": 2.09,
       "ma25": 2113.9,
       "ma75": 1981.7,
