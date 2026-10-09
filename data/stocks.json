@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-09 18:28",
-  "updated_at_iso": "2026-10-09T18:28:37.911822+09:00",
+  "updated_at": "2026-10-09 22:37",
+  "updated_at_iso": "2026-10-09T22:37:54.218741+09:00",
   "market": {
-    "vix": 15.21,
+    "vix": 15.2,
     "nikkei_vi": null,
     "nikkei225": 69031.0,
     "nikkei225_change_pct": -0.02
@@ -38,7 +38,7 @@
       "code": "1928",
       "name": "積水ハウス",
       "price": 3349.0,
-      "div_yield": 4.38,
+      "div_yield": 4.4,
       "div_months": [
         1,
         7
@@ -86,7 +86,7 @@
       "code": "2169",
       "name": "CDS",
       "price": 1749.0,
-      "div_yield": 4.25,
+      "div_yield": 4.23,
       "div_months": [
         6,
         12
@@ -206,22 +206,22 @@
       "code": "4008",
       "name": "住友精化",
       "price": 1519.0,
-      "div_yield": 3.95,
+      "div_yield": 3.99,
       "div_months": [
         3,
         9
       ],
       "annual_div_per_share": 49.5,
-      "per": 13.0,
+      "per": 10.0,
       "pbr": 0.93,
       "ma25": 1464.0,
       "ma75": 1380.7,
       "deviation_ma25": 3.75,
-      "score": 32.1,
+      "score": 33.7,
       "score_detail": {
-        "yield": 9.9,
+        "yield": 10.0,
         "pbr": 8.3,
-        "per": 8.5,
+        "per": 10,
         "deviation": 5.4
       },
       "error": null
@@ -278,7 +278,7 @@
       "code": "5388",
       "name": "クニミネ工業",
       "price": 1381.0,
-      "div_yield": 3.74,
+      "div_yield": 3.69,
       "div_months": [
         3,
         9
@@ -289,9 +289,9 @@
       "ma25": 1356.2,
       "ma75": 1292.5,
       "deviation_ma25": 1.83,
-      "score": 33.3,
+      "score": 33.1,
       "score_detail": {
-        "yield": 9.4,
+        "yield": 9.2,
         "pbr": 9.0,
         "per": 8.8,
         "deviation": 6.1
@@ -326,7 +326,7 @@
       "code": "7723",
       "name": "愛知時計電機",
       "price": 2859.0,
-      "div_yield": 4.25,
+      "div_yield": 4.2,
       "div_months": [
         3,
         9
@@ -446,7 +446,7 @@
       "code": "8309",
       "name": "三井住友トラストグループ",
       "price": 1687.5,
-      "div_yield": 2.71,
+      "div_yield": 2.79,
       "div_months": [
         3,
         9
@@ -457,9 +457,9 @@
       "ma25": 1752.5,
       "ma75": 1676.5,
       "deviation_ma25": -3.71,
-      "score": 30.2,
+      "score": 30.4,
       "score_detail": {
-        "yield": 6.8,
+        "yield": 7.0,
         "pbr": 6.9,
         "per": 8.6,
         "deviation": 7.9
@@ -542,7 +542,7 @@
       "code": "9069",
       "name": "センコーグループHD",
       "price": 2368.0,
-      "div_yield": 2.38,
+      "div_yield": 2.4,
       "div_months": [
         3,
         9
@@ -553,9 +553,9 @@
       "ma25": 2282.2,
       "ma75": 2176.4,
       "deviation_ma25": 3.76,
-      "score": 21.0,
+      "score": 21.1,
       "score_detail": {
-        "yield": 5.9,
+        "yield": 6.0,
         "pbr": 5.1,
         "per": 4.6,
         "deviation": 5.4
@@ -566,7 +566,7 @@
       "code": "9364",
       "name": "上組",
       "price": 4717.0,
-      "div_yield": 4.49,
+      "div_yield": 4.5,
       "div_months": [
         3,
         9
@@ -614,7 +614,7 @@
       "code": "9769",
       "name": "学究社",
       "price": 2492.0,
-      "div_yield": 5.25,
+      "div_yield": 5.17,
       "div_months": [
         3,
         9
@@ -686,7 +686,7 @@
       "code": "9039",
       "name": "サカイ引越センター",
       "price": 2986.0,
-      "div_yield": 5.87,
+      "div_yield": 5.85,
       "div_months": [
         3,
         9
@@ -733,7 +733,7 @@
       "code": "3003",
       "name": "ヒューリック",
       "price": 1670.0,
-      "div_yield": 4.06,
+      "div_yield": 4.03,
       "div_months": [
         6,
         12
@@ -780,7 +780,7 @@
       "code": "4042",
       "name": "東ソー",
       "price": 2601.5,
-      "div_yield": 3.8,
+      "div_yield": 3.87,
       "div_months": [
         3,
         9
@@ -791,9 +791,9 @@
       "ma25": 2585.9,
       "ma75": 2663.4,
       "deviation_ma25": 0.6,
-      "score": 31.7,
+      "score": 31.9,
       "score_detail": {
-        "yield": 9.5,
+        "yield": 9.7,
         "pbr": 8.2,
         "per": 7.5,
         "deviation": 6.5
@@ -828,7 +828,7 @@
       "code": "4674",
       "name": "クロスコ",
       "price": 1977.0,
-      "div_yield": 3.72,
+      "div_yield": 3.63,
       "div_months": [
         3,
         9
@@ -839,9 +839,9 @@
       "ma25": 1841.5,
       "ma75": 1713.3,
       "deviation_ma25": 7.36,
-      "score": 23.3,
+      "score": 23.1,
       "score_detail": {
-        "yield": 9.3,
+        "yield": 9.1,
         "pbr": 2.5,
         "per": 7.3,
         "deviation": 4.2
@@ -852,7 +852,7 @@
       "code": "4746",
       "name": "東計電算",
       "price": 2089.0,
-      "div_yield": 9.59,
+      "div_yield": 9.73,
       "div_months": [
         6,
         12
@@ -924,7 +924,7 @@
       "code": "7820",
       "name": "日本フラッシュ",
       "price": 660.0,
-      "div_yield": 5.39,
+      "div_yield": 5.54,
       "div_months": [
         3,
         9
@@ -1092,7 +1092,7 @@
       "code": "9310",
       "name": "日本トランスシティ",
       "price": 1376.0,
-      "div_yield": 3.38,
+      "div_yield": 3.39,
       "div_months": [
         3,
         9
@@ -1103,9 +1103,9 @@
       "ma25": 1380.4,
       "ma75": 1314.6,
       "deviation_ma25": -0.32,
-      "score": 32.3,
+      "score": 32.4,
       "score_detail": {
-        "yield": 8.4,
+        "yield": 8.5,
         "pbr": 8.7,
         "per": 8.4,
         "deviation": 6.8
@@ -1116,7 +1116,7 @@
       "code": "3844",
       "name": "コムチュア",
       "price": 1277.0,
-      "div_yield": 4.17,
+      "div_yield": 4.16,
       "div_months": [
         3,
         6,
@@ -1166,7 +1166,7 @@
       "code": "9928",
       "name": "ミロク情報サービス",
       "price": 2216.0,
-      "div_yield": 3.06,
+      "div_yield": 2.99,
       "div_months": [
         3
       ],
@@ -1176,9 +1176,9 @@
       "ma25": 2072.4,
       "ma75": 1920.7,
       "deviation_ma25": 6.93,
-      "score": 24.7,
+      "score": 24.5,
       "score_detail": {
-        "yield": 7.7,
+        "yield": 7.5,
         "pbr": 3.8,
         "per": 8.8,
         "deviation": 4.4
