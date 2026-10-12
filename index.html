@@ -162,6 +162,20 @@
     .stock-card.signal-buy  { border-left: 4px solid var(--green); }
     .stock-card.signal-watch { border-left: 4px solid var(--yellow); }
 
+    .card-flag {
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 3px 7px;
+      border-radius: 4px;
+      margin-bottom: 6px;
+      display: inline-block;
+      line-height: 1.3;
+    }
+    .flag-excluded { background: #3a1a1a; color: var(--red); border: 1px solid #5a2a2a; }
+    .flag-watch    { background: #3a2a1a; color: var(--yellow); border: 1px solid #5a4a2a; }
+    .stock-card.card-excluded { opacity: 0.72; }
+    .stock-card.card-excluded:hover { opacity: 1; }
+
     .card-code { font-size: 0.75rem; color: var(--text-muted); }
     .card-name { font-size: 0.9rem; font-weight: 700; margin: 2px 0 8px; line-height: 1.3; }
     .card-price { font-size: 1.2rem; font-weight: 700; color: #fff; margin-bottom: 8px; }
@@ -698,6 +712,17 @@ let rankSortDir = 'desc'; // 'asc' | 'desc'
 const PORTFOLIO_KEY = 'portfolio_holdings'; // localStorage キー
 const CASH_KEY      = 'portfolio_cash';     // 投資待機資金（現金）
 
+/* 両学長のモデルポートフォリオから外れた銘柄。
+   「売れ」ではなく「今からは買わない」という意味。ホールドは継続してよい。 */
+const EXCLUDED = {
+  '7820': 'ニホンフラッシュ（2026-06以前に除外）',
+  '8584': 'ジャックス（2026-06以前に除外）',
+  '4042': '東ソー（2026-06以前に除外）',
+  '8309': '三井住友トラストG（2026-08・利回り3%割れで除外）'
+};
+/* 学長が「利回り3%を切ったら入れ替え候補」と名指しした銘柄（第128回） */
+const WATCH_3PCT = { '5982': 'マルゼン' };
+
 let cashChart = null;
 let sectorChart = null;
 
@@ -844,8 +869,17 @@ function buildCard(s) {
     else if (dev <= -5) signalClass = 'signal-watch';
   }
 
+  // 学長PF除外銘柄・3%割れ監視銘柄の表示
+  let flag = '';
+  if (EXCLUDED[s.code]) {
+    flag = `<div class="card-flag flag-excluded" title="${EXCLUDED[s.code]}">🛑 学長PF除外 — 買い増しなし</div>`;
+  } else if (WATCH_3PCT[s.code] && s.div_yield !== null && s.div_yield < 3.5) {
+    flag = `<div class="card-flag flag-watch">⚠️ 利回り3%割れで入れ替え候補</div>`;
+  }
+
   return `
-    <div class="stock-card ${signalClass}" data-code="${s.code}">
+    <div class="stock-card ${signalClass}${EXCLUDED[s.code] ? ' card-excluded' : ''}" data-code="${s.code}">
+      ${flag}
       <div class="card-code">${s.code}</div>
       <div class="card-name">${s.name}</div>
       <div class="card-price">${price}</div>
@@ -1009,7 +1043,7 @@ function renderPortfolio() {
 
     return `<tr>
       <td>${s.code}</td>
-      <td>${s.name}</td>
+      <td>${s.name}${EXCLUDED[s.code] ? ' <span style="color:var(--red);font-size:0.72rem;" title="' + EXCLUDED[s.code] + '">🛑除外</span>' : ''}</td>
       <td>${price !== null ? '¥' + price.toLocaleString() : '--'}</td>
       <td><input class="pf-input" data-code="${s.code}" data-field="qty"  type="number" min="0" step="1"   value="${h.qty}"  placeholder="0" /></td>
       <td><input class="pf-input" data-code="${s.code}" data-field="cost" type="number" min="0" step="0.1" value="${h.cost}" placeholder="取得単価" /></td>
