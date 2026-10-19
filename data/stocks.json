@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-19 17:01",
-  "updated_at_iso": "2026-10-19T17:01:08.249297+09:00",
+  "updated_at": "2026-10-19 22:49",
+  "updated_at_iso": "2026-10-19T22:49:29.695549+09:00",
   "market": {
-    "vix": 18.37,
+    "vix": 18.05,
     "nikkei_vi": null,
     "nikkei225": 64917.0,
     "nikkei225_change_pct": -0.62
@@ -212,7 +212,7 @@
         9
       ],
       "annual_div_per_share": 49.5,
-      "per": 9.8,
+      "per": 9.9,
       "pbr": 0.92,
       "ma25": 1478.7,
       "ma75": 1397.5,
@@ -308,16 +308,16 @@
         12
       ],
       "annual_div_per_share": 63.3,
-      "per": 12.8,
+      "per": 13.0,
       "pbr": 1.53,
       "ma25": 3302.8,
       "ma75": 3153.6,
       "deviation_ma25": 2.94,
-      "score": 27.9,
+      "score": 27.8,
       "score_detail": {
         "yield": 7.7,
         "pbr": 5.9,
-        "per": 8.6,
+        "per": 8.5,
         "deviation": 5.7
       },
       "error": null
@@ -882,16 +882,16 @@
         9
       ],
       "annual_div_per_share": 87.0,
-      "per": 17.9,
+      "per": 18.1,
       "pbr": 1.05,
       "ma25": 3356.6,
       "ma75": 3276.7,
       "deviation_ma25": 4.27,
-      "score": 26.3,
+      "score": 26.1,
       "score_detail": {
         "yield": 7.2,
         "pbr": 7.8,
-        "per": 6.1,
+        "per": 5.9,
         "deviation": 5.2
       },
       "error": null
