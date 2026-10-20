@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-20 16:51",
-  "updated_at_iso": "2026-10-20T16:51:31.445314+09:00",
+  "updated_at": "2026-10-20 20:58",
+  "updated_at_iso": "2026-10-20T20:58:39.841589+09:00",
   "market": {
-    "vix": 18.59,
+    "vix": 18.65,
     "nikkei_vi": null,
     "nikkei225": 64075.0,
     "nikkei225_change_pct": -1.3
@@ -230,7 +230,7 @@
       "code": "4540",
       "name": "ツムラ",
       "price": 3813.0,
-      "div_yield": 4.12,
+      "div_yield": 4.14,
       "div_months": [
         3,
         9
@@ -614,7 +614,7 @@
       "code": "9769",
       "name": "学究社",
       "price": 2535.0,
-      "div_yield": 5.16,
+      "div_yield": 5.15,
       "div_months": [
         3,
         9
@@ -780,7 +780,7 @@
       "code": "4042",
       "name": "東ソー",
       "price": 2565.5,
-      "div_yield": 3.82,
+      "div_yield": 3.83,
       "div_months": [
         3,
         9
@@ -791,9 +791,9 @@
       "ma25": 2589.3,
       "ma75": 2642.5,
       "deviation_ma25": -0.92,
-      "score": 32.4,
+      "score": 32.5,
       "score_detail": {
-        "yield": 9.5,
+        "yield": 9.6,
         "pbr": 8.2,
         "per": 7.7,
         "deviation": 7.0
