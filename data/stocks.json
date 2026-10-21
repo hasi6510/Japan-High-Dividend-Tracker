@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-21 21:13",
-  "updated_at_iso": "2026-10-21T21:13:23.759847+09:00",
+  "updated_at": "2026-10-21 23:18",
+  "updated_at_iso": "2026-10-21T23:18:46.425328+09:00",
   "market": {
-    "vix": 17.32,
+    "vix": 17.0,
     "nikkei_vi": null,
     "nikkei225": 64621.0,
     "nikkei225_change_pct": 0.85
@@ -810,16 +810,16 @@
         9
       ],
       "annual_div_per_share": 35.0,
-      "per": 13.3,
+      "per": 13.1,
       "pbr": 0.78,
       "ma25": 1198.0,
       "ma75": 1151.5,
       "deviation_ma25": 1.34,
-      "score": 31.7,
+      "score": 31.8,
       "score_detail": {
         "yield": 8.3,
         "pbr": 8.9,
-        "per": 8.3,
+        "per": 8.4,
         "deviation": 6.2
       },
       "error": null
