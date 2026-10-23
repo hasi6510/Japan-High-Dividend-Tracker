@@ -774,6 +774,9 @@ async function loadData() {
     const cashInput = document.getElementById('cash-input');
     if (cashInput && getCash() > 0) cashInput.value = getCash();
 
+    // URLに #deviation などが付いていれば、そのタブを開く
+    if (location.hash) openTab(location.hash.slice(1), false);
+
   } catch (e) {
     console.error('データ読み込み失敗:', e);
     document.getElementById('updated-at').textContent = '⚠ データ読み込み失敗';
@@ -1467,17 +1470,29 @@ document.getElementById('btn-cash-save').addEventListener('click', () => {
 /* ==============================================================
    TAB SWITCHING
 ============================================================== */
+/* タブ名をURLの末尾（#deviation など）に持たせる。
+   こうしておくと「乖離率タブを直接ブックマークする」ことができる。 */
+const TABS = ['cards', 'ranking', 'deviation', 'portfolio', 'allocation', 'dividend'];
+
+function openTab(target, updateHash) {
+  if (!TABS.includes(target)) target = 'cards';
+  document.querySelectorAll('.tab-btn').forEach(b =>
+    b.classList.toggle('active', b.dataset.tab === target));
+  document.querySelectorAll('.tab-panel').forEach(p =>
+    p.classList.toggle('active', p.id === 'tab-' + target));
+  if (target === 'dividend')   renderDividend();
+  if (target === 'allocation') renderAllocation();
+  if (updateHash && location.hash !== '#' + target) {
+    history.replaceState(null, '', '#' + target);
+  }
+}
+
 document.querySelectorAll('.tab-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const target = btn.dataset.tab;
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-    btn.classList.add('active');
-    document.getElementById('tab-' + target).classList.add('active');
-    if (target === 'dividend')   renderDividend();
-    if (target === 'allocation') renderAllocation();
-  });
+  btn.addEventListener('click', () => openTab(btn.dataset.tab, true));
 });
+
+// ブラウザの「戻る」やURL直打ちにも対応
+window.addEventListener('hashchange', () => openTab(location.hash.slice(1), false));
 
 /* ==============================================================
    9. エクスポート / インポート
