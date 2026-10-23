@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-23 16:50",
-  "updated_at_iso": "2026-10-23T16:50:37.901714+09:00",
+  "updated_at": "2026-10-23 20:57",
+  "updated_at_iso": "2026-10-23T20:57:34.386773+09:00",
   "market": {
-    "vix": 19.21,
+    "vix": 19.7,
     "nikkei_vi": null,
     "nikkei225": 62693.0,
     "nikkei225_change_pct": -0.34
@@ -212,7 +212,7 @@
         9
       ],
       "annual_div_per_share": 49.5,
-      "per": 9.7,
+      "per": 9.5,
       "pbr": 0.89,
       "ma25": 1487.8,
       "ma75": 1408.1,
@@ -284,16 +284,16 @@
         9
       ],
       "annual_div_per_share": 40.0,
-      "per": 11.2,
+      "per": 10.8,
       "pbr": 0.69,
       "ma25": 1364.7,
       "ma75": 1304.0,
       "deviation_ma25": -6.94,
-      "score": 37.3,
+      "score": 37.5,
       "score_detail": {
         "yield": 9.7,
         "pbr": 9.2,
-        "per": 9.4,
+        "per": 9.6,
         "deviation": 9.0
       },
       "error": null
@@ -308,16 +308,16 @@
         12
       ],
       "annual_div_per_share": 63.3,
-      "per": 12.5,
+      "per": 12.1,
       "pbr": 1.42,
       "ma25": 3332.2,
       "ma75": 3152.2,
       "deviation_ma25": -5.47,
-      "score": 31.7,
+      "score": 31.8,
       "score_detail": {
         "yield": 8.1,
         "pbr": 6.3,
-        "per": 8.8,
+        "per": 8.9,
         "deviation": 8.5
       },
       "error": null
@@ -572,16 +572,16 @@
         9
       ],
       "annual_div_per_share": 192.5,
-      "per": 15.8,
+      "per": 15.9,
       "pbr": 1.22,
       "ma25": 4775.4,
       "ma75": 4877.0,
       "deviation_ma25": 0.81,
-      "score": 30.6,
+      "score": 30.5,
       "score_detail": {
         "yield": 10,
         "pbr": 7.1,
-        "per": 7.1,
+        "per": 7.0,
         "deviation": 6.4
       },
       "error": null
@@ -596,16 +596,16 @@
         12
       ],
       "annual_div_per_share": 28.5,
-      "per": 14.1,
+      "per": 14.4,
       "pbr": 4.2,
       "ma25": 1192.9,
       "ma75": 1155.8,
       "deviation_ma25": 5.04,
-      "score": 22.6,
+      "score": 22.4,
       "score_detail": {
         "yield": 9.6,
         "pbr": 0,
-        "per": 8.0,
+        "per": 7.8,
         "deviation": 5.0
       },
       "error": null
@@ -620,7 +620,7 @@
         9
       ],
       "annual_div_per_share": 105.0,
-      "per": 14.5,
+      "per": 14.3,
       "pbr": 3.54,
       "ma25": 2518.2,
       "ma75": 2540.1,
@@ -668,16 +668,16 @@
         12
       ],
       "annual_div_per_share": 63.3,
-      "per": 10.9,
+      "per": 11.0,
       "pbr": 1.04,
       "ma25": 2651.4,
       "ma75": 2582.9,
       "deviation_ma25": 1.49,
-      "score": 32.8,
+      "score": 32.7,
       "score_detail": {
         "yield": 9.2,
         "pbr": 7.8,
-        "per": 9.6,
+        "per": 9.5,
         "deviation": 6.2
       },
       "error": null
@@ -834,16 +834,16 @@
         9
       ],
       "annual_div_per_share": 66.0,
-      "per": 16.2,
+      "per": 15.5,
       "pbr": 2.56,
       "ma25": 1949.5,
       "ma75": 1793.9,
       "deviation_ma25": 9.46,
-      "score": 20.3,
+      "score": 20.6,
       "score_detail": {
         "yield": 8.1,
         "pbr": 1.8,
-        "per": 6.9,
+        "per": 7.2,
         "deviation": 3.5
       },
       "error": null
@@ -882,16 +882,16 @@
         9
       ],
       "annual_div_per_share": 87.0,
-      "per": 17.3,
+      "per": 17.6,
       "pbr": 1.02,
       "ma25": 3389.1,
       "ma75": 3290.6,
       "deviation_ma25": 0.17,
-      "score": 28.1,
+      "score": 28.0,
       "score_detail": {
         "yield": 7.3,
         "pbr": 7.9,
-        "per": 6.3,
+        "per": 6.2,
         "deviation": 6.6
       },
       "error": null
@@ -1026,7 +1026,7 @@
         9
       ],
       "annual_div_per_share": 140.0,
-      "per": 15.6,
+      "per": 15.5,
       "pbr": 1.42,
       "ma25": 4278.5,
       "ma75": 4007.8,
@@ -1148,16 +1148,16 @@
         9
       ],
       "annual_div_per_share": 60.2,
-      "per": 13.4,
+      "per": 13.6,
       "pbr": 2.15,
       "ma25": 2188.3,
       "ma75": 2061.1,
       "deviation_ma25": 1.13,
-      "score": 25.0,
+      "score": 24.9,
       "score_detail": {
         "yield": 7.0,
         "pbr": 3.4,
-        "per": 8.3,
+        "per": 8.2,
         "deviation": 6.3
       },
       "error": null
@@ -1219,16 +1219,16 @@
         9
       ],
       "annual_div_per_share": 93.5,
-      "per": 12.9,
+      "per": 13.1,
       "pbr": 1.16,
       "ma25": 2708.5,
       "ma75": 2630.0,
       "deviation_ma25": 0.94,
-      "score": 31.8,
+      "score": 31.6,
       "score_detail": {
         "yield": 9.4,
         "pbr": 7.4,
-        "per": 8.6,
+        "per": 8.4,
         "deviation": 6.4
       },
       "error": null
