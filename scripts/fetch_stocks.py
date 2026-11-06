@@ -133,6 +133,7 @@ def fetch_stock(code, name):
         "div_yield": None,
         "div_months": [],
         "annual_div_per_share": None,
+        "annual_div_source": None,
         "per": None,
         "pbr": None,
         "ma25": None,
@@ -187,16 +188,40 @@ def fetch_stock(code, name):
                 result['ma75'] = round(float(ma75), 1)
 
         # 配当支払い月・1株当たり年間配当
+        #
+        # ⚠️ 2026-11-06 修正
+        # 旧実装は「過去2年の配当を暦年(resample('YE'))で区切って平均」していた。
+        # 2年の窓を暦年で割ると両端が部分期間の箱になり、それも含めて平均するため
+        # 年間配当が実態より 3〜8割も少なく出ていた（例: 立川ブラインド -63%）。
+        # 配当カレンダーの「年間予想配当合計」が過少表示される原因だったので、
+        # 会社予想 → 直近12ヶ月の実支払い → 株価×利回り の順に切り替えた。
         try:
             divs = ticker.dividends
+            now_utc = pd.Timestamp.now(tz='UTC')
+
+            # 配当支払い月は実績から拾う（過去2年分で判定）
             if not divs.empty:
-                recent = divs[divs.index > (pd.Timestamp.now(tz='UTC') - pd.DateOffset(years=2))]
+                recent = divs[divs.index > (now_utc - pd.DateOffset(years=2))]
                 if not recent.empty:
-                    months = sorted(list(set(recent.index.month.tolist())))
-                    result['div_months'] = months
-                    # 直近2年の年平均配当総額
-                    annual = recent.resample('YE').sum()
-                    result['annual_div_per_share'] = round(float(annual.mean()), 1) if not annual.empty else None
+                    result['div_months'] = sorted(set(recent.index.month.tolist()))
+
+            # ① 会社予想の年間配当（最も実態に近い）
+            annual = info.get('dividendRate') or info.get('trailingAnnualDividendRate')
+            if annual is not None and math.isfinite(float(annual)) and float(annual) > 0:
+                result['annual_div_per_share'] = round(float(annual), 1)
+                result['annual_div_source'] = 'yahoo'   # 会社予想・直近実績ベース
+
+            # ② 取れなければ直近12ヶ月に実際に支払われた配当の合計
+            elif not divs.empty:
+                ttm = divs[divs.index > (now_utc - pd.DateOffset(years=1))]
+                if not ttm.empty:
+                    result['annual_div_per_share'] = round(float(ttm.sum()), 1)
+                    result['annual_div_source'] = 'ttm'  # 直近12ヶ月の実支払い
+
+            # ③ それも無ければ 株価 × 利回り から逆算
+            if result['annual_div_per_share'] is None and result['price'] and result['div_yield']:
+                result['annual_div_per_share'] = round(result['price'] * result['div_yield'] / 100, 1)
+                result['annual_div_source'] = 'yield'    # 利回りからの逆算
         except Exception:
             pass
 

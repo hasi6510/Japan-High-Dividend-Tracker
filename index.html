@@ -173,6 +173,23 @@
     }
     .flag-excluded { background: #3a1a1a; color: var(--red); border: 1px solid #5a2a2a; }
     .flag-watch    { background: #3a2a1a; color: var(--yellow); border: 1px solid #5a4a2a; }
+    .flag-special  { background: #3a2412; color: #ffab40; border: 1px solid #6a4418; }
+
+    /* データが古いときの警告帯 */
+    #stale-warning {
+      display: none;
+      margin: 0;
+      padding: 0.6rem 1rem;
+      background: #4a1a1a;
+      color: #ff8a80;
+      border-bottom: 1px solid #6a2a2a;
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-align: center;
+      line-height: 1.5;
+    }
+    #stale-warning.show { display: block; }
+    #stale-warning small { display: block; font-weight: 400; opacity: 0.85; margin-top: 0.2rem; }
     .stock-card.card-excluded { opacity: 0.72; }
     .stock-card.card-excluded:hover { opacity: 1; }
 
@@ -462,6 +479,9 @@
   <div id="updated-at">データ読み込み中...</div>
 </header>
 
+<!-- データが古いときだけ表示される警告帯 -->
+<div id="stale-warning"></div>
+
 <!-- ====== TABS ====== -->
 <nav class="tabs">
   <button class="tab-btn active" data-tab="cards">📊 銘柄カード</button>
@@ -725,6 +745,18 @@ const EXCLUDED = {
 /* 学長が「利回り3%を切ったら入れ替え候補」と名指しした銘柄（第128回） */
 const WATCH_3PCT = { '5982': 'マルゼン' };
 
+/* ⚠️ 記念配当・特別配当で、表示利回りが一時的に跳ね上がっている銘柄。
+   表示されている利回りは「今期だけの数字」なので、これに飛びついて買うと
+   来期に利回りが大きく下がる。乖離率タブでも買いシグナルを出さない。
+   real = 普通配当のみで計算した本当の利回り（分かっている場合は数値） */
+const SPECIAL_DIV = {
+  '4746': { real: null, label: '有価証券売却益による臨時ボーナス配当（学長 第122回）' },
+  '2815': { real: 3.43, label: '記念配当込み' }
+};
+
+/* データが何時間以上古かったら警告を出すか */
+const STALE_HOURS = 3;
+
 let cashChart = null;
 let sectorChart = null;
 
@@ -765,6 +797,8 @@ async function loadData() {
     document.getElementById('updated-at').textContent =
       upd ? '最終更新: ' + upd : 'データ取得済み';
 
+    renderStaleWarning(json.updated_at_iso);
+
     renderMarketBar();
     renderCards();
     renderRanking();
@@ -783,6 +817,40 @@ async function loadData() {
     document.getElementById('cards-grid').innerHTML =
       '<div class="empty">⚠ データを読み込めませんでした<br><small>' + e.message + '</small></div>';
   }
+}
+
+/* --------------------------------------------------------------
+   データの古さの警告
+
+   GitHub Actions の cron は無料枠では遅延・間引きされるため、
+   平日3回のはずが実際は1日2回前後・40分〜数時間遅れで届くことがある。
+   「最終更新 ○時○分」だけでは何時間前なのか分からず、
+   急落した日に前日の株価を見て判断してしまう危険があるので、
+   STALE_HOURS を超えて古い場合だけ赤い帯で知らせる。
+-------------------------------------------------------------- */
+function renderStaleWarning(iso) {
+  const el = document.getElementById('stale-warning');
+  if (!el) return;
+
+  if (!iso) {
+    el.className = 'show';
+    el.innerHTML = '⚠️ このデータの取得時刻が分かりません<small>判断に使う前に手動更新をおすすめします</small>';
+    return;
+  }
+
+  const t = new Date(iso);
+  if (isNaN(t.getTime())) { el.className = ''; return; }
+
+  const hours = (Date.now() - t.getTime()) / 36e5;
+  if (hours < STALE_HOURS) { el.className = ''; el.innerHTML = ''; return; }
+
+  const txt = hours < 24
+    ? '約' + Math.floor(hours) + '時間前'
+    : '約' + Math.floor(hours / 24) + '日前';
+
+  el.className = 'show';
+  el.innerHTML = '⚠️ このデータは' + txt + 'のものです'
+    + '<small>相場が動いた直後は株価がズレています。買う前に証券会社の価格で確認してください</small>';
 }
 
 /* ==============================================================
@@ -878,6 +946,12 @@ function buildCard(s) {
   let flag = '';
   if (EXCLUDED[s.code]) {
     flag = `<div class="card-flag flag-excluded" title="${EXCLUDED[s.code]}">🛑 学長PF除外 — 買い増しなし</div>`;
+  } else if (SPECIAL_DIV[s.code]) {
+    const sp = SPECIAL_DIV[s.code];
+    const realTxt = sp.real !== null
+      ? `実力は約${sp.real}%`
+      : '来期は大きく下がる見込み';
+    flag = `<div class="card-flag flag-special" title="${sp.label}">⚠️ この利回りは今期だけ — ${realTxt}</div>`;
   } else if (WATCH_3PCT[s.code] && s.div_yield !== null && s.div_yield < 3.5) {
     flag = `<div class="card-flag flag-watch">⚠️ 利回り3%割れで入れ替え候補</div>`;
   }
@@ -993,6 +1067,7 @@ function renderDeviation() {
     const midYield  = yld !== null && yld !== undefined && yld >= 3.5 && yld < 4;  // 許容ライン
     const aboveMa75 = s.ma75 && s.price && s.price >= s.ma75;
     const isExcluded = !!EXCLUDED[s.code];
+    const special    = SPECIAL_DIV[s.code] || null;   // 記念・臨時配当で利回りが膨らんでいる銘柄
 
     let rowClass = '';
     let sigClass = 'sig-hold';
@@ -1003,6 +1078,15 @@ function renderDeviation() {
       if (isExcluded) {
         rowClass = ''; sigClass = 'sig-caution'; sigTxt = '🛑 除外銘柄';
         reason = '学長PFから外れた銘柄です';
+      } else if (special) {
+        /* 表示利回りが記念・臨時配当で膨らんでいる銘柄は、押し目でも買いシグナルを出さない。
+           利回りを根拠に「強い買い」と出すと、来期に利回りが下がって誤判断になるため。 */
+        rowClass = ''; sigClass = 'sig-caution'; sigTxt = '⚠️ 配当に注意';
+        reason = '表示利回り' + (yld !== null && yld !== undefined ? yld.toFixed(2) + '%' : '--')
+               + 'は' + special.label + '。'
+               + (special.real !== null
+                   ? '普通配当のみなら約' + special.real + '%'
+                   : '来期は大きく下がる見込み');
       } else if (lowYield || aboveMa75) {
         rowClass = ''; sigClass = 'sig-weak'; sigTxt = '⚪ 条件不足';
         const rs = [];
