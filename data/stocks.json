@@ -1,17 +1,17 @@
 {
-  "updated_at": "2026-11-06 23:31",
-  "updated_at_iso": "2026-11-06T23:31:06.208770+09:00",
+  "updated_at": "2026-11-09 19:07",
+  "updated_at_iso": "2026-11-09T19:07:31.067301+09:00",
   "market": {
-    "vix": 26.85,
+    "vix": 24.21,
     "nikkei_vi": null,
-    "nikkei225": 57435.0,
-    "nikkei225_change_pct": -5.96
+    "nikkei225": 58776.0,
+    "nikkei225_change_pct": 2.33
   },
   "stocks": [
     {
       "code": "1343",
       "name": "NF J-REITインデックスファンド",
-      "price": 1800.0,
+      "price": 1787.0,
       "div_yield": 5.02,
       "div_months": [
         2,
@@ -21,66 +21,66 @@
       ],
       "annual_div_per_share": 92.9,
       "annual_div_source": "ttm",
-      "per": 18.6,
+      "per": 18.4,
       "pbr": null,
-      "ma25": 1808.0,
-      "ma75": 1894.6,
-      "deviation_ma25": -0.44,
-      "score": 22.5,
+      "ma25": 1805.6,
+      "ma75": 1892.4,
+      "deviation_ma25": -1.03,
+      "score": 22.8,
       "score_detail": {
         "yield": 10,
         "pbr": 0,
-        "per": 5.7,
-        "deviation": 6.8
+        "per": 5.8,
+        "deviation": 7.0
       },
       "error": null
     },
     {
       "code": "1928",
       "name": "積水ハウス",
-      "price": 3475.0,
-      "div_yield": 3.95,
+      "price": 3563.0,
+      "div_yield": 4.2,
       "div_months": [
         1,
         7
       ],
       "annual_div_per_share": 146.0,
       "annual_div_source": "yahoo",
-      "per": 8.8,
-      "pbr": 1.0,
-      "ma25": 3421.5,
-      "ma75": 3421.8,
-      "deviation_ma25": 1.56,
-      "score": 34.0,
+      "per": 9.0,
+      "pbr": 1.03,
+      "ma25": 3429.2,
+      "ma75": 3422.9,
+      "deviation_ma25": 3.9,
+      "score": 33.3,
       "score_detail": {
-        "yield": 9.9,
-        "pbr": 8.0,
+        "yield": 10,
+        "pbr": 7.9,
         "per": 10,
-        "deviation": 6.1
+        "deviation": 5.4
       },
       "error": null
     },
     {
       "code": "2003",
       "name": "日東富士製粉",
-      "price": 1999.0,
-      "div_yield": 3.44,
+      "price": 2009.0,
+      "div_yield": 3.5,
       "div_months": [
         3,
         9
       ],
       "annual_div_per_share": 70.0,
       "annual_div_source": "yahoo",
-      "per": 19.9,
+      "per": 20.0,
       "pbr": 1.46,
-      "ma25": 1917.0,
-      "ma75": 1833.4,
-      "deviation_ma25": 4.28,
-      "score": 25.1,
+      "ma25": 1922.2,
+      "ma75": 1836.7,
+      "deviation_ma25": 4.51,
+      "score": 25.2,
       "score_detail": {
-        "yield": 8.6,
+        "yield": 8.8,
         "pbr": 6.2,
-        "per": 5.1,
+        "per": 5.0,
         "deviation": 5.2
       },
       "error": null
@@ -88,8 +88,8 @@
     {
       "code": "2169",
       "name": "CDS",
-      "price": 1720.0,
-      "div_yield": 4.31,
+      "price": 1719.0,
+      "div_yield": 4.3,
       "div_months": [
         6,
         12
@@ -98,9 +98,9 @@
       "annual_div_source": "yahoo",
       "per": 38.5,
       "pbr": 1.32,
-      "ma25": 1738.4,
-      "ma75": 1728.7,
-      "deviation_ma25": -1.06,
+      "ma25": 1736.8,
+      "ma75": 1728.9,
+      "deviation_ma25": -1.02,
       "score": 23.7,
       "score_detail": {
         "yield": 10,
@@ -113,183 +113,183 @@
     {
       "code": "3076",
       "name": "あいホールディングス",
-      "price": 2948.0,
-      "div_yield": 4.55,
+      "price": 3000.0,
+      "div_yield": 4.75,
       "div_months": [
         6,
         12
       ],
       "annual_div_per_share": 140.0,
       "annual_div_source": "yahoo",
-      "per": 13.2,
-      "pbr": 1.33,
-      "ma25": 3046.0,
-      "ma75": 2963.3,
-      "deviation_ma25": -3.22,
-      "score": 32.8,
+      "per": 13.4,
+      "pbr": 1.36,
+      "ma25": 3045.6,
+      "ma75": 2967.2,
+      "deviation_ma25": -1.5,
+      "score": 32.1,
       "score_detail": {
         "yield": 10,
-        "pbr": 6.7,
-        "per": 8.4,
-        "deviation": 7.7
+        "pbr": 6.6,
+        "per": 8.3,
+        "deviation": 7.2
       },
       "error": null
     },
     {
       "code": "3231",
       "name": "野村不動産ホールディングス",
-      "price": 890.1,
-      "div_yield": 4.66,
+      "price": 899.8,
+      "div_yield": 4.94,
       "div_months": [
         3,
         9
       ],
       "annual_div_per_share": 44.0,
       "annual_div_source": "yahoo",
-      "per": 9.7,
-      "pbr": 0.93,
-      "ma25": 869.5,
-      "ma75": 892.0,
-      "deviation_ma25": 2.37,
-      "score": 34.2,
+      "per": 9.8,
+      "pbr": 0.94,
+      "ma25": 870.5,
+      "ma75": 891.6,
+      "deviation_ma25": 3.36,
+      "score": 33.7,
       "score_detail": {
         "yield": 10,
-        "pbr": 8.3,
+        "pbr": 8.2,
         "per": 10,
-        "deviation": 5.9
+        "deviation": 5.5
       },
       "error": null
     },
     {
       "code": "3333",
       "name": "あさひ",
-      "price": 1238.0,
-      "div_yield": 3.91,
+      "price": 1251.0,
+      "div_yield": 4.04,
       "div_months": [
         2,
         8
       ],
       "annual_div_per_share": 50.0,
       "annual_div_source": "yahoo",
-      "per": 17.6,
-      "pbr": 0.77,
-      "ma25": 1261.1,
-      "ma75": 1297.9,
-      "deviation_ma25": -1.83,
-      "score": 32.2,
+      "per": 17.8,
+      "pbr": 0.78,
+      "ma25": 1260.0,
+      "ma75": 1297.0,
+      "deviation_ma25": -0.72,
+      "score": 31.9,
       "score_detail": {
-        "yield": 9.8,
+        "yield": 10,
         "pbr": 8.9,
-        "per": 6.2,
-        "deviation": 7.3
+        "per": 6.1,
+        "deviation": 6.9
       },
       "error": null
     },
     {
       "code": "3817",
       "name": "SRAホールディングス",
-      "price": 4500.0,
-      "div_yield": 5.02,
+      "price": 4635.0,
+      "div_yield": 5.33,
       "div_months": [
         3,
         9
       ],
       "annual_div_per_share": 240.0,
       "annual_div_source": "yahoo",
-      "per": 10.0,
-      "pbr": 1.65,
-      "ma25": 4729.8,
-      "ma75": 4693.7,
-      "deviation_ma25": -4.86,
-      "score": 33.7,
+      "per": 10.3,
+      "pbr": 1.7,
+      "ma25": 4723.6,
+      "ma75": 4695.7,
+      "deviation_ma25": -1.88,
+      "score": 32.3,
       "score_detail": {
         "yield": 10,
-        "pbr": 5.4,
-        "per": 10,
-        "deviation": 8.3
+        "pbr": 5.2,
+        "per": 9.8,
+        "deviation": 7.3
       },
       "error": null
     },
     {
       "code": "4008",
       "name": "住友精化",
-      "price": 1346.0,
-      "div_yield": 4.17,
+      "price": 1397.0,
+      "div_yield": 4.38,
       "div_months": [
         3,
         9
       ],
       "annual_div_per_share": 59.0,
       "annual_div_source": "yahoo",
-      "per": 8.9,
-      "pbr": 0.82,
-      "ma25": 1474.7,
-      "ma75": 1428.1,
-      "deviation_ma25": -8.73,
-      "score": 38.3,
+      "per": 9.2,
+      "pbr": 0.85,
+      "ma25": 1470.4,
+      "ma75": 1429.9,
+      "deviation_ma25": -4.99,
+      "score": 36.9,
       "score_detail": {
         "yield": 10,
-        "pbr": 8.7,
+        "pbr": 8.6,
         "per": 10,
-        "deviation": 9.6
+        "deviation": 8.3
       },
       "error": null
     },
     {
       "code": "4540",
       "name": "ツムラ",
-      "price": 3732.0,
-      "div_yield": 4.06,
+      "price": 3901.0,
+      "div_yield": 4.23,
       "div_months": [
         3,
         9
       ],
       "annual_div_per_share": 158.0,
       "annual_div_source": "yahoo",
-      "per": 9.3,
-      "pbr": 0.85,
-      "ma25": 3773.5,
-      "ma75": 3738.5,
-      "deviation_ma25": -1.1,
-      "score": 35.6,
+      "per": 9.7,
+      "pbr": 0.89,
+      "ma25": 3779.6,
+      "ma75": 3740.1,
+      "deviation_ma25": 3.21,
+      "score": 34.0,
       "score_detail": {
         "yield": 10,
-        "pbr": 8.6,
+        "pbr": 8.4,
         "per": 10,
-        "deviation": 7.0
+        "deviation": 5.6
       },
       "error": null
     },
     {
       "code": "4641",
       "name": "アルプス技研",
-      "price": 880.0,
-      "div_yield": 4.16,
+      "price": 896.0,
+      "div_yield": 4.36,
       "div_months": [
         6,
         12
       ],
       "annual_div_per_share": 38.3,
       "annual_div_source": "yahoo",
-      "per": 13.7,
-      "pbr": 2.46,
-      "ma25": 884.2,
-      "ma75": 858.9,
-      "deviation_ma25": -0.48,
-      "score": 27.2,
+      "per": 13.9,
+      "pbr": 2.51,
+      "ma25": 885.1,
+      "ma75": 860.1,
+      "deviation_ma25": 1.23,
+      "score": 26.4,
       "score_detail": {
         "yield": 10,
-        "pbr": 2.2,
-        "per": 8.2,
-        "deviation": 6.8
+        "pbr": 2.0,
+        "per": 8.1,
+        "deviation": 6.3
       },
       "error": null
     },
     {
       "code": "5388",
       "name": "クニミネ工業",
-      "price": 1249.0,
-      "div_yield": 3.92,
+      "price": 1245.0,
+      "div_yield": 4.0,
       "div_months": [
         3,
         9
@@ -298,39 +298,39 @@
       "annual_div_source": "yahoo",
       "per": 10.1,
       "pbr": 0.67,
-      "ma25": 1333.4,
-      "ma75": 1307.8,
-      "deviation_ma25": -6.33,
-      "score": 37.8,
+      "ma25": 1327.2,
+      "ma75": 1307.9,
+      "deviation_ma25": -6.19,
+      "score": 37.9,
       "score_detail": {
-        "yield": 9.8,
+        "yield": 10,
         "pbr": 9.3,
         "per": 9.9,
-        "deviation": 8.8
+        "deviation": 8.7
       },
       "error": null
     },
     {
       "code": "6785",
       "name": "鈴木",
-      "price": 2729.0,
-      "div_yield": 3.68,
+      "price": 2825.0,
+      "div_yield": 3.85,
       "div_months": [
         6,
         12
       ],
       "annual_div_per_share": 105.0,
       "annual_div_source": "yahoo",
-      "per": 10.5,
-      "pbr": 1.23,
-      "ma25": 3295.6,
-      "ma75": 3131.9,
-      "deviation_ma25": -17.19,
+      "per": 10.8,
+      "pbr": 1.27,
+      "ma25": 3272.4,
+      "ma75": 3127.7,
+      "deviation_ma25": -13.67,
       "score": 36.1,
       "score_detail": {
-        "yield": 9.2,
-        "pbr": 7.1,
-        "per": 9.8,
+        "yield": 9.6,
+        "pbr": 6.9,
+        "per": 9.6,
         "deviation": 10
       },
       "error": null
@@ -338,332 +338,332 @@
     {
       "code": "7723",
       "name": "愛知時計電機",
-      "price": 2653.0,
-      "div_yield": 4.37,
+      "price": 2686.0,
+      "div_yield": 4.52,
       "div_months": [
         3,
         9
       ],
       "annual_div_per_share": 120.0,
       "annual_div_source": "yahoo",
-      "per": 10.6,
-      "pbr": 0.78,
-      "ma25": 2804.2,
-      "ma75": 2823.2,
-      "deviation_ma25": -5.39,
-      "score": 37.1,
+      "per": 10.7,
+      "pbr": 0.79,
+      "ma25": 2796.1,
+      "ma75": 2819.2,
+      "deviation_ma25": -3.94,
+      "score": 36.5,
       "score_detail": {
         "yield": 10,
-        "pbr": 8.9,
+        "pbr": 8.8,
         "per": 9.7,
-        "deviation": 8.5
+        "deviation": 8.0
       },
       "error": null
     },
     {
       "code": "7931",
       "name": "未来工業",
-      "price": 3365.0,
-      "div_yield": 4.79,
+      "price": 3420.0,
+      "div_yield": 5.05,
       "div_months": [
         3,
         9
       ],
       "annual_div_per_share": 170.0,
       "annual_div_source": "yahoo",
-      "per": 10.6,
-      "pbr": 0.96,
-      "ma25": 3555.2,
-      "ma75": 3532.7,
-      "deviation_ma25": -5.35,
-      "score": 36.4,
+      "per": 10.7,
+      "pbr": 0.98,
+      "ma25": 3547.0,
+      "ma75": 3535.3,
+      "deviation_ma25": -3.58,
+      "score": 35.7,
       "score_detail": {
         "yield": 10,
-        "pbr": 8.2,
+        "pbr": 8.1,
         "per": 9.7,
-        "deviation": 8.5
+        "deviation": 7.9
       },
       "error": null
     },
     {
       "code": "7989",
       "name": "立川ブラインド工業",
-      "price": 2506.0,
-      "div_yield": 5.42,
+      "price": 2530.0,
+      "div_yield": 5.59,
       "div_months": [
         6,
         12
       ],
       "annual_div_per_share": 140.0,
       "annual_div_source": "yahoo",
-      "per": 15.4,
-      "pbr": 0.87,
-      "ma25": 2602.0,
-      "ma75": 2631.8,
-      "deviation_ma25": -3.69,
-      "score": 33.7,
+      "per": 15.6,
+      "pbr": 0.88,
+      "ma25": 2597.4,
+      "ma75": 2631.9,
+      "deviation_ma25": -2.59,
+      "score": 33.2,
       "score_detail": {
         "yield": 10,
         "pbr": 8.5,
-        "per": 7.3,
-        "deviation": 7.9
+        "per": 7.2,
+        "deviation": 7.5
       },
       "error": null
     },
     {
       "code": "7994",
       "name": "オカムラ",
-      "price": 2148.0,
-      "div_yield": 4.7,
+      "price": 2136.0,
+      "div_yield": 4.89,
       "div_months": [
         3,
         9
       ],
       "annual_div_per_share": 105.0,
       "annual_div_source": "yahoo",
-      "per": 9.8,
-      "pbr": 1.0,
-      "ma25": 2208.3,
-      "ma75": 2260.5,
-      "deviation_ma25": -2.73,
-      "score": 35.6,
+      "per": 9.3,
+      "pbr": 0.99,
+      "ma25": 2204.1,
+      "ma75": 2259.2,
+      "deviation_ma25": -3.09,
+      "score": 35.7,
       "score_detail": {
         "yield": 10,
         "pbr": 8.0,
         "per": 10,
-        "deviation": 7.6
+        "deviation": 7.7
       },
       "error": null
     },
     {
       "code": "8130",
       "name": "サンゲツ",
-      "price": 3120.0,
-      "div_yield": 4.8,
+      "price": 3150.0,
+      "div_yield": 4.97,
       "div_months": [
         3,
         9
       ],
       "annual_div_per_share": 155.0,
       "annual_div_source": "yahoo",
-      "per": 11.0,
-      "pbr": 1.51,
+      "per": 11.1,
+      "pbr": 1.52,
       "ma25": 3165.2,
-      "ma75": 3102.8,
-      "deviation_ma25": -1.43,
-      "score": 32.6,
+      "ma75": 3105.8,
+      "deviation_ma25": -0.48,
+      "score": 32.1,
       "score_detail": {
         "yield": 10,
-        "pbr": 6.0,
-        "per": 9.5,
-        "deviation": 7.1
+        "pbr": 5.9,
+        "per": 9.4,
+        "deviation": 6.8
       },
       "error": null
     },
     {
       "code": "8309",
       "name": "三井住友トラストグループ",
-      "price": 1566.5,
-      "div_yield": 2.88,
+      "price": 1606.0,
+      "div_yield": 3.03,
       "div_months": [
         3,
         9
       ],
       "annual_div_per_share": 47.5,
       "annual_div_source": "yahoo",
-      "per": 11.9,
-      "pbr": 1.18,
-      "ma25": 1672.3,
-      "ma75": 1696.8,
-      "deviation_ma25": -6.32,
-      "score": 32.4,
+      "per": 12.2,
+      "pbr": 1.21,
+      "ma25": 1665.4,
+      "ma75": 1696.2,
+      "deviation_ma25": -3.56,
+      "score": 31.6,
       "score_detail": {
-        "yield": 7.2,
-        "pbr": 7.3,
-        "per": 9.1,
-        "deviation": 8.8
+        "yield": 7.6,
+        "pbr": 7.2,
+        "per": 8.9,
+        "deviation": 7.9
       },
       "error": null
     },
     {
       "code": "8584",
       "name": "ジャックス",
-      "price": 3305.0,
-      "div_yield": 5.94,
+      "price": 3415.0,
+      "div_yield": 6.05,
       "div_months": [
         3,
         9
       ],
       "annual_div_per_share": 200.0,
       "annual_div_source": "yahoo",
-      "per": 10.8,
-      "pbr": 0.48,
-      "ma25": 3404.2,
-      "ma75": 3569.6,
-      "deviation_ma25": -2.91,
-      "score": 37.2,
+      "per": 11.2,
+      "pbr": 0.5,
+      "ma25": 3400.0,
+      "ma75": 3566.5,
+      "deviation_ma25": 0.44,
+      "score": 35.9,
       "score_detail": {
         "yield": 10,
         "pbr": 10,
-        "per": 9.6,
-        "deviation": 7.6
+        "per": 9.4,
+        "deviation": 6.5
       },
       "error": null
     },
     {
       "code": "8593",
       "name": "三菱HCキャピタル",
-      "price": 1301.5,
-      "div_yield": 3.85,
+      "price": 1328.5,
+      "div_yield": 4.0,
       "div_months": [
         3,
         9
       ],
       "annual_div_per_share": 52.0,
       "annual_div_source": "yahoo",
-      "per": 13.7,
-      "pbr": 0.93,
-      "ma25": 1311.3,
-      "ma75": 1358.2,
-      "deviation_ma25": -0.75,
-      "score": 33.0,
+      "per": 14.0,
+      "pbr": 0.95,
+      "ma25": 1311.5,
+      "ma75": 1357.5,
+      "deviation_ma25": 1.3,
+      "score": 32.4,
       "score_detail": {
-        "yield": 9.6,
-        "pbr": 8.3,
-        "per": 8.2,
-        "deviation": 6.9
+        "yield": 10,
+        "pbr": 8.2,
+        "per": 8.0,
+        "deviation": 6.2
       },
       "error": null
     },
     {
       "code": "8725",
       "name": "MS&ADインシュアランス",
-      "price": 4930.0,
-      "div_yield": 2.67,
+      "price": 5107.0,
+      "div_yield": 2.84,
       "div_months": [
         3,
         9
       ],
       "annual_div_per_share": 140.0,
       "annual_div_source": "yahoo",
-      "per": 8.1,
-      "pbr": 1.07,
-      "ma25": 5071.7,
-      "ma75": 4949.6,
-      "deviation_ma25": -2.79,
-      "score": 32.0,
+      "per": 8.4,
+      "pbr": 1.1,
+      "ma25": 5080.6,
+      "ma75": 4958.0,
+      "deviation_ma25": 0.52,
+      "score": 31.2,
       "score_detail": {
-        "yield": 6.7,
-        "pbr": 7.7,
+        "yield": 7.1,
+        "pbr": 7.6,
         "per": 10,
-        "deviation": 7.6
+        "deviation": 6.5
       },
       "error": null
     },
     {
       "code": "9069",
       "name": "センコーグループHD",
-      "price": 2266.0,
-      "div_yield": 2.27,
+      "price": 2308.0,
+      "div_yield": 2.47,
       "div_months": [
         3,
         9
       ],
       "annual_div_per_share": 56.0,
       "annual_div_source": "yahoo",
-      "per": 18.5,
-      "pbr": 1.64,
-      "ma25": 2362.8,
-      "ma75": 2277.5,
-      "deviation_ma25": -4.1,
-      "score": 24.9,
+      "per": 18.9,
+      "pbr": 1.67,
+      "ma25": 2363.5,
+      "ma75": 2280.3,
+      "deviation_ma25": -2.35,
+      "score": 24.6,
       "score_detail": {
-        "yield": 5.7,
-        "pbr": 5.4,
-        "per": 5.8,
-        "deviation": 8.0
+        "yield": 6.2,
+        "pbr": 5.3,
+        "per": 5.6,
+        "deviation": 7.5
       },
       "error": null
     },
     {
       "code": "9364",
       "name": "上組",
-      "price": 4566.0,
-      "div_yield": 4.5,
+      "price": 4610.0,
+      "div_yield": 4.71,
       "div_months": [
         3,
         9
       ],
       "annual_div_per_share": 215.0,
       "annual_div_source": "yahoo",
-      "per": 15.1,
-      "pbr": 1.16,
-      "ma25": 4769.7,
-      "ma75": 4835.5,
-      "deviation_ma25": -4.27,
-      "score": 33.0,
+      "per": 15.3,
+      "pbr": 1.17,
+      "ma25": 4764.2,
+      "ma75": 4830.2,
+      "deviation_ma25": -3.24,
+      "score": 32.3,
       "score_detail": {
         "yield": 10,
-        "pbr": 7.4,
-        "per": 7.5,
-        "deviation": 8.1
+        "pbr": 7.3,
+        "per": 7.3,
+        "deviation": 7.7
       },
       "error": null
     },
     {
       "code": "9757",
       "name": "船井総研HD",
-      "price": 1173.0,
-      "div_yield": 3.91,
+      "price": 1200.0,
+      "div_yield": 4.09,
       "div_months": [
         6,
         12
       ],
       "annual_div_per_share": 48.0,
       "annual_div_source": "yahoo",
-      "per": 13.5,
-      "pbr": 3.93,
-      "ma25": 1202.2,
-      "ma75": 1168.3,
-      "deviation_ma25": -2.43,
-      "score": 25.5,
+      "per": 14.1,
+      "pbr": 3.96,
+      "ma25": 1203.3,
+      "ma75": 1169.4,
+      "deviation_ma25": -0.28,
+      "score": 24.8,
       "score_detail": {
-        "yield": 9.8,
+        "yield": 10,
         "pbr": 0,
-        "per": 8.2,
-        "deviation": 7.5
+        "per": 8.0,
+        "deviation": 6.8
       },
       "error": null
     },
     {
       "code": "9769",
       "name": "学究社",
-      "price": 2381.0,
-      "div_yield": 5.3,
+      "price": 2422.0,
+      "div_yield": 5.46,
       "div_months": [
         3,
         9
       ],
       "annual_div_per_share": 130.0,
       "annual_div_source": "yahoo",
-      "per": 13.8,
-      "pbr": 3.42,
-      "ma25": 2473.3,
-      "ma75": 2531.5,
-      "deviation_ma25": -3.73,
-      "score": 26.0,
+      "per": 14.0,
+      "pbr": 3.47,
+      "ma25": 2468.5,
+      "ma75": 2530.6,
+      "deviation_ma25": -1.88,
+      "score": 25.3,
       "score_detail": {
         "yield": 10,
         "pbr": 0,
-        "per": 8.1,
-        "deviation": 7.9
+        "per": 8.0,
+        "deviation": 7.3
       },
       "error": null
     },
     {
       "code": "9986",
       "name": "蔵王産業",
-      "price": 2450.0,
+      "price": 2447.0,
       "div_yield": 4.08,
       "div_months": [
         3,
@@ -673,9 +673,9 @@
       "annual_div_source": "yahoo",
       "per": 18.4,
       "pbr": 1.19,
-      "ma25": 2479.4,
-      "ma75": 2456.5,
-      "deviation_ma25": -1.19,
+      "ma25": 2477.3,
+      "ma75": 2456.1,
+      "deviation_ma25": -1.22,
       "score": 30.1,
       "score_detail": {
         "yield": 10,
@@ -688,206 +688,206 @@
     {
       "code": "4633",
       "name": "サカタインクス",
-      "price": 2518.0,
-      "div_yield": 3.72,
+      "price": 2532.0,
+      "div_yield": 3.97,
       "div_months": [
         6,
         12
       ],
       "annual_div_per_share": 100.0,
       "annual_div_source": "yahoo",
-      "per": 10.3,
-      "pbr": 0.97,
-      "ma25": 2658.7,
-      "ma75": 2613.6,
-      "deviation_ma25": -5.29,
-      "score": 35.6,
+      "per": 10.6,
+      "pbr": 1.0,
+      "ma25": 2654.4,
+      "ma75": 2614.6,
+      "deviation_ma25": -4.61,
+      "score": 35.8,
       "score_detail": {
-        "yield": 9.3,
-        "pbr": 8.1,
-        "per": 9.8,
-        "deviation": 8.4
+        "yield": 9.9,
+        "pbr": 8.0,
+        "per": 9.7,
+        "deviation": 8.2
       },
       "error": null
     },
     {
       "code": "9039",
       "name": "サカイ引越センター",
-      "price": 2969.0,
-      "div_yield": 5.63,
+      "price": 3010.0,
+      "div_yield": 5.86,
       "div_months": [
         3,
         9
       ],
       "annual_div_per_share": 174.0,
       "annual_div_source": "yahoo",
-      "per": 13.4,
-      "pbr": 1.19,
-      "ma25": 3008.8,
-      "ma75": 2972.3,
-      "deviation_ma25": -1.32,
-      "score": 32.6,
+      "per": 13.5,
+      "pbr": 1.2,
+      "ma25": 3011.8,
+      "ma75": 2973.0,
+      "deviation_ma25": -0.06,
+      "score": 32.1,
       "score_detail": {
         "yield": 10,
         "pbr": 7.2,
-        "per": 8.3,
-        "deviation": 7.1
+        "per": 8.2,
+        "deviation": 6.7
       },
       "error": null
     },
     {
       "code": "2659",
       "name": "サンエー",
-      "price": 3225.0,
-      "div_yield": 3.26,
+      "price": 3285.0,
+      "div_yield": 3.41,
       "div_months": [
         2
       ],
       "annual_div_per_share": 110.0,
       "annual_div_source": "yahoo",
-      "per": 17.7,
-      "pbr": 1.3,
-      "ma25": 3169.0,
-      "ma75": 3268.1,
-      "deviation_ma25": 1.77,
-      "score": 27.2,
+      "per": 18.1,
+      "pbr": 1.32,
+      "ma25": 3170.0,
+      "ma75": 3269.3,
+      "deviation_ma25": 3.63,
+      "score": 26.6,
       "score_detail": {
-        "yield": 8.1,
-        "pbr": 6.8,
-        "per": 6.2,
-        "deviation": 6.1
+        "yield": 8.5,
+        "pbr": 6.7,
+        "per": 5.9,
+        "deviation": 5.5
       },
       "error": null
     },
     {
       "code": "3003",
       "name": "ヒューリック",
-      "price": 1895.5,
-      "div_yield": 3.61,
+      "price": 1940.0,
+      "div_yield": 3.85,
       "div_months": [
         6,
         12
       ],
       "annual_div_per_share": 73.0,
       "annual_div_source": "yahoo",
-      "per": 11.7,
-      "pbr": 1.51,
-      "ma25": 1749.4,
-      "ma75": 1759.2,
-      "deviation_ma25": 8.35,
-      "score": 28.1,
+      "per": 12.0,
+      "pbr": 1.55,
+      "ma25": 1758.2,
+      "ma75": 1761.2,
+      "deviation_ma25": 10.34,
+      "score": 27.6,
       "score_detail": {
-        "yield": 9.0,
-        "pbr": 6.0,
-        "per": 9.2,
-        "deviation": 3.9
+        "yield": 9.6,
+        "pbr": 5.8,
+        "per": 9.0,
+        "deviation": 3.2
       },
       "error": null
     },
     {
       "code": "3901",
       "name": "マークラインズ",
-      "price": 1422.0,
-      "div_yield": 3.49,
+      "price": 1446.0,
+      "div_yield": 3.66,
       "div_months": [
         12
       ],
       "annual_div_per_share": 52.0,
       "annual_div_source": "yahoo",
-      "per": 11.8,
-      "pbr": 2.58,
-      "ma25": 1500.8,
-      "ma75": 1489.8,
-      "deviation_ma25": -5.25,
-      "score": 27.9,
+      "per": 12.0,
+      "pbr": 2.62,
+      "ma25": 1497.2,
+      "ma75": 1490.9,
+      "deviation_ma25": -3.42,
+      "score": 27.5,
       "score_detail": {
-        "yield": 8.7,
-        "pbr": 1.7,
-        "per": 9.1,
-        "deviation": 8.4
+        "yield": 9.2,
+        "pbr": 1.5,
+        "per": 9.0,
+        "deviation": 7.8
       },
       "error": null
     },
     {
       "code": "4042",
       "name": "東ソー",
-      "price": 2321.5,
-      "div_yield": 4.02,
+      "price": 2361.5,
+      "div_yield": 4.31,
       "div_months": [
         3,
         9
       ],
       "annual_div_per_share": 100.0,
       "annual_div_source": "yahoo",
-      "per": 11.8,
-      "pbr": 0.84,
-      "ma25": 2573.9,
-      "ma75": 2611.3,
-      "deviation_ma25": -9.81,
-      "score": 37.6,
+      "per": 12.0,
+      "pbr": 0.85,
+      "ma25": 2562.6,
+      "ma75": 2606.6,
+      "deviation_ma25": -7.85,
+      "score": 36.9,
       "score_detail": {
         "yield": 10,
         "pbr": 8.6,
-        "per": 9.1,
-        "deviation": 9.9
+        "per": 9.0,
+        "deviation": 9.3
       },
       "error": null
     },
     {
       "code": "4097",
       "name": "廣栄化学",
-      "price": 1189.0,
-      "div_yield": 3.2,
+      "price": 1210.0,
+      "div_yield": 3.36,
       "div_months": [
         3,
         9
       ],
       "annual_div_per_share": 40.0,
       "annual_div_source": "yahoo",
-      "per": 12.8,
-      "pbr": 0.76,
-      "ma25": 1205.4,
-      "ma75": 1167.6,
-      "deviation_ma25": -1.36,
-      "score": 32.7,
+      "per": 13.0,
+      "pbr": 0.78,
+      "ma25": 1206.1,
+      "ma75": 1169.2,
+      "deviation_ma25": 0.33,
+      "score": 32.4,
       "score_detail": {
-        "yield": 8.0,
-        "pbr": 9.0,
-        "per": 8.6,
-        "deviation": 7.1
+        "yield": 8.4,
+        "pbr": 8.9,
+        "per": 8.5,
+        "deviation": 6.6
       },
       "error": null
     },
     {
       "code": "4674",
       "name": "クレスコ",
-      "price": 1856.0,
-      "div_yield": 3.59,
+      "price": 1947.0,
+      "div_yield": 3.77,
       "div_months": [
         3,
         9
       ],
       "annual_div_per_share": 70.0,
       "annual_div_source": "yahoo",
-      "per": 14.1,
-      "pbr": 2.19,
-      "ma25": 2014.7,
-      "ma75": 1854.6,
-      "deviation_ma25": -7.88,
-      "score": 29.5,
+      "per": 14.8,
+      "pbr": 2.29,
+      "ma25": 2015.2,
+      "ma75": 1860.6,
+      "deviation_ma25": -3.38,
+      "score": 27.6,
       "score_detail": {
-        "yield": 9.0,
-        "pbr": 3.2,
-        "per": 8.0,
-        "deviation": 9.3
+        "yield": 9.4,
+        "pbr": 2.8,
+        "per": 7.6,
+        "deviation": 7.8
       },
       "error": null
     },
     {
       "code": "4746",
       "name": "東計電算",
-      "price": 1676.0,
-      "div_yield": 11.04,
+      "price": 1678.0,
+      "div_yield": 11.63,
       "div_months": [
         6,
         12
@@ -895,14 +895,14 @@
       "annual_div_per_share": 195.0,
       "annual_div_source": "yahoo",
       "per": 19.9,
-      "pbr": 2.38,
-      "ma25": 1990.3,
-      "ma75": 1734.0,
-      "deviation_ma25": -15.79,
-      "score": 27.6,
+      "pbr": 2.39,
+      "ma25": 1979.5,
+      "ma75": 1740.4,
+      "deviation_ma25": -15.23,
+      "score": 27.5,
       "score_detail": {
         "yield": 10,
-        "pbr": 2.5,
+        "pbr": 2.4,
         "per": 5.1,
         "deviation": 10
       },
@@ -911,183 +911,183 @@
     {
       "code": "4958",
       "name": "太陽化学",
-      "price": 3250.0,
-      "div_yield": 2.95,
+      "price": 3330.0,
+      "div_yield": 3.08,
       "div_months": [
         3,
         9
       ],
       "annual_div_per_share": 100.0,
       "annual_div_source": "yahoo",
-      "per": 16.8,
-      "pbr": 0.98,
-      "ma25": 3374.2,
-      "ma75": 3310.1,
-      "deviation_ma25": -3.68,
-      "score": 30.0,
+      "per": 17.2,
+      "pbr": 1.0,
+      "ma25": 3373.4,
+      "ma75": 3311.7,
+      "deviation_ma25": -1.29,
+      "score": 29.2,
       "score_detail": {
-        "yield": 7.4,
-        "pbr": 8.1,
-        "per": 6.6,
-        "deviation": 7.9
+        "yield": 7.7,
+        "pbr": 8.0,
+        "per": 6.4,
+        "deviation": 7.1
       },
       "error": null
     },
     {
       "code": "6345",
       "name": "アイチ",
-      "price": 1238.0,
-      "div_yield": 4.96,
+      "price": 1260.0,
+      "div_yield": 5.09,
       "div_months": [
         3,
         9
       ],
       "annual_div_per_share": 63.0,
       "annual_div_source": "yahoo",
-      "per": 13.1,
-      "pbr": 1.07,
-      "ma25": 1392.9,
-      "ma75": 1400.8,
-      "deviation_ma25": -11.12,
-      "score": 36.1,
+      "per": 13.4,
+      "pbr": 1.09,
+      "ma25": 1385.8,
+      "ma75": 1399.4,
+      "deviation_ma25": -9.08,
+      "score": 35.6,
       "score_detail": {
         "yield": 10,
-        "pbr": 7.7,
-        "per": 8.4,
-        "deviation": 10
+        "pbr": 7.6,
+        "per": 8.3,
+        "deviation": 9.7
       },
       "error": null
     },
     {
       "code": "7820",
       "name": "日本フラッシュ",
-      "price": 637.0,
-      "div_yield": 5.5,
+      "price": 645.0,
+      "div_yield": 5.65,
       "div_months": [
         3,
         9
       ],
       "annual_div_per_share": 36.0,
       "annual_div_source": "yahoo",
-      "per": 12.0,
-      "pbr": 0.45,
-      "ma25": 661.7,
-      "ma75": 684.0,
-      "deviation_ma25": -3.74,
-      "score": 36.9,
+      "per": 12.1,
+      "pbr": 0.46,
+      "ma25": 659.8,
+      "ma75": 683.2,
+      "deviation_ma25": -2.24,
+      "score": 36.3,
       "score_detail": {
         "yield": 10,
         "pbr": 10,
-        "per": 9.0,
-        "deviation": 7.9
+        "per": 8.9,
+        "deviation": 7.4
       },
       "error": null
     },
     {
       "code": "9381",
       "name": "エーアイテイー",
-      "price": 2197.0,
-      "div_yield": 4.89,
+      "price": 2237.0,
+      "div_yield": 5.01,
       "div_months": [
         2,
         8
       ],
       "annual_div_per_share": 110.0,
       "annual_div_source": "yahoo",
-      "per": 16.5,
-      "pbr": 2.44,
-      "ma25": 2225.2,
-      "ma75": 2277.4,
-      "deviation_ma25": -1.27,
-      "score": 26.1,
+      "per": 16.8,
+      "pbr": 2.48,
+      "ma25": 2223.2,
+      "ma75": 2277.3,
+      "deviation_ma25": 0.62,
+      "score": 25.2,
       "score_detail": {
         "yield": 10,
-        "pbr": 2.2,
-        "per": 6.8,
-        "deviation": 7.1
+        "pbr": 2.1,
+        "per": 6.6,
+        "deviation": 6.5
       },
       "error": null
     },
     {
       "code": "5108",
       "name": "ブリヂストン",
-      "price": 4105.0,
-      "div_yield": 3.05,
+      "price": 4268.0,
+      "div_yield": 3.17,
       "div_months": [
         6,
         12
       ],
       "annual_div_per_share": 130.0,
       "annual_div_source": "yahoo",
-      "per": 20.8,
-      "pbr": 1.35,
-      "ma25": 3968.4,
-      "ma75": 3954.8,
-      "deviation_ma25": 3.44,
-      "score": 24.3,
+      "per": 21.6,
+      "pbr": 1.4,
+      "ma25": 3985.5,
+      "ma75": 3962.3,
+      "deviation_ma25": 7.09,
+      "score": 22.8,
       "score_detail": {
-        "yield": 7.6,
-        "pbr": 6.6,
-        "per": 4.6,
-        "deviation": 5.5
+        "yield": 7.9,
+        "pbr": 6.4,
+        "per": 4.2,
+        "deviation": 4.3
       },
       "error": null
     },
     {
       "code": "9989",
       "name": "サンドラッグ",
-      "price": 3739.0,
-      "div_yield": 3.43,
+      "price": 3908.0,
+      "div_yield": 3.53,
       "div_months": [
         3,
         9
       ],
       "annual_div_per_share": 132.0,
       "annual_div_source": "yahoo",
-      "per": 13.9,
-      "pbr": 1.53,
-      "ma25": 3612.4,
-      "ma75": 3645.9,
-      "deviation_ma25": 3.51,
-      "score": 28.1,
+      "per": 14.6,
+      "pbr": 1.6,
+      "ma25": 3625.8,
+      "ma75": 3648.1,
+      "deviation_ma25": 7.78,
+      "score": 26.2,
       "score_detail": {
-        "yield": 8.6,
-        "pbr": 5.9,
-        "per": 8.1,
-        "deviation": 5.5
+        "yield": 8.8,
+        "pbr": 5.6,
+        "per": 7.7,
+        "deviation": 4.1
       },
       "error": null
     },
     {
       "code": "4206",
       "name": "アイカ工業",
-      "price": 4185.0,
-      "div_yield": 3.33,
+      "price": 4258.0,
+      "div_yield": 3.44,
       "div_months": [
         3,
         9
       ],
       "annual_div_per_share": 144.0,
       "annual_div_source": "yahoo",
-      "per": 14.9,
-      "pbr": 1.37,
-      "ma25": 4334.6,
-      "ma75": 4091.3,
-      "deviation_ma25": -3.45,
-      "score": 30.1,
+      "per": 15.2,
+      "pbr": 1.39,
+      "ma25": 4336.4,
+      "ma75": 4099.7,
+      "deviation_ma25": -1.81,
+      "score": 29.7,
       "score_detail": {
-        "yield": 8.3,
-        "pbr": 6.5,
-        "per": 7.5,
-        "deviation": 7.8
+        "yield": 8.6,
+        "pbr": 6.4,
+        "per": 7.4,
+        "deviation": 7.3
       },
       "error": null
     },
     {
       "code": "5982",
       "name": "マルゼン",
-      "price": 3815.0,
-      "div_yield": 3.37,
+      "price": 3820.0,
+      "div_yield": 3.41,
       "div_months": [
         2,
         8
@@ -1096,73 +1096,73 @@
       "annual_div_source": "yahoo",
       "per": 11.1,
       "pbr": 1.12,
-      "ma25": 3949.2,
-      "ma75": 4016.6,
-      "deviation_ma25": -3.4,
+      "ma25": 3939.4,
+      "ma75": 4015.9,
+      "deviation_ma25": -3.03,
       "score": 33.1,
       "score_detail": {
-        "yield": 8.4,
+        "yield": 8.5,
         "pbr": 7.5,
         "per": 9.4,
-        "deviation": 7.8
+        "deviation": 7.7
       },
       "error": null
     },
     {
       "code": "4290",
       "name": "プレステージ・インターナショナル",
-      "price": 641.0,
-      "div_yield": 4.18,
+      "price": 655.0,
+      "div_yield": 4.37,
       "div_months": [
         3,
         9
       ],
       "annual_div_per_share": 28.0,
       "annual_div_source": "yahoo",
-      "per": 14.3,
-      "pbr": 1.64,
-      "ma25": 684.4,
+      "per": 14.6,
+      "pbr": 1.68,
+      "ma25": 683.3,
       "ma75": 686.5,
-      "deviation_ma25": -6.35,
-      "score": 32.0,
+      "deviation_ma25": -4.14,
+      "score": 31.0,
       "score_detail": {
         "yield": 10,
-        "pbr": 5.4,
-        "per": 7.8,
-        "deviation": 8.8
+        "pbr": 5.3,
+        "per": 7.7,
+        "deviation": 8.0
       },
       "error": null
     },
     {
       "code": "9310",
       "name": "日本トランスシティ",
-      "price": 1334.0,
-      "div_yield": 3.33,
+      "price": 1322.0,
+      "div_yield": 3.45,
       "div_months": [
         3,
         9
       ],
       "annual_div_per_share": 46.0,
       "annual_div_source": "yahoo",
-      "per": 12.2,
-      "pbr": 0.8,
-      "ma25": 1385.1,
-      "ma75": 1370.4,
-      "deviation_ma25": -3.69,
-      "score": 33.9,
+      "per": 12.1,
+      "pbr": 0.79,
+      "ma25": 1382.1,
+      "ma75": 1371.6,
+      "deviation_ma25": -4.35,
+      "score": 34.4,
       "score_detail": {
-        "yield": 8.3,
+        "yield": 8.6,
         "pbr": 8.8,
         "per": 8.9,
-        "deviation": 7.9
+        "deviation": 8.1
       },
       "error": null
     },
     {
       "code": "3844",
       "name": "コムチュア",
-      "price": 1222.0,
-      "div_yield": 4.04,
+      "price": 1235.0,
+      "div_yield": 4.26,
       "div_months": [
         3,
         6,
@@ -1171,116 +1171,116 @@
       ],
       "annual_div_per_share": 52.0,
       "annual_div_source": "yahoo",
-      "per": 17.2,
-      "pbr": 1.97,
-      "ma25": 1274.8,
-      "ma75": 1325.4,
-      "deviation_ma25": -4.14,
-      "score": 28.5,
+      "per": 17.4,
+      "pbr": 1.99,
+      "ma25": 1272.8,
+      "ma75": 1323.7,
+      "deviation_ma25": -2.97,
+      "score": 28.0,
       "score_detail": {
         "yield": 10,
-        "pbr": 4.1,
-        "per": 6.4,
-        "deviation": 8.0
+        "pbr": 4.0,
+        "per": 6.3,
+        "deviation": 7.7
       },
       "error": null
     },
     {
       "code": "3371",
       "name": "ソフトクリエイトHD",
-      "price": 1938.0,
-      "div_yield": 3.09,
+      "price": 1980.0,
+      "div_yield": 3.2,
       "div_months": [
         3,
         9
       ],
       "annual_div_per_share": 62.0,
       "annual_div_source": "yahoo",
-      "per": 11.5,
-      "pbr": 1.82,
-      "ma25": 2163.2,
-      "ma75": 2084.3,
-      "deviation_ma25": -10.41,
-      "score": 31.6,
+      "per": 11.8,
+      "pbr": 1.86,
+      "ma25": 2155.1,
+      "ma75": 2084.4,
+      "deviation_ma25": -8.12,
+      "score": 31.1,
       "score_detail": {
-        "yield": 7.7,
-        "pbr": 4.7,
-        "per": 9.2,
-        "deviation": 10
+        "yield": 8.0,
+        "pbr": 4.6,
+        "per": 9.1,
+        "deviation": 9.4
       },
       "error": null
     },
     {
       "code": "9928",
       "name": "ミロク情報サービス",
-      "price": 2170.0,
-      "div_yield": 2.84,
+      "price": 2209.0,
+      "div_yield": 3.0,
       "div_months": [
         3
       ],
       "annual_div_per_share": 65.0,
       "annual_div_source": "yahoo",
-      "per": 12.7,
-      "pbr": 1.91,
-      "ma25": 2216.0,
-      "ma75": 2034.4,
-      "deviation_ma25": -2.08,
-      "score": 27.6,
+      "per": 12.9,
+      "pbr": 1.95,
+      "ma25": 2219.1,
+      "ma75": 2039.7,
+      "deviation_ma25": -0.45,
+      "score": 27.1,
       "score_detail": {
-        "yield": 7.1,
-        "pbr": 4.4,
-        "per": 8.7,
-        "deviation": 7.4
+        "yield": 7.5,
+        "pbr": 4.2,
+        "per": 8.6,
+        "deviation": 6.8
       },
       "error": null
     },
     {
       "code": "2815",
       "name": "アリアケジャパン",
-      "price": 5150.0,
-      "div_yield": 4.5,
+      "price": 5310.0,
+      "div_yield": 4.66,
       "div_months": [
         3,
         9
       ],
       "annual_div_per_share": 240.0,
       "annual_div_source": "yahoo",
-      "per": 17.8,
-      "pbr": 1.24,
-      "ma25": 5172.4,
-      "ma75": 5238.0,
-      "deviation_ma25": -0.43,
-      "score": 29.9,
+      "per": 18.2,
+      "pbr": 1.28,
+      "ma25": 5182.0,
+      "ma75": 5240.4,
+      "deviation_ma25": 2.47,
+      "score": 28.6,
       "score_detail": {
         "yield": 10,
-        "pbr": 7.0,
-        "per": 6.1,
-        "deviation": 6.8
+        "pbr": 6.9,
+        "per": 5.9,
+        "deviation": 5.8
       },
       "error": null
     },
     {
       "code": "4362",
       "name": "日本精化",
-      "price": 2404.0,
-      "div_yield": 4.12,
+      "price": 2436.0,
+      "div_yield": 4.28,
       "div_months": [
         3,
         9
       ],
       "annual_div_per_share": 103.0,
       "annual_div_source": "yahoo",
-      "per": 11.5,
-      "pbr": 1.0,
-      "ma25": 2697.4,
-      "ma75": 2637.0,
-      "deviation_ma25": -10.88,
-      "score": 37.2,
+      "per": 11.6,
+      "pbr": 1.01,
+      "ma25": 2688.1,
+      "ma75": 2634.9,
+      "deviation_ma25": -9.38,
+      "score": 37.0,
       "score_detail": {
         "yield": 10,
         "pbr": 8.0,
         "per": 9.2,
-        "deviation": 10
+        "deviation": 9.8
       },
       "error": null
     }
