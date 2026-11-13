@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-13 18:52",
-  "updated_at_iso": "2026-11-13T18:52:14.908579+09:00",
+  "updated_at": "2026-11-13 23:50",
+  "updated_at_iso": "2026-11-13T23:50:07.904072+09:00",
   "market": {
-    "vix": 18.57,
+    "vix": 18.42,
     "nikkei_vi": null,
     "nikkei225": 61142.0,
     "nikkei225_change_pct": 0.53
@@ -197,14 +197,14 @@
       "annual_div_per_share": 240.0,
       "annual_div_source": "yahoo",
       "per": 10.5,
-      "pbr": 1.78,
+      "pbr": 1.67,
       "ma25": 4727.8,
       "ma75": 4707.5,
       "deviation_ma25": 0.36,
-      "score": 31.2,
+      "score": 31.6,
       "score_detail": {
         "yield": 10,
-        "pbr": 4.9,
+        "pbr": 5.3,
         "per": 9.8,
         "deviation": 6.5
       },
@@ -472,14 +472,14 @@
       "annual_div_per_share": 54.5,
       "annual_div_source": "yahoo",
       "per": 12.5,
-      "pbr": 1.4,
+      "pbr": 1.37,
       "ma25": 1656.2,
       "ma75": 1698.7,
       "deviation_ma25": 7.86,
-      "score": 27.3,
+      "score": 27.4,
       "score_detail": {
         "yield": 8.1,
-        "pbr": 6.4,
+        "pbr": 6.5,
         "per": 8.8,
         "deviation": 4.0
       },
@@ -522,7 +522,7 @@
       "annual_div_per_share": 52.0,
       "annual_div_source": "yahoo",
       "per": 19.2,
-      "pbr": 0.95,
+      "pbr": 0.94,
       "ma25": 1314.8,
       "ma75": 1353.7,
       "deviation_ma25": -0.18,
@@ -622,7 +622,7 @@
       "annual_div_per_share": 48.0,
       "annual_div_source": "yahoo",
       "per": 14.2,
-      "pbr": 3.98,
+      "pbr": 3.99,
       "ma25": 1207.3,
       "ma75": 1173.2,
       "deviation_ma25": -0.11,
@@ -1281,6 +1281,31 @@
         "pbr": 7.8,
         "per": 9.0,
         "deviation": 8.5
+      },
+      "error": null
+    },
+    {
+      "code": "9682",
+      "name": "ＤＴＳ",
+      "price": 1188.0,
+      "div_yield": 3.19,
+      "div_months": [
+        3,
+        9
+      ],
+      "annual_div_per_share": 37.0,
+      "annual_div_source": "yahoo",
+      "per": 16.3,
+      "pbr": 3.01,
+      "ma25": 1180.0,
+      "ma75": 1123.3,
+      "deviation_ma25": 0.68,
+      "score": 21.2,
+      "score_detail": {
+        "yield": 8.0,
+        "pbr": 0,
+        "per": 6.8,
+        "deviation": 6.4
       },
       "error": null
     }
