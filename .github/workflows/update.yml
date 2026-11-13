@@ -33,13 +33,22 @@ jobs:
 
       # yfinance は一時的にデータ取得に失敗することがあるため最大4回試す
       # アクセス制限が解除されるのを待つため、間隔を 60→120→180秒 と延ばす
+      #
+      # 4回試してもダメな場合、ここを「失敗」で終わらせると GitHub から
+      # 失敗メールが届く。しかし実際には
+      #   ・data/stocks.json は書き換えられていない（＝データは壊れていない）
+      #   ・次の実行で自動的に追いつく
+      #   ・データが古いことはサイト側の赤い警告帯で気づける
+      # ので、通知する価値がない。警告だけ残して正常終了する。
       - name: 株価データ取得 (fetch_stocks.py)
+        id: fetch
         run: |
           WAITS="60 120 180"
           ATTEMPT=1
           for w in $WAITS ""; do
             if python scripts/fetch_stocks.py; then
               echo "取得に成功しました（$ATTEMPT 回目）"
+              echo "ok=true" >> $GITHUB_OUTPUT
               exit 0
             fi
             ATTEMPT=$((ATTEMPT + 1))
@@ -48,11 +57,12 @@ jobs:
               sleep "$w"
             fi
           done
-          echo "4回試しても取得できませんでした（次回の実行で自動的に追いつきます）"
-          exit 1
+          echo "::warning::4回試しても株価を取得できませんでした。data/stocks.json は変更していません（次回の実行で自動的に追いつきます）"
+          echo "ok=false" >> $GITHUB_OUTPUT
 
       - name: 変更チェック
         id: check
+        if: steps.fetch.outputs.ok == 'true'
         run: |
           if git diff --quiet data/stocks.json; then
             echo "changed=false" >> $GITHUB_OUTPUT

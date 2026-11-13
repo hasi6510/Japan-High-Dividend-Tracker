@@ -261,6 +261,22 @@ def main():
         status = f"¥{data['price']:,.0f}" if data['price'] else f"ERROR: {data['error']}"
         print(status)
 
+    # 取得できなかった銘柄が多すぎる場合は、ファイルを書き換えずに中断する。
+    #
+    # fetch_stock() は1銘柄ずつ例外を握りつぶして処理を続けるので、
+    # yfinance 側が全面的に応答しない時間帯でも「price が全部 null の JSON」が
+    # できあがってしまう。それを書き込むとサイトの表示が壊れるため、
+    # ここで止めて既存の stocks.json をそのまま残す（次の実行で追いつく）。
+    failed = [s for s in stocks if s['price'] is None]
+    limit = max(3, int(len(codes) * 0.2))
+    if len(failed) > limit:
+        print(f"❌ {len(failed)}/{len(codes)} 銘柄で価格を取得できませんでした（許容 {limit} 件）")
+        print("   data/stocks.json は変更しません。次回の実行で自動的に追いつきます。")
+        sys.exit(1)
+    if failed:
+        failed_codes = ", ".join(s['code'] for s in failed)
+        print(f"⚠️ {len(failed)} 銘柄で価格を取得できませんでした: {failed_codes}")
+
     # 市場情報
     print("  市場情報 取得中 ...", end=' ', flush=True)
     market = fetch_market_info()
